@@ -218,8 +218,8 @@
     .wr { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-content: center; }
     .wl h2 { font-family: var(--serif); font-size: clamp(2.5rem,4vw,4rem); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 1.5rem; color: var(--black); }
     .wl h2 em { font-style: italic; color: var(--accent); }
-    .wl > p { color: var(--gray); font-size: 1rem; line-height: 1.9; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
-    .wlist { list-style: none; }
+    .wl > p { color: var(--gray); font-size: 1rem; line-height: 1.9; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); max-width: 440px; }
+    .wlist { list-style: none; max-width: 440px; }
     .wlist li { padding: 1.1rem 0; border-bottom: 1px solid var(--border); font-size: .925rem; color: var(--gray); display: flex; gap: 1rem; align-items: center; transition: all .3s cubic-bezier(.16,1,.3,1); cursor: default; }
     .wlist li:hover { color: var(--black); padding-left: .5rem; border-bottom-color: var(--accent); }
     .wlist li::before { content:'→'; color:var(--accent); flex-shrink:0; transition: transform .3s cubic-bezier(.16,1,.3,1); }
