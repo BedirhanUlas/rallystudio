@@ -339,12 +339,11 @@
     .founder-content p { font-size: .9rem; color: var(--gray); line-height: 1.95; margin-bottom: 1rem; }
 
     /* Phase 2: fullscreen tag list */
-    /* Phase 2: fullscreen tag — minimal centered */
     .founder-tags-screen {
       position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      gap: 1rem; padding: 4rem;
+      display: grid; grid-template-columns: 1fr 1.35fr;
+      align-items: center; gap: 5rem;
+      padding: 5rem 5rem;
       opacity: 0; pointer-events: none;
       transform: translateY(40px);
       transition: opacity .5s ease, transform .5s cubic-bezier(.16,1,.3,1);
@@ -352,9 +351,14 @@
     }
     .founder-tags-screen.active { opacity: 1; pointer-events: auto; transform: none; }
     .founder-tags-screen.exit   { opacity: 0; transform: translateY(-40px); transition: opacity .4s ease, transform .5s cubic-bezier(.16,1,.3,1); }
+    .ftags-left { display: flex; flex-direction: column; gap: .75rem; }
+    .ftags-title { font-family: var(--serif); font-size: clamp(2.2rem,3.2vw,3.4rem); font-weight: 700; line-height: 1.08; letter-spacing: -.03em; color: var(--black); }
+    .ftags-title em { font-style: italic; color: var(--accent); }
+    .ftags-sub { font-size: .82rem; color: var(--gray); line-height: 1.8; max-width: 26ch; margin-top: .4rem; }
+    .ftags-right { display: flex; flex-direction: column; align-items: flex-start; gap: .9rem; }
 
     .ftag-row {
-      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      display: flex; align-items: center; justify-content: flex-start; gap: .75rem; flex-wrap: wrap;
       opacity: 0; transform: translateY(16px);
       transition: opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1);
     }
@@ -369,8 +373,8 @@
     }
     .ftag:hover { transform: scale(1.03); }
 
-    .ftag-xl  { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3rem); padding: 1rem 2.8rem; font-style: italic; font-weight: 700; letter-spacing: -.02em; }
-    .ftag-md  { font-family: var(--sans); font-size: clamp(.8rem,1.2vw,1rem); padding: .6rem 1.6rem; font-weight: 400; letter-spacing: .06em; text-transform: uppercase; }
+    .ftag-xl  { font-family: var(--serif); font-size: clamp(1.6rem,2.8vw,2.6rem); padding: .9rem 2.4rem; font-style: italic; font-weight: 700; letter-spacing: -.02em; }
+    .ftag-md  { font-family: var(--sans); font-size: clamp(.72rem,1.1vw,.9rem); padding: .55rem 1.4rem; font-weight: 400; letter-spacing: .06em; text-transform: uppercase; }
 
     .ftag-solid   { background: var(--accent); border-color: var(--accent); color: white; }
     .ftag-dark    { background: var(--black);  border-color: var(--black);  color: white; }
@@ -534,8 +538,8 @@
       .founder-top{position:static;grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem 2rem;opacity:1 !important;transform:none !important;}
       .founder-img{width:200px;height:200px;}
       .founder-badge{left:1rem;}
-      .founder-tags-screen{position:static;display:flex !important;opacity:1 !important;transform:none !important;padding:2rem 1.5rem 4rem;pointer-events:auto;}
-      .founder-tags-screen .ftag-row{opacity:1 !important;transform:none !important;flex-wrap:wrap;}
+      .founder-tags-screen{position:static;display:flex !important;flex-direction:column;gap:2.5rem;opacity:1 !important;transform:none !important;padding:2rem 1.5rem 4rem;pointer-events:auto;}
+      .founder-tags-screen .ftag-row{opacity:1 !important;transform:none !important;flex-wrap:wrap;}.ftags-right{width:100%;}
       .ftag-lg{font-size:1.2rem !important;padding:.65rem 1.3rem !important;}
       .ftag-md{font-size:.85rem !important;}
       .ftag-sm{font-size:.7rem !important;}
@@ -946,21 +950,28 @@
 
       <!-- PHASE 2: fullscreen tag cloud -->
       <div class="founder-tags-screen" id="founderTags">
-        <div class="ftag-row" style="transition-delay:.00s">
-          <span class="ftag ftag-xl ftag-solid">Content Creator</span>
+        <div class="ftags-left">
+          <div class="stag">Skills & Tools</div>
+          <h3 class="ftags-title">The expertise<br>behind every<br><em>project.</em></h3>
+          <p class="ftags-sub">Real skills, real tools. No handoffs, no mystery boxes.</p>
         </div>
-        <div class="ftag-row" style="transition-delay:.10s">
-          <span class="ftag ftag-xl ftag-outline">Video Production</span>
-          <span class="ftag ftag-md ftag-cream">Osmo Pocket 3 · iPhone 17 Pro Max</span>
-        </div>
-        <div class="ftag-row" style="transition-delay:.20s">
-          <span class="ftag ftag-md ftag-cream">Premiere Pro</span>
-          <span class="ftag ftag-xl ftag-dark">Final Cut Pro</span>
-          <span class="ftag ftag-md ftag-cream">CapCut</span>
-        </div>
-        <div class="ftag-row" style="transition-delay:.30s">
-          <span class="ftag ftag-xl ftag-outline">SEO & Web Design</span>
-          <span class="ftag ftag-md ftag-solid">24K+ Followers</span>
+        <div class="ftags-right">
+          <div class="ftag-row" style="transition-delay:.00s">
+            <span class="ftag ftag-xl ftag-solid">Content Creator</span>
+          </div>
+          <div class="ftag-row" style="transition-delay:.10s">
+            <span class="ftag ftag-xl ftag-outline">Video Production</span>
+            <span class="ftag ftag-md ftag-cream">Osmo Pocket 3 · iPhone 17 Pro Max</span>
+          </div>
+          <div class="ftag-row" style="transition-delay:.20s">
+            <span class="ftag ftag-md ftag-cream">Premiere Pro</span>
+            <span class="ftag ftag-xl ftag-dark">Final Cut Pro</span>
+            <span class="ftag ftag-md ftag-cream">CapCut</span>
+          </div>
+          <div class="ftag-row" style="transition-delay:.30s">
+            <span class="ftag ftag-xl ftag-outline">SEO & Web Design</span>
+            <span class="ftag ftag-md ftag-solid">24K+ Followers</span>
+          </div>
         </div>
       </div>
 
