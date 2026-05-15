@@ -463,21 +463,22 @@
 
     /* 3D SCROLL REVEAL */
     .reveal3d-outer { background: var(--black); }
-    .reveal3d-scroll { height: 200vh; position: relative; }
-    .reveal3d-pin { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3rem; padding: 0 4rem; overflow: hidden; }
-    .reveal3d-stage { perspective: 1400px; perspective-origin: center center; }
-    .reveal3d-card { width: 440px; max-width: 82vw; aspect-ratio: 4/5; border-radius: var(--rl); overflow: hidden; position: relative; will-change: transform; transform: rotateY(-38deg) rotateX(7deg) scale(.84); box-shadow: -40px 40px 100px rgba(0,0,0,.85); }
+    .reveal3d-scroll { position: relative; }
+    .reveal3d-pin { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 6rem; padding: 8rem 6rem; overflow: hidden; }
+    .reveal3d-stage { perspective: 1400px; perspective-origin: center center; flex-shrink: 0; }
+    .reveal3d-card { width: 420px; max-width: 44vw; aspect-ratio: 4/5; border-radius: var(--rl); overflow: hidden; position: relative; will-change: transform; opacity: 0; transform: perspective(1400px) rotateY(-55deg) scale(.82); transition: opacity .95s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1), box-shadow .9s ease; box-shadow: -60px 60px 120px rgba(0,0,0,.9); }
+    .reveal3d-card.show { opacity: 1; transform: perspective(1400px) rotateY(0deg) scale(1); box-shadow: 0 40px 100px rgba(0,0,0,.5); }
     .reveal3d-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .reveal3d-shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(130deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.12) 38%, transparent 58%); }
-    .reveal3d-text { text-align: center; max-width: 540px; opacity: 0; transform: translateY(32px); transition: opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal3d-shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(130deg, rgba(255,255,255,.18) 0%, transparent 55%); }
+    .reveal3d-text { max-width: 420px; opacity: 0; transform: translateX(40px); transition: opacity .85s cubic-bezier(.16,1,.3,1) .2s, transform .85s cubic-bezier(.16,1,.3,1) .2s; }
     .reveal3d-text.show { opacity: 1; transform: none; }
-    .reveal3d-text h2 { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 700; letter-spacing: -.03em; color: white; margin-bottom: .85rem; line-height: 1.1; }
+    .reveal3d-text h2 { font-family: var(--serif); font-size: clamp(2rem,3vw,3rem); font-weight: 700; letter-spacing: -.03em; color: white; margin-bottom: 1rem; line-height: 1.1; }
     .reveal3d-text h2 em { font-style: italic; color: var(--accent2); }
-    .reveal3d-text p { color: rgba(255,255,255,.38); font-size: .95rem; line-height: 1.95; }
+    .reveal3d-text p { color: rgba(255,255,255,.4); font-size: .95rem; line-height: 1.95; }
 
     /* RESPONSIVE */
     @media(max-width:960px){
-      .reveal3d-scroll{height:auto;} .reveal3d-pin{position:static;height:auto;padding:5rem 1.5rem;gap:2.5rem;} .reveal3d-card{transform:none !important;box-shadow:0 40px 100px rgba(0,0,0,.6);width:100%;max-width:100%;} .reveal3d-text{opacity:1 !important;transform:none !important;}
+      .reveal3d-pin{flex-direction:column;padding:5rem 1.5rem;gap:2.5rem;} .reveal3d-card{max-width:100%;width:100%;opacity:1 !important;transform:none !important;box-shadow:0 32px 80px rgba(0,0,0,.55);} .reveal3d-text{opacity:1 !important;transform:none !important;max-width:100%;}
       /* Reset 3D entrance states to simple fade on mobile */
       .sc,.sc:nth-child(even){transform:translateY(32px) scale(.97);}
       .wc,.wc:nth-child(even){transform:translateY(24px) scale(.97);}
@@ -1359,13 +1360,15 @@ setFeat(0, 0);
     const shine = document.getElementById('reveal3dShine');
     const text = document.getElementById('reveal3dText');
     if (!el || !card) return;
+
+    // Canvas particle system
     const pin = el.querySelector('.reveal3d-pin');
     pin.style.position = 'relative';
     const cvs = document.createElement('canvas');
     cvs.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:20;';
     pin.appendChild(cvs);
     const ctx = cvs.getContext('2d');
-    let parts = [], animId = null, burst = false, lastT = 0;
+    let parts = [], animId = null;
     function sz() { cvs.width = pin.offsetWidth; cvs.height = pin.offsetHeight; }
     sz(); window.addEventListener('resize', sz);
     function spawn() {
@@ -1396,25 +1399,19 @@ setFeat(0, 0);
       ctx.globalAlpha=1;
       if (parts.length>0) animId=requestAnimationFrame(draw);
     }
-    function onReveal3d() {
-      const rect = el.getBoundingClientRect();
-      const scrolled = -rect.top, total = el.offsetHeight - window.innerHeight;
-      if (scrolled < 0 || scrolled > total) return;
-      const t = Math.max(0, Math.min(1, scrolled/total));
-      const ease = 1 - Math.pow(1-t, 2.6);
-      card.style.transform = 'rotateY('+(-38+ease*38)+'deg) rotateX('+(7-ease*7)+'deg) scale('+(0.84+ease*0.16)+')';
-      const sh = Math.round((1-ease)*40);
-      card.style.boxShadow = (-sh)+'px '+sh+'px '+(80+Math.round(ease*60))+'px rgba(0,0,0,'+(0.85-ease*0.45).toFixed(2)+')';
-      shine.style.background = 'linear-gradient('+(130-Math.round(ease*130))+'deg,rgba(255,255,255,'+((1-ease)*.3).toFixed(2)+') 0%,rgba(255,255,255,'+((1-ease)*.08).toFixed(2)+') 38%,transparent 58%)';
-      if (t > 0.6 && lastT <= 0.6 && !burst) {
-        burst=true; sz(); if(animId)cancelAnimationFrame(animId); spawn(); draw();
+
+    // Trigger on viewport entry
+    const io = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        card.classList.add('show');
+        setTimeout(() => {
+          text.classList.add('show');
+          sz(); if(animId)cancelAnimationFrame(animId); spawn(); draw();
+        }, 600);
+        io.disconnect();
       }
-      if (t < 0.46) burst=false;
-      if (t > 0.6) text.classList.add('show'); else text.classList.remove('show');
-      lastT=t;
-    }
-    window.addEventListener('scroll', onReveal3d, {passive:true});
-    onReveal3d();
+    }, { threshold: 0.3 });
+    io.observe(el);
   })();
 
   // HERO ambient floating particles
