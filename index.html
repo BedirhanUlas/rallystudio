@@ -238,12 +238,13 @@
     .wlist li:hover { color: var(--black); padding-left: .5rem; border-bottom-color: var(--accent); }
     .wlist li::before { content:'→'; color:var(--accent); flex-shrink:0; transition: transform .3s cubic-bezier(.16,1,.3,1); }
     .wlist li:hover::before { transform: translateX(4px); }
-    .wc { background: white; border: 1px solid var(--border); border-radius: var(--rl); padding: 2.5rem 2rem; transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); opacity: 0; transform: perspective(700px) rotateY(-32deg) translateY(20px) scale(.88); display: flex; flex-direction: column; justify-content: center; gap: .75rem; aspect-ratio: 1/1; }
+    .wc { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--rl); padding: 2rem 2rem 2.25rem; transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); opacity: 0; transform: perspective(700px) rotateY(-32deg) translateY(20px) scale(.88); display: flex; flex-direction: column; gap: .4rem; }
+    .wc::before { content: ''; display: block; width: 20px; height: 2px; background: var(--accent); border-radius: 2px; margin-bottom: .75rem; flex-shrink: 0; }
     .wc:nth-child(even) { transform: perspective(700px) rotateY(32deg) translateY(20px) scale(.88); }
     .wc.visible { opacity: 1; transform: none !important; }
-    .wc:hover { border-color: rgba(200,80,42,.25); transform: translateY(-4px) !important; box-shadow: 0 16px 40px rgba(0,0,0,.06); background: white; }
-    .wcn { font-family: var(--serif); font-size: 3.2rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: .5rem; letter-spacing: -.03em; }
-    .wcl { font-size: .72rem; color: var(--gray); line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; }
+    .wc:hover { border-color: rgba(200,80,42,.2); transform: translateY(-4px) !important; box-shadow: 0 16px 40px rgba(0,0,0,.07); }
+    .wcn { font-family: var(--serif); font-size: 2.8rem; font-weight: 700; color: var(--black); line-height: 1; letter-spacing: -.04em; }
+    .wcl { font-size: .7rem; color: var(--gray); line-height: 1.55; letter-spacing: .07em; text-transform: uppercase; max-width: 16ch; }
 
     /* ============================================
        PRICING
@@ -547,7 +548,7 @@
       .gallery-wrap{gap:1rem;}
       .process{padding:4rem 1.25rem;}.psteps{grid-template-columns:1fr;}
       .why{padding:4rem 1.25rem;}
-      .wr{grid-template-columns:1fr 1fr;}.wc{padding:1.5rem;aspect-ratio:auto;min-height:120px;}
+      .wr{grid-template-columns:1fr 1fr;}.wc{padding:1.5rem;}
       .pricing{padding:4rem 1.25rem;}
       .plan{padding:2.5rem 2rem;}
       .founder-top{padding:3rem 1.25rem 2rem !important;}

@@ -42,26 +42,41 @@
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ARTICLE */
-    .article-hero { padding: 10rem 4rem 5rem; max-width: 860px; margin: 0 auto; }
+    .article-hero { padding: 10rem 4rem 4rem; max-width: 960px; margin: 0 auto; }
     .article-tag { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 1.25rem; display: flex; align-items: center; gap: .6rem; }
     .article-tag::before { content:''; display:block; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
     .article-hero h1 { font-family: var(--serif); font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 1.5rem; }
     .article-hero h1 em { font-style: italic; color: var(--accent); }
-    .article-meta { font-size: .8rem; color: var(--gray); margin-bottom: 3rem; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
-    .article-meta span { display: flex; align-items: center; gap: .4rem; }
-    .article-img { border-radius: var(--rl); overflow: hidden; margin-bottom: 4rem; aspect-ratio: 16/7; }
+    .article-meta { font-size: .78rem; color: var(--gray); margin-bottom: 2.5rem; display: flex; gap: 0; align-items: center; flex-wrap: wrap; }
+    .meta-val { padding-right: 1.25rem; }
+    .meta-sep { display: inline-block; width: 1px; height: 11px; background: var(--border); margin-right: 1.25rem; flex-shrink: 0; }
+    .article-img { border-radius: var(--rl); overflow: hidden; margin-bottom: 5rem; aspect-ratio: 16/7; }
     .article-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .article-body { max-width: 720px; margin: 0 auto; padding: 0 4rem 8rem; }
+    .article-body { max-width: 760px; margin: 0 auto; padding: 0 4rem 6rem; }
     .article-body p { font-size: 1rem; color: var(--gray); line-height: 1.95; margin-bottom: 1.75rem; }
     .article-body > p:first-child { font-size: 1.07rem; color: var(--black); font-weight: 400; line-height: 1.9; }
-    .article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: var(--black); margin: 3rem 0 1rem; }
+    .article-body > p:first-child::first-letter { font-family: var(--serif); font-size: 3.8rem; font-weight: 700; float: left; line-height: .82; margin-right: .1em; margin-top: .06em; color: var(--black); }
+    .article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: var(--black); margin: 3.5rem 0 1rem; }
+    .article-body h2::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); margin-bottom: .75rem; border-radius: 2px; }
     .article-body h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 500; color: var(--black); margin: 2rem 0 .75rem; letter-spacing: .02em; }
     .article-body ul, .article-body ol { margin: 1rem 0 1.75rem 1.5rem; }
     .article-body li { font-size: 1rem; color: var(--gray); line-height: 1.9; margin-bottom: .5rem; }
     .article-body strong { color: var(--black); font-weight: 500; }
     .callout { background: var(--accent-light); border: 1px solid rgba(200,80,42,.18); border-radius: var(--r); padding: 1.5rem 2rem; margin: 2rem 0; }
     .callout p { margin-bottom: 0; color: var(--black); }
+    .more-posts { border-top: 1px solid var(--border); padding: 5rem 4rem 6rem; max-width: 960px; margin: 0 auto; }
+    .more-posts-label { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gray); font-weight: 500; margin-bottom: 2.5rem; display: flex; align-items: center; gap: .75rem; }
+    .more-posts-label::before { content:''; display:block; width:24px; height:2px; background:var(--accent); border-radius:2px; flex-shrink:0; }
+    .more-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .mcard { background: white; border: 1px solid var(--border); border-radius: var(--rl); overflow: hidden; text-decoration: none; display: block; color: inherit; transition: box-shadow .35s cubic-bezier(.16,1,.3,1), transform .35s cubic-bezier(.16,1,.3,1); }
+    .mcard:hover { box-shadow: 0 20px 60px rgba(0,0,0,.09); transform: translateY(-5px); }
+    .mcard-img { aspect-ratio: 16/9; overflow: hidden; }
+    .mcard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.16,1,.3,1); display: block; }
+    .mcard:hover .mcard-img img { transform: scale(1.05); }
+    .mcard-body { padding: 1.75rem; }
+    .mcard-tag { font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: .6rem; }
+    .mcard-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--black); line-height: 1.25; letter-spacing: -.01em; }
 
     /* BACK LINK */
     .back-link { display: inline-flex; align-items: center; gap: .5rem; font-size: .82rem; color: var(--gray); text-decoration: none; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 2rem; transition: color .2s; }
@@ -81,7 +96,10 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .article-hero { padding: 7rem 1.5rem 3rem; }
+      .article-hero { padding: 7rem 1.5rem 3rem; }
       .article-body { padding: 0 1.5rem 5rem; }
+      .more-posts { padding: 4rem 1.5rem 5rem; }
+      .more-grid { grid-template-columns: 1fr; }
       footer { grid-template-columns: 1fr; text-align: center; padding: 2.5rem 1.5rem; }
       .fcopy { text-align: center; }
       .flinks { flex-wrap: wrap; }
@@ -119,11 +137,11 @@
   <div class="article-tag">SEO</div>
   <h1>5 Local SEO Fixes That Can <em>Double Your Google Traffic</em> in 90 Days</h1>
   <div class="article-meta">
-    <span>May 2026</span>
-    <span>·</span>
-    <span>5 min read</span>
-    <span>·</span>
-    <span>By Han, Rally Studio</span>
+    <span class="meta-val">May 2026</span>
+    <span class="meta-sep"></span>
+    <span class="meta-val">5 min read</span>
+    <span class="meta-sep"></span>
+    <span class="meta-val">By Han, Rally Studio</span>
   </div>
   <div class="article-img">
     <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1200&q=80&auto=format&fit=crop" alt="SEO analytics dashboard">
@@ -174,6 +192,26 @@
   <p>None of these fixes require a big budget. They require attention and consistency. The businesses that win at local SEO aren't necessarily the biggest or most established. They're the ones who show up completely and consistently everywhere Google looks.</p>
 
   <p>If you'd like help implementing any of these strategies, <a href="index.html#contact" style="color:var(--accent);text-decoration:none;font-weight:500;">reach out to Rally Studio</a>. We offer free 30-minute strategy calls with no obligation.</p>
+</div>
+
+<div class="more-posts">
+  <div class="more-posts-label">More from the blog</div>
+  <div class="more-grid">
+    <a href="blog-tiktok-growth.html" class="mcard">
+      <div class="mcard-img"><img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80&auto=format&fit=crop" alt="TikTok growth" loading="lazy"></div>
+      <div class="mcard-body">
+        <div class="mcard-tag">Social Media</div>
+        <div class="mcard-title">Why Your TikTok Isn't Growing (And the Simple Fix Most Brands Miss)</div>
+      </div>
+    </a>
+    <a href="blog-homepage-rule.html" class="mcard">
+      <div class="mcard-img"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop" alt="Homepage design" loading="lazy"></div>
+      <div class="mcard-body">
+        <div class="mcard-tag">Web Design</div>
+        <div class="mcard-title">The 7-Second Rule: Why Your Homepage Is Losing Customers</div>
+      </div>
+    </a>
+  </div>
 </div>
 
 <footer>
