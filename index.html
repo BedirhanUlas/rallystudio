@@ -372,17 +372,25 @@
 
     /* FAQ */
     .faq { padding: 10rem 4rem; background: var(--bg); }
-    .faq-inner { max-width: 780px; margin: 0 auto; }
-    .faq-head { margin-bottom: 4rem; }
-    .faq-head h2 { font-family: var(--serif); font-size: clamp(2.5rem,4vw,3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -.025em; }
+    .faq-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 340px 1fr; gap: 8rem; align-items: start; }
+    .faq-head { position: sticky; top: 8rem; }
+    .faq-head h2 { font-family: var(--serif); font-size: clamp(2.2rem,3.2vw,3rem); font-weight: 700; line-height: 1.1; letter-spacing: -.025em; margin-bottom: 1.25rem; }
     .faq-head h2 em { font-style: italic; color: var(--accent); }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-q { padding: 1.75rem 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; gap: 2rem; }
-    .faq-q h3 { font-family: var(--sans); font-size: 1rem; font-weight: 500; color: var(--black); line-height: 1.4; }
-    .faq-arrow { width: 32px; height: 32px; border-radius: 50%; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .35s cubic-bezier(.16,1,.3,1); font-size: .85rem; color: var(--accent); }
+    .faq-sub { font-size: .85rem; color: var(--gray); line-height: 1.85; max-width: 28ch; margin-bottom: 2rem; }
+    .faq-contact { display: inline-flex; align-items: center; gap: .5rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .09em; text-transform: uppercase; text-decoration: none; transition: gap .25s ease; }
+    .faq-contact::after { content: '→'; }
+    .faq-contact:hover { gap: .85rem; }
+    .faq-list { counter-reset: faq-counter; }
+    .faq-item { border-bottom: 1px solid var(--border); counter-increment: faq-counter; }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q { padding: 1.5rem 0; display: grid; grid-template-columns: 2.75rem 1fr auto; align-items: center; cursor: pointer; gap: .75rem; }
+    .faq-q::before { content: counter(faq-counter, decimal-leading-zero); font-size: .65rem; font-weight: 700; color: var(--accent); letter-spacing: .04em; opacity: .55; align-self: start; padding-top: .2rem; }
+    .faq-q h3 { font-family: var(--sans); font-size: .95rem; font-weight: 500; color: var(--black); line-height: 1.4; transition: color .2s ease; }
+    .faq-item:hover .faq-q h3 { color: var(--accent); }
+    .faq-arrow { width: 28px; height: 28px; border-radius: 50%; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .35s cubic-bezier(.16,1,.3,1); font-size: .8rem; color: var(--accent); }
     .faq-item.open .faq-arrow { background: var(--accent); color: white; transform: rotate(45deg); }
     .faq-a { max-height: 0; overflow: hidden; transition: max-height .45s cubic-bezier(.16,1,.3,1); }
-    .faq-a p { font-size: .9rem; color: var(--gray); line-height: 1.9; padding-bottom: 1.75rem; }
+    .faq-a p { font-size: .875rem; color: var(--gray); line-height: 1.9; padding: 0 0 1.5rem 3.5rem; }
     .faq-item.open .faq-a { max-height: 300px; }
 
     /* BLOG */
@@ -524,7 +532,7 @@
       .ftag-lg{font-size:1.2rem !important;padding:.65rem 1.3rem !important;}
       .ftag-md{font-size:.85rem !important;}
       .ftag-sm{font-size:.7rem !important;}
-      .faq{padding:5rem 1.5rem;}
+      .faq{padding:5rem 1.5rem;}.faq-inner{grid-template-columns:1fr;gap:3rem;}.faq-head{position:static;}
       .blog{padding:5rem 1.5rem;}.blog-head{grid-template-columns:1fr;gap:.75rem;}.bgrid{grid-template-columns:1fr;}
       .cta{margin:4rem 1.5rem;padding:5rem 1.5rem;}
       .cform{flex-direction:column;}
@@ -556,7 +564,7 @@
       .ftag-lg{font-size:.95rem !important;padding:.55rem 1rem !important;}
       .ftag-md{font-size:.78rem !important;padding:.45rem .9rem !important;}
       .ftag-sm{font-size:.65rem !important;padding:.4rem .8rem !important;}
-      .faq{padding:4rem 1.25rem;}
+      .faq{padding:4rem 1.25rem;}.faq-sub{max-width:none;}
       .blog{padding:4rem 1.25rem;}
       .cta{margin:3rem 1.25rem;padding:4rem 1.25rem;}
       .cta h2{font-size:2rem;}
@@ -953,38 +961,42 @@
     <div class="faq-head rv">
       <div class="stag">FAQ</div>
       <h2>Questions you<br>probably <em>have.</em></h2>
+      <p class="faq-sub">Everything you need to know before reaching out. Still not sure? Just ask.</p>
+      <a href="#contact" class="faq-contact">Send a question</a>
     </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>Are there long-term contracts?</h3><div class="faq-arrow">+</div></div>
-      <div class="faq-a"><p>No. Everything is month-to-month. Cancel or pause with 14 days notice. Annual billing saves you 20% if you want it, but it's never a requirement.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>Who actually does the work?</h3><div class="faq-arrow">+</div></div>
-      <div class="faq-a"><p>Just me. I do the strategy, the content, the communication. No outsourcing to someone you've never met. If you're paying Rally, you're working with Han.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>Do you use AI to create content?</h3><div class="faq-arrow">+</div></div>
-      <div class="faq-a"><p>Yes, I use AI tools. Same way a photographer uses Lightroom or a video editor uses Premiere, as a tool, not a replacement for thinking. Every piece of content that goes out gets reviewed and shaped by a real person who knows your business.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>What if I only need one thing, like a website?</h3><div class="faq-arrow">+</div></div>
-      <div class="faq-a"><p>Totally fine. One-time projects are a big part of what we do. A website starts around $1,500 and goes up depending on scope. Reach out and I'll give you a straight quote.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>How long before I see results?</h3><div class="faq-arrow">+</div></div>
-      <div class="faq-a"><p>Social usually picks up within the first month or two. SEO takes longer, often 3 to 6 months before you see real movement in rankings. I'll tell you what's realistic for your specific situation upfront, not give you a number to make you feel good.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>Do you run Google or Meta ads?</h3><div class="faq-arrow">+</div></div>
-      <div class="faq-a"><p>Yes, as part of the Full Studio plan. You pay Google or Meta directly for the ad spend. We charge for the management side only. Minimum recommended ad budget is $300/month to see meaningful movement.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>What industries do you work with?</h3><div class="faq-arrow">+</div></div>
-      <div class="faq-a"><p>Restaurants, fitness studios, retail shops, service businesses, e-commerce. If you're trying to grow online and want someone who actually gives a damn about your results, reach out. We'll figure out if it's a good fit.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>Do you work with restaurants?</h3><div class="faq-arrow">+</div></div>
-      <div class="faq-a"><p>Yes, restaurants are one of our favorite clients to work with. We offer website design, QR digital menus, food photography, and Google Business setup. Reach out and we'll put together a custom quote.</p></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><h3>Are there long-term contracts?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>No. Everything is month-to-month. Cancel or pause with 14 days notice. Annual billing saves you 20% if you want it, but it's never a requirement.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Who actually does the work?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>Just me. I do the strategy, the content, the communication. No outsourcing to someone you've never met. If you're paying Rally, you're working with Han.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Do you use AI to create content?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>Yes, I use AI tools. Same way a photographer uses Lightroom or a video editor uses Premiere, as a tool, not a replacement for thinking. Every piece of content that goes out gets reviewed and shaped by a real person who knows your business.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>What if I only need one thing, like a website?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>Totally fine. One-time projects are a big part of what we do. A website starts around $1,500 and goes up depending on scope. Reach out and I'll give you a straight quote.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>How long before I see results?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>Social usually picks up within the first month or two. SEO takes longer, often 3 to 6 months before you see real movement in rankings. I'll tell you what's realistic for your specific situation upfront, not give you a number to make you feel good.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Do you run Google or Meta ads?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>Yes, as part of the Full Studio plan. You pay Google or Meta directly for the ad spend. We charge for the management side only. Minimum recommended ad budget is $300/month to see meaningful movement.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>What industries do you work with?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>Restaurants, fitness studios, retail shops, service businesses, e-commerce. If you're trying to grow online and want someone who actually gives a damn about your results, reach out. We'll figure out if it's a good fit.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Do you work with restaurants?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>Yes, restaurants are one of our favorite clients to work with. We offer website design, QR digital menus, food photography, and Google Business setup. Reach out and we'll put together a custom quote.</p></div>
+      </div>
     </div>
   </div>
 </section>
