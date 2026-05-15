@@ -306,10 +306,17 @@
     .ot-desc { font-size: .78rem; color: var(--gray); line-height: 1.7; margin-top: .25rem; }
 
     /* CONTACT INFO */
-    .contact-strip { background: var(--black); padding: 4rem; display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
-    .ci { display: flex; flex-direction: column; gap: .5rem; }
-    .ci-label { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.3); font-weight: 500; }
-    .ci-val { font-size: 1rem; color: white; font-weight: 400; }
+    .contact-strip { background: var(--black); padding: 5rem 4rem; display: flex; flex-direction: column; gap: 0; }
+    .cs-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 3rem; }
+    .cs-title { font-family: var(--serif); font-size: clamp(2rem,3.2vw,3rem); font-weight: 700; color: white; letter-spacing: -.03em; line-height: 1.1; }
+    .cs-title em { font-style: italic; color: var(--accent); }
+    .cs-note { font-size: .78rem; color: rgba(255,255,255,.32); line-height: 1.75; max-width: 28ch; text-align: right; flex-shrink: 0; }
+    .cs-cols { display: grid; grid-template-columns: repeat(3,1fr); }
+    .ci { display: flex; flex-direction: column; gap: .55rem; padding-right: 3rem; }
+    .ci + .ci { padding-left: 3rem; border-left: 1px solid rgba(255,255,255,.07); }
+    .ci:last-child { padding-right: 0; }
+    .ci-label { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.28); font-weight: 600; }
+    .ci-val { font-size: 1.05rem; color: white; font-weight: 400; line-height: 1.45; }
     .ci-val a { color: var(--accent2); text-decoration: none; }
     .ci-val a:hover { text-decoration: underline; }
 
@@ -520,7 +527,7 @@
       .onetime-tiers{grid-template-columns:1fr;}.ot-divider{height:1px;}
       .ai-banner{margin:0 1.5rem 4rem;padding:2rem;grid-template-columns:1fr;}
       .ai-icon{display:none;}
-      .contact-strip{padding:3rem 1.5rem;grid-template-columns:1fr;gap:1.75rem;}
+      .contact-strip{padding:3.5rem 1.5rem;}.cs-header{flex-direction:column;align-items:flex-start;gap:1.25rem;}.cs-note{text-align:left;max-width:none;}.cs-cols{grid-template-columns:1fr;gap:1.75rem;}.ci+.ci{border-left:none;border-top:1px solid rgba(255,255,255,.07);padding-left:0;padding-top:1.75rem;}.ci{padding-right:0;}
       .founder-outer{display:block;}
       .founder-scroll{height:auto;}
       .founder-pin{position:static;height:auto;overflow:visible;}
@@ -891,17 +898,23 @@
 
 <!-- CONTACT STRIP -->
 <div class="contact-strip" id="contact-info">
-  <div class="ci">
-    <div class="ci-label">Email</div>
-    <div class="ci-val"><a href="mailto:hello@rallystudio.co">hello@rallystudio.co</a></div>
+  <div class="cs-header">
+    <div class="cs-title">Still curious?<br><em>Let's talk.</em></div>
+    <p class="cs-note">No pitches, no pressure. A quick message is all it takes to get started.</p>
   </div>
-  <div class="ci">
-    <div class="ci-label">Response Time</div>
-    <div class="ci-val">Within 24 hours, every time</div>
-  </div>
-  <div class="ci">
-    <div class="ci-label">Service Area</div>
-    <div class="ci-val">US-based clients, nationwide</div>
+  <div class="cs-cols">
+    <div class="ci">
+      <div class="ci-label">Email</div>
+      <div class="ci-val"><a href="mailto:hello@rallystudio.co">hello@rallystudio.co</a></div>
+    </div>
+    <div class="ci">
+      <div class="ci-label">Response Time</div>
+      <div class="ci-val">Within 24 hours, every time</div>
+    </div>
+    <div class="ci">
+      <div class="ci-label">Service Area</div>
+      <div class="ci-val">US-based clients, nationwide</div>
+    </div>
   </div>
 </div>
 
