@@ -463,10 +463,10 @@
 
     /* 3D SCROLL REVEAL */
     .reveal3d-outer { background: var(--black); }
-    .reveal3d-scroll { height: 260vh; position: relative; }
+    .reveal3d-scroll { height: 200vh; position: relative; }
     .reveal3d-pin { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3rem; padding: 0 4rem; overflow: hidden; }
     .reveal3d-stage { perspective: 1400px; perspective-origin: center center; }
-    .reveal3d-card { width: 440px; max-width: 82vw; aspect-ratio: 4/5; border-radius: var(--rl); overflow: hidden; position: relative; will-change: transform; transform: rotateY(-65deg) rotateX(14deg) scale(.68); box-shadow: -80px 80px 160px rgba(0,0,0,.95); }
+    .reveal3d-card { width: 440px; max-width: 82vw; aspect-ratio: 4/5; border-radius: var(--rl); overflow: hidden; position: relative; will-change: transform; transform: rotateY(-38deg) rotateX(7deg) scale(.84); box-shadow: -40px 40px 100px rgba(0,0,0,.85); }
     .reveal3d-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .reveal3d-shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(130deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.12) 38%, transparent 58%); }
     .reveal3d-text { text-align: center; max-width: 540px; opacity: 0; transform: translateY(32px); transition: opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1); }
@@ -1402,10 +1402,10 @@ setFeat(0, 0);
       if (scrolled < 0 || scrolled > total) return;
       const t = Math.max(0, Math.min(1, scrolled/total));
       const ease = 1 - Math.pow(1-t, 2.6);
-      card.style.transform = 'rotateY('+(-65+ease*65)+'deg) rotateX('+(14-ease*14)+'deg) scale('+(0.68+ease*0.32)+')';
-      const sh = Math.round((1-ease)*80);
-      card.style.boxShadow = (-sh)+'px '+sh+'px '+(100+Math.round(ease*60))+'px rgba(0,0,0,'+(0.95-ease*0.55).toFixed(2)+')';
-      shine.style.background = 'linear-gradient('+(130-Math.round(ease*130))+'deg,rgba(255,255,255,'+((1-ease)*.42).toFixed(2)+') 0%,rgba(255,255,255,'+((1-ease)*.12).toFixed(2)+') 38%,transparent 58%)';
+      card.style.transform = 'rotateY('+(-38+ease*38)+'deg) rotateX('+(7-ease*7)+'deg) scale('+(0.84+ease*0.16)+')';
+      const sh = Math.round((1-ease)*40);
+      card.style.boxShadow = (-sh)+'px '+sh+'px '+(80+Math.round(ease*60))+'px rgba(0,0,0,'+(0.85-ease*0.45).toFixed(2)+')';
+      shine.style.background = 'linear-gradient('+(130-Math.round(ease*130))+'deg,rgba(255,255,255,'+((1-ease)*.3).toFixed(2)+') 0%,rgba(255,255,255,'+((1-ease)*.08).toFixed(2)+') 38%,transparent 58%)';
       if (t > 0.6 && lastT <= 0.6 && !burst) {
         burst=true; sz(); if(animId)cancelAnimationFrame(animId); spawn(); draw();
       }
