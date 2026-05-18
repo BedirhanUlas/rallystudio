@@ -146,22 +146,31 @@
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .hero-badge {
       position: absolute;
-      background: rgba(21,18,16,.75);
-      backdrop-filter: blur(20px) saturate(1.4);
-      -webkit-backdrop-filter: blur(20px) saturate(1.4);
-      border: 1px solid rgba(240,235,226,.11);
-      border-top: 1px solid rgba(240,235,226,.18);
-      border-radius: 18px;
-      padding: 1.1rem 1.5rem 1rem;
-      display: flex; flex-direction: column; gap: .3rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(200,80,42,.06) inset;
-      opacity: 0; min-width: 140px;
+      background: rgba(15,12,10,.5);
+      backdrop-filter: blur(30px) saturate(1.5);
+      -webkit-backdrop-filter: blur(30px) saturate(1.5);
+      border: 1px solid rgba(240,235,226,.07);
+      border-radius: 6px;
+      padding: 1.1rem 1.6rem 1.2rem;
+      display: flex; flex-direction: column;
+      box-shadow: 0 24px 60px rgba(0,0,0,.4);
+      opacity: 0; min-width: 168px;
     }
-    .hb1 { bottom: 8%; left: 1.5rem; animation: bfloat 5s ease-in-out infinite; }
-    .hb2 { top: 12%; right: 1.5rem; animation: bfloat 6s ease-in-out infinite 2s; }
-    @keyframes bfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-    .hb-val { font-family: var(--serif); font-size: 1.65rem; font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -.03em; }
-    .hb-label { font-size: .6rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+    .hb1 { bottom: 8%; left: 1.5rem; animation: bfloat 9s ease-in-out infinite; }
+    .hb2 { top: 12%; right: 1.5rem; animation: bfloat 11s ease-in-out infinite 3s; }
+    @keyframes bfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+    .hb-eyebrow {
+      font-size: .56rem; letter-spacing: .24em; text-transform: uppercase;
+      color: rgba(240,235,226,.5); font-weight: 500; margin-bottom: .9rem;
+      position: relative; padding-left: 1.5rem;
+    }
+    .hb-eyebrow::before {
+      content:''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+      width: 1rem; height: 1px; background: var(--accent);
+    }
+    .hb-val { font-family: var(--serif); font-size: 2.5rem; font-weight: 900; color: var(--text); line-height: .92; letter-spacing: -.045em; }
+    .hb-val em { font-style: italic; color: var(--accent); font-weight: 400; font-size: .58em; letter-spacing: 0; margin-left: .04em; vertical-align: top; }
+    .hb-foot { font-family: var(--serif); font-style: italic; font-size: .82rem; color: var(--muted); margin-top: .55rem; letter-spacing: -.005em; line-height: 1.3; }
     .hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:180px; background: linear-gradient(to bottom, transparent, var(--bg)); z-index: 2; pointer-events:none; }
 
     /* ─── MARQUEE ──────────────────────────────────────── */
@@ -536,12 +545,14 @@
         <img src="founder.jpg" alt="Han — founder of Rally Studio">
       </div>
       <div class="hero-badge hb1" id="hb1">
-        <div class="hb-val">3×</div>
-        <div class="hb-label">Engagement, first 90 days</div>
+        <span class="hb-eyebrow">Engagement</span>
+        <div class="hb-val">3<em>×</em></div>
+        <span class="hb-foot">first 90 days</span>
       </div>
       <div class="hero-badge hb2" id="hb2">
-        <div class="hb-val">24K</div>
-        <div class="hb-label">Followers, no ad spend</div>
+        <span class="hb-eyebrow">Followers</span>
+        <div class="hb-val">24<em>K</em></div>
+        <span class="hb-foot">grown without ads</span>
       </div>
     </div>
   </section>
