@@ -7,123 +7,153 @@
   <meta name="description" content="Posting more won't fix it. The TikTok algorithm rewards one thing above everything else, and most small business accounts get it wrong.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #faf8f5; --bg2: #f3ede4; --bg3: #ece5d8;
-      --black: #1a1612; --accent: #c8502a; --accent2: #e8845f;
-      --accent-light: #fce8e0; --gray: #7a7268; --border: #e4ddd3;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
-      --r: 20px; --rl: 28px;
+      --bg:      #080705;
+      --bg2:     #0e0c09;
+      --surface: #151210;
+      --surface2:#1d1915;
+      --accent:  #c8502a;
+      --glow:    rgba(200,80,42,.18);
+      --text:    #f0ebe2;
+      --muted:   #8a8277;
+      --border:  rgba(240,235,226,.07);
+      --serif:   'Playfair Display', Georgia, serif;
+      --sans:    'DM Sans', sans-serif;
+      --ease:    cubic-bezier(.16,1,.3,1);
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--black); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    body::after { content:''; position:fixed; inset:0; z-index:9990; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); opacity:.028; }
+    ::selection { background: var(--accent); color: #fff; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 1.5rem 4rem; display: flex; align-items: center; justify-content: space-between; background: rgba(250,248,245,.93); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
-    .logo { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -.02em; }
-    .logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-    .nav-links a { font-size: .82rem; font-weight: 400; letter-spacing: .07em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: var(--black); }
-    .nav-cta { background: var(--accent) !important; color: white !important; padding: .65rem 1.5rem; border-radius: 100px !important; }
-    .nav-cta:hover { background: #a83e1e !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: .5rem; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; }
-    .mob-menu { position: fixed; inset: 0; background: var(--bg); z-index: 550; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; transform: translateY(-100%); transition: transform .5s cubic-bezier(.16,1,.3,1); }
-    .mob-menu.open { transform: none; }
-    .mob-menu a { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--black); text-decoration: none; transition: color .2s; }
-    .mob-menu a:hover { color: var(--accent); }
-    .mob-menu .mob-cta { background: var(--accent); color: white !important; padding: 1rem 3rem; border-radius: 100px; font-family: var(--sans); font-size: 1rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:500; padding:2rem 5vw; display:flex; align-items:center; justify-content:space-between; transition:padding .5s var(--ease),background .5s,backdrop-filter .5s; }
+    nav.scrolled { background:rgba(8,7,5,.85); backdrop-filter:blur(24px); padding:1.1rem 5vw; border-bottom:1px solid var(--border); }
+    .logo { font-family:var(--serif); font-size:1.3rem; font-weight:700; letter-spacing:-.025em; }
+    .logo em { font-style:normal; color:var(--accent); }
+    .nav-links { display:flex; gap:2.5rem; list-style:none; align-items:center; }
+    .nav-links a { font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); transition:color .2s; }
+    .nav-links a:hover { color:var(--text); }
+    .nav-cta { background:var(--accent)!important; color:#fff!important; padding:.6rem 1.5rem; border-radius:100px; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; transition:transform .2s var(--ease),box-shadow .2s!important; }
+    .nav-cta:hover { transform:translateY(-2px); box-shadow:0 12px 32px var(--glow)!important; }
+    .ham { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:.4rem; z-index:600; }
+    .ham span { display:block; width:22px; height:1.5px; background:var(--text); border-radius:2px; transition:all .35s var(--ease); }
+    .ham.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+    .ham.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .ham.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+    .mob-menu { position:fixed; inset:0; background:var(--bg); z-index:550; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2.5rem; transform:translateY(-100%); transition:transform .55s var(--ease); }
+    .mob-menu.open { transform:none; }
+    .mob-menu a { font-family:var(--serif); font-size:2.5rem; font-weight:700; letter-spacing:-.03em; transition:color .2s; }
+    .mob-menu a:hover { color:var(--accent); }
+    .mob-cta { background:var(--accent); color:#fff!important; padding:.9rem 3rem; border-radius:100px; font-family:var(--sans)!important; font-size:.85rem!important; letter-spacing:.08em!important; text-transform:uppercase; }
 
-    .article-hero { padding: 10rem 4rem 4rem; max-width: 960px; margin: 0 auto; }
-    .article-tag { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 1.25rem; display: flex; align-items: center; gap: .6rem; }
-    .article-tag::before { content:''; display:block; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
-    .article-hero h1 { font-family: var(--serif); font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 1.5rem; }
-    .article-hero h1 em { font-style: italic; color: var(--accent); }
-    .article-meta { font-size: .78rem; color: var(--gray); margin-bottom: 2.5rem; display: flex; gap: 0; align-items: center; flex-wrap: wrap; }
-    .meta-val { padding-right: 1.25rem; }
-    .meta-sep { display: inline-block; width: 1px; height: 11px; background: var(--border); margin-right: 1.25rem; flex-shrink: 0; }
-    .article-img { border-radius: var(--rl); overflow: hidden; margin-bottom: 5rem; aspect-ratio: 16/7; }
-    .article-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* ARTICLE HERO */
+    .article-hero { padding: 9rem 5vw 0; max-width: 1000px; margin: 0 auto; }
+    .back-link { display:inline-flex; align-items:center; gap:.5rem; font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border); padding-bottom:.2rem; margin-bottom:2.5rem; transition:color .2s,border-color .2s; }
+    .back-link:hover { color:var(--accent); border-color:var(--accent); }
+    .article-tag { font-size:.63rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:500; margin-bottom:1.25rem; display:flex; align-items:center; gap:.6rem; }
+    .article-tag::before { content:''; display:block; width:1.75rem; height:1px; background:var(--accent); }
+    .article-hero h1 { font-family:var(--serif); font-size:clamp(2.4rem,4.5vw,4rem); font-weight:900; line-height:1.08; letter-spacing:-.04em; margin-bottom:1.75rem; max-width:820px; }
+    .article-hero h1 em { font-style:italic; color:var(--accent); }
+    .article-meta { font-size:.68rem; color:var(--muted); margin-bottom:3rem; display:flex; gap:0; align-items:center; flex-wrap:wrap; letter-spacing:.06em; }
+    .meta-val { padding-right:1.5rem; }
+    .meta-sep { display:inline-block; width:1px; height:10px; background:var(--border); margin-right:1.5rem; flex-shrink:0; }
 
-    .article-body { max-width: 760px; margin: 0 auto; padding: 0 4rem 6rem; }
-    .article-body p { font-size: 1rem; color: var(--gray); line-height: 1.95; margin-bottom: 1.75rem; }
-    .article-body > p:first-child { font-size: 1.07rem; color: var(--black); font-weight: 400; line-height: 1.9; }
-    .article-body > p:first-child::first-letter { font-family: var(--serif); font-size: 3.8rem; font-weight: 700; float: left; line-height: .82; margin-right: .1em; margin-top: .06em; color: var(--black); }
-    .article-body h2 { font-family: var(--serif); font-size: 1.75rem; font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: var(--black); margin: 3.5rem 0 1rem; }
-    .article-body h2::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); margin-bottom: .75rem; border-radius: 2px; }
-    .article-body h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 500; color: var(--black); margin: 2rem 0 .75rem; letter-spacing: .02em; }
-    .article-body ul, .article-body ol { margin: 1rem 0 1.75rem 1.5rem; }
-    .article-body li { font-size: 1rem; color: var(--gray); line-height: 1.9; margin-bottom: .5rem; }
-    .article-body strong { color: var(--black); font-weight: 500; }
-    .callout { background: var(--accent-light); border: 1px solid rgba(200,80,42,.18); border-radius: var(--r); padding: 1.5rem 2rem; margin: 2rem 0; }
-    .callout p { margin-bottom: 0; color: var(--black); }
-    .more-posts { border-top: 1px solid var(--border); padding: 5rem 4rem 6rem; max-width: 960px; margin: 0 auto; }
-    .more-posts-label { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gray); font-weight: 500; margin-bottom: 2.5rem; display: flex; align-items: center; gap: .75rem; }
-    .more-posts-label::before { content:''; display:block; width:24px; height:2px; background:var(--accent); border-radius:2px; flex-shrink:0; }
-    .more-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .mcard { background: white; border: 1px solid var(--border); border-radius: var(--rl); overflow: hidden; text-decoration: none; display: block; color: inherit; transition: box-shadow .35s cubic-bezier(.16,1,.3,1), transform .35s cubic-bezier(.16,1,.3,1); }
-    .mcard:hover { box-shadow: 0 20px 60px rgba(0,0,0,.09); transform: translateY(-5px); }
-    .mcard-img { aspect-ratio: 16/9; overflow: hidden; }
-    .mcard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.16,1,.3,1); display: block; }
-    .mcard:hover .mcard-img img { transform: scale(1.05); }
-    .mcard-body { padding: 1.75rem; }
-    .mcard-tag { font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: .6rem; }
-    .mcard-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--black); line-height: 1.25; letter-spacing: -.01em; }
-    .back-link { display: inline-flex; align-items: center; gap: .5rem; font-size: .82rem; color: var(--gray); text-decoration: none; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 2rem; transition: color .2s; }
-    .back-link:hover { color: var(--accent); }
+    /* HERO IMAGE */
+    .article-img { border-radius:20px; overflow:hidden; aspect-ratio:16/7; margin-bottom:0; position:relative; }
+    .article-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .article-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 60%, rgba(8,7,5,.6)); pointer-events:none; }
 
-    footer { padding: 4rem; background: var(--bg2); border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; }
-    .flogo { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--black); text-decoration: none; }
-    .flogo span { color: var(--accent); }
-    .flinks { display: flex; gap: 2rem; list-style: none; justify-content: center; }
-    .flinks a { font-size: .78rem; color: var(--gray); text-decoration: none; letter-spacing: .06em; text-transform: uppercase; transition: color .2s; }
-    .flinks a:hover { color: var(--black); }
-    .fcopy { text-align: right; font-size: .78rem; color: var(--gray); opacity: .6; }
+    /* ARTICLE BODY */
+    .article-body { max-width:680px; margin:0 auto; padding:5rem 5vw 7rem; }
+    .article-body p { font-size:.97rem; color:var(--muted); line-height:2; margin-bottom:1.75rem; }
+    .article-body > p:first-child { font-size:1.05rem; color:var(--text); font-weight:400; line-height:1.95; }
+    .article-body > p:first-child::first-letter { font-family:var(--serif); font-size:4rem; font-weight:900; float:left; line-height:.8; margin-right:.08em; margin-top:.05em; color:var(--accent); }
+    .article-body h2 { font-family:var(--serif); font-size:1.7rem; font-weight:700; line-height:1.2; letter-spacing:-.03em; color:var(--text); margin:3.5rem 0 1rem; padding-top:.5rem; }
+    .article-body h2::before { content:''; display:block; width:1.5rem; height:1px; background:var(--accent); margin-bottom:.9rem; }
+    .article-body h3 { font-size:1rem; font-weight:500; color:var(--text); margin:2rem 0 .75rem; letter-spacing:.01em; }
+    .article-body ul, .article-body ol { margin:1rem 0 1.75rem 0; list-style:none; }
+    .article-body li { font-size:.97rem; color:var(--muted); line-height:1.9; margin-bottom:.6rem; padding-left:1.4rem; position:relative; }
+    .article-body ul li::before { content:'—'; position:absolute; left:0; color:var(--accent); font-size:.7rem; top:.35rem; }
+    .article-body ol { counter-reset:ol; }
+    .article-body ol li { counter-increment:ol; }
+    .article-body ol li::before { content:counter(ol)'.'; position:absolute; left:0; color:var(--accent); font-size:.75rem; font-weight:500; top:.3rem; }
+    .article-body strong { color:var(--text); font-weight:500; }
+    .article-body a { color:var(--accent); transition:opacity .2s; }
+    .article-body a:hover { opacity:.75; }
 
-    @media(max-width:960px) {
-      nav { padding: 1.25rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .article-hero { padding: 7rem 1.5rem 3rem; }
-      .article-body { padding: 0 1.5rem 5rem; }
-      .more-posts { padding: 4rem 1.5rem 5rem; }
-      .more-grid { grid-template-columns: 1fr; }
-      footer { grid-template-columns: 1fr; text-align: center; padding: 2.5rem 1.5rem; }
-      .fcopy { text-align: center; }
-      .flinks { flex-wrap: wrap; }
+    .callout { background:var(--surface); border-left:2px solid var(--accent); border-radius:0 12px 12px 0; padding:1.5rem 1.75rem; margin:2.25rem 0; }
+    .callout p { margin-bottom:0; color:var(--text); font-size:.93rem; }
+
+    .framework-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin:1.5rem 0 2rem; }
+    .framework-item { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1.25rem 1.4rem; transition:border-color .2s; }
+    .framework-item:hover { border-color:rgba(200,80,42,.25); }
+    .framework-step { font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:500; margin-bottom:.5rem; }
+    .framework-item span { font-size:.85rem; color:var(--muted); line-height:1.6; }
+
+    /* MORE POSTS */
+    .more-posts { border-top:1px solid var(--border); padding:5rem 5vw 7rem; max-width:1000px; margin:0 auto; }
+    .more-label { font-size:.63rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:3rem; display:flex; align-items:center; gap:.75rem; }
+    .more-label::before { content:''; display:block; width:1.75rem; height:1px; background:var(--accent); }
+    .more-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .mcard { background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden; display:block; color:inherit; transition:border-color .3s,transform .4s var(--ease); }
+    .mcard:hover { border-color:rgba(200,80,42,.2); transform:translateY(-5px); }
+    .mcard-img { aspect-ratio:16/9; overflow:hidden; }
+    .mcard-img img { width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease); display:block; }
+    .mcard:hover .mcard-img img { transform:scale(1.06); }
+    .mcard-body { padding:1.6rem; }
+    .mcard-tag { font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:500; margin-bottom:.6rem; }
+    .mcard-title { font-family:var(--serif); font-size:1.05rem; font-weight:700; color:var(--text); line-height:1.25; letter-spacing:-.015em; }
+
+    /* FOOTER */
+    footer { padding:3.5rem 5vw; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; font-size:.7rem; color:var(--muted); flex-wrap:wrap; gap:1.5rem; }
+    .footer-logo { font-family:var(--serif); font-size:1.1rem; font-weight:700; color:var(--text); letter-spacing:-.025em; }
+    .footer-logo em { font-style:normal; color:var(--accent); }
+    .footer-links { display:flex; gap:2rem; }
+    .footer-links a { font-size:.65rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); transition:color .2s; }
+    .footer-links a:hover { color:var(--text); }
+    .footer-copy { font-size:.62rem; color:rgba(138,130,119,.35); }
+
+    /* REVEAL */
+    .rv { opacity:0; transform:translateY(28px); }
+
+    @media(max-width:800px) {
+      .nav-links { display:none; }
+      .ham { display:flex; }
+      .article-hero { padding:7rem 1.5rem 0; }
+      .article-body { padding:4rem 1.5rem 5rem; }
+      .more-posts { padding:4rem 1.5rem 5rem; }
+      .more-grid { grid-template-columns:1fr; }
+      .framework-grid { grid-template-columns:1fr; }
+      footer { flex-direction:column; align-items:flex-start; }
     }
   </style>
 </head>
 <body>
 
 <div class="mob-menu" id="mobMenu">
-  <a href="index.html#about" onclick="closeMob()">About</a>
   <a href="index.html#services" onclick="closeMob()">Services</a>
+  <a href="index.html#about" onclick="closeMob()">About</a>
   <a href="index.html#pricing" onclick="closeMob()">Pricing</a>
-  <a href="index.html#process" onclick="closeMob()">Process</a>
   <a href="index.html#blog" onclick="closeMob()">Blog</a>
   <a href="index.html#contact" class="mob-cta" onclick="closeMob()">Get Started</a>
 </div>
 
-<nav>
-  <a href="index.html" class="logo">Rally<span>.</span></a>
+<nav id="nav">
+  <a href="index.html" class="logo">Rally<em>.</em></a>
   <ul class="nav-links">
     <li><a href="index.html#services">Services</a></li>
-    <li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="index.html#process">Process</a></li>
-    <li><a href="index.html#blog">Blog</a></li>
     <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
     <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="article-hero">
@@ -138,23 +168,23 @@
     <span class="meta-val">By Han, Rally Studio</span>
   </div>
   <div class="article-img">
-    <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=80&auto=format&fit=crop" alt="TikTok social media growth">
+    <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1400&q=85&auto=format&fit=crop" alt="TikTok social media growth">
   </div>
 </div>
 
 <div class="article-body">
-  <p>If you've been posting consistently on TikTok and your growth has stalled, or never really started, you're not alone. Most small business accounts make the same fundamental mistake, and it's not what you think. It's not the posting frequency, the hashtags, or even the production quality. It's the hook.</p>
+  <p>If you've been posting consistently on TikTok and your growth has stalled, or never really started, you're not alone. Most small business accounts make the same fundamental mistake — and it's not what you think. It's not the posting frequency, the hashtags, or even the production quality. It's the hook.</p>
 
   <h2>The Algorithm's One Rule</h2>
-  <p>TikTok's algorithm is ruthlessly simple: it measures <strong>watch time</strong>. Specifically, it rewards content that keeps people watching from start to finish, and even better, content that people watch multiple times. The algorithm doesn't care if you have 100 followers or 100,000. It will push your video to new audiences if enough people watch it through.</p>
+  <p>TikTok's algorithm is ruthlessly simple: it measures <strong>watch time</strong>. Specifically, it rewards content that keeps people watching from start to finish — and even better, content people watch multiple times. The algorithm doesn't care if you have 100 followers or 100,000. It will push your video to new audiences if enough people watch it through.</p>
   <p>The implication is significant: a video with incredible production value that people click away from after two seconds will be buried. A shaky, unpolished video with a compelling opening that people watch three times in a row will go viral.</p>
 
-  <div class="callout">
+  <div class="callout rv">
     <p><strong>The rule:</strong> You have approximately 1.5 seconds to give viewers a reason to keep watching. Everything about your TikTok strategy hinges on that moment.</p>
   </div>
 
   <h2>What a Strong Hook Actually Looks Like</h2>
-  <p>A hook is the first thing your audience sees and hears. It should create an immediate pattern interrupt: something unexpected, provocative, or deeply relevant that makes scrolling feel like a mistake.</p>
+  <p>A hook is the first thing your audience sees and hears. It should create an immediate pattern interrupt — something unexpected, provocative, or deeply relevant that makes scrolling feel like a mistake.</p>
   <p>Strong hooks typically fall into one of these categories:</p>
   <ul>
     <li><strong>The bold claim:</strong> "Most small businesses waste their entire marketing budget on this one mistake."</li>
@@ -177,29 +207,42 @@
 
   <h2>A Simple Framework That Works</h2>
   <p>For small businesses, we recommend this structure for every video:</p>
-  <ol>
-    <li><strong>Hook (0–1.5s):</strong> A statement, question, or visual that demands attention</li>
-    <li><strong>Context (1.5–5s):</strong> Why should they care? What's the payoff for watching?</li>
-    <li><strong>Value (5s–end):</strong> Deliver what you promised: genuinely useful, specific information</li>
-    <li><strong>Call to action:</strong> One clear next step, not three</li>
-  </ol>
 
-  <p>Post this structure consistently (not necessarily daily, but at least 3 to 4 times per week) and you'll start seeing what resonates. Double down on the formats and topics that perform. Kill everything else.</p>
+  <div class="framework-grid rv">
+    <div class="framework-item">
+      <div class="framework-step">0 – 1.5s</div>
+      <span>Hook — a statement, question, or visual that demands immediate attention</span>
+    </div>
+    <div class="framework-item">
+      <div class="framework-step">1.5 – 5s</div>
+      <span>Context — why should they care? What's the payoff for watching?</span>
+    </div>
+    <div class="framework-item">
+      <div class="framework-step">5s – End</div>
+      <span>Value — deliver what you promised: genuinely useful, specific information</span>
+    </div>
+    <div class="framework-item">
+      <div class="framework-step">Finish</div>
+      <span>Call to action — one clear next step, not three competing options</span>
+    </div>
+  </div>
 
-  <p>Growing on TikTok as a small business is absolutely doable. It just requires a strategic approach, not just more content. If you'd like a free audit of your TikTok strategy, <a href="index.html#contact" style="color:var(--accent);text-decoration:none;font-weight:500;">get in touch with Rally Studio</a>.</p>
+  <p>Post this structure consistently — not necessarily daily, but at least 3 to 4 times per week — and you'll start seeing what resonates. Double down on the formats and topics that perform. Kill everything else.</p>
+
+  <p>Growing on TikTok as a small business is absolutely doable. It just requires a strategic approach, not just more content. If you'd like a free audit of your TikTok strategy, <a href="index.html#contact">get in touch with Rally Studio</a>.</p>
 </div>
 
 <div class="more-posts">
-  <div class="more-posts-label">More from the blog</div>
+  <div class="more-label">More from the blog</div>
   <div class="more-grid">
-    <a href="blog-local-seo.html" class="mcard">
+    <a href="blog-local-seo.html" class="mcard rv">
       <div class="mcard-img"><img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80&auto=format&fit=crop" alt="Local SEO" loading="lazy"></div>
       <div class="mcard-body">
         <div class="mcard-tag">SEO</div>
-        <div class="mcard-title">5 Local SEO Fixes That Can Double Your Google Traffic in 90 Days</div>
+        <div class="mcard-title">5 Local SEO Fixes to Double Your Google Traffic in 90 Days</div>
       </div>
     </a>
-    <a href="blog-homepage-rule.html" class="mcard">
+    <a href="blog-homepage-rule.html" class="mcard rv">
       <div class="mcard-img"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop" alt="Homepage design" loading="lazy"></div>
       <div class="mcard-body">
         <div class="mcard-tag">Web Design</div>
@@ -210,30 +253,49 @@
 </div>
 
 <footer>
-  <a href="index.html" class="flogo">Rally<span>.</span></a>
-  <ul class="flinks">
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="index.html#process">Process</a></li>
-    <li><a href="index.html#blog">Blog</a></li>
-    <li><a href="index.html#faq">FAQ</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-  </ul>
-  <div class="fcopy">© 2026 Rally Studio. All rights reserved.</div>
+  <div class="footer-logo">Rally<em>.</em></div>
+  <div class="footer-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#blog">Blog</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Rally Studio · rallystudio.co</div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
-const hamburger = document.getElementById('hamburger');
-const mobMenu = document.getElementById('mobMenu');
-function closeMob() {
-  hamburger.classList.remove('open');
-  mobMenu.classList.remove('open');
-  document.body.style.overflow = '';
-}
-hamburger.addEventListener('click', () => {
-  const isOpen = hamburger.classList.toggle('open');
-  mobMenu.classList.toggle('open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+gsap.registerPlugin(ScrollTrigger);
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mobMenu');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+window.closeMob = () => { ham.classList.remove('open'); mob.classList.remove('open'); };
+
+gsap.from('.article-hero', { opacity: 0, y: 40, duration: 1.1, ease: 'power3.out', delay: .15 });
+
+gsap.to('.article-img img', {
+  y: -50, ease: 'none',
+  scrollTrigger: { trigger: '.article-img', start: 'top bottom', end: 'bottom top', scrub: 1 }
+});
+
+gsap.utils.toArray('.article-body p, .article-body h2, .article-body h3, .article-body ul, .article-body ol').forEach(el => {
+  gsap.from(el, {
+    opacity: 0, y: 22, duration: .9, ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' }
+  });
+});
+
+gsap.utils.toArray('.rv').forEach(el => {
+  gsap.to(el, {
+    opacity: 1, y: 0, duration: .9, ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+  });
 });
 </script>
 </body>
