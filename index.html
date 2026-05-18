@@ -1299,9 +1299,11 @@
         }
       });
       heading.innerHTML = result;
+      const splitWordEls = heading.querySelectorAll('.split-word');
       gsap.to(heading.querySelectorAll('.sw-inner'), {
         y: '0%', duration: 1, ease: 'power4.out', stagger: .07,
-        scrollTrigger: { trigger: heading, start: 'top 88%', toggleActions: 'play none none none' }
+        scrollTrigger: { trigger: heading, start: 'top 88%', toggleActions: 'play none none none' },
+        onComplete: () => splitWordEls.forEach(w => { w.style.overflow = 'visible'; })
       });
     });
   }
