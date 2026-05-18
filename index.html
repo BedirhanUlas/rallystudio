@@ -1319,9 +1319,25 @@
     opacity: 0, x: -60, duration: 1.2, ease: 'power3.out',
     scrollTrigger: { trigger: '.about', start: 'top 80%', toggleActions: 'play none none none' }
   });
-  gsap.from('.about-text', {
-    opacity: 0, x: 60, duration: 1.2, ease: 'power3.out',
+  gsap.from('.about-text .section-tag', {
+    opacity: 0, y: 22, duration: .8, ease: 'power3.out',
     scrollTrigger: { trigger: '.about', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  gsap.utils.toArray('.about-text p').forEach(p => {
+    gsap.from(p, {
+      opacity: 0, y: 28, duration: .85, ease: 'power3.out',
+      scrollTrigger: { trigger: p, start: 'top 90%', toggleActions: 'play none none none' }
+    });
+  });
+  gsap.utils.toArray('.about-list li').forEach(li => {
+    gsap.from(li, {
+      opacity: 0, y: 16, duration: .6, ease: 'power3.out',
+      scrollTrigger: { trigger: li, start: 'top 92%', toggleActions: 'play none none none' }
+    });
+  });
+  gsap.from('.about-tags .about-tag', {
+    opacity: 0, y: 14, scale: .92, duration: .55, ease: 'power3.out', stagger: .055,
+    scrollTrigger: { trigger: '.about-tags', start: 'top 92%', toggleActions: 'play none none none' }
   });
   gsap.to('.about-photo-wrap img', {
     y: -60, ease: 'none',
