@@ -273,12 +273,54 @@
     .process-head p { font-size: .93rem; color: var(--muted); line-height: 1.9; }
     .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; position: relative; }
     .process-steps::after { content:''; position:absolute; top: 2.5rem; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(200,80,42,.18) 15%, rgba(200,80,42,.18) 85%, transparent); pointer-events: none; z-index: 0; }
-    .pstep { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; opacity: 0; transform: translateY(40px) scale(.97); transition: border-color .3s, box-shadow .3s, transform .3s var(--ease); position: relative; z-index: 1; }
-    .pstep:hover { border-color: rgba(200,80,42,.25); box-shadow: 0 20px 60px rgba(0,0,0,.3); transform: translateY(-6px) scale(1) !important; }
-    .pstep-num { font-family: var(--serif); font-size: 3.5rem; font-weight: 900; color: rgba(240,235,226,.09); line-height: 1; font-style: italic; margin-bottom: .5rem; }
-    .pstep h3 { font-size: .83rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--text); margin-bottom: .75rem; }
-    .pstep h3::before { content:''; display:block; width:1.5rem; height:1px; background:var(--accent); margin-bottom:.6rem; }
-    .pstep p { font-size: .875rem; color: var(--muted); line-height: 1.8; }
+    .pstep {
+      background: linear-gradient(168deg, #231d18 0%, #1a1612 100%);
+      border: 1px solid rgba(240,235,226,.07);
+      border-top: 1px solid rgba(240,235,226,.14);
+      border-radius: 18px;
+      padding: 2.75rem 2.25rem 2.5rem;
+      opacity: 0;
+      transform: translateY(40px) scale(.97);
+      transition: border-color .35s, box-shadow .4s, transform .4s var(--ease), background .4s;
+      position: relative; z-index: 1;
+      overflow: hidden;
+    }
+    .pstep::before {
+      content:''; position: absolute;
+      bottom: -45%; right: -25%;
+      width: 90%; height: 105%;
+      background: radial-gradient(circle, rgba(200,80,42,.13) 0%, transparent 62%);
+      pointer-events: none;
+      opacity: .55;
+      transition: opacity .5s var(--ease), transform .9s var(--ease);
+    }
+    .pstep:hover {
+      border-color: rgba(200,80,42,.3);
+      box-shadow: 0 30px 80px rgba(0,0,0,.45), 0 0 0 1px rgba(200,80,42,.1) inset;
+      transform: translateY(-8px) scale(1) !important;
+      background: linear-gradient(168deg, #2a221c 0%, #1d1814 100%);
+    }
+    .pstep:hover::before { opacity: 1; transform: scale(1.18); }
+    .pstep-num {
+      font-family: var(--serif); font-size: 4.25rem; font-weight: 900;
+      color: rgba(240,235,226,.22);
+      line-height: 1; font-style: italic; margin-bottom: .85rem;
+      letter-spacing: -.045em;
+      position: relative; z-index: 2;
+      transition: color .35s var(--ease);
+    }
+    .pstep:hover .pstep-num { color: rgba(232,112,80,.35); }
+    .pstep h3 {
+      font-size: .85rem; font-weight: 500; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--text); margin-bottom: .85rem;
+      position: relative; z-index: 2;
+    }
+    .pstep h3::before {
+      content:''; display:block; width:2rem; height:1px; background:var(--accent);
+      margin-bottom:.75rem; transition: width .3s var(--ease);
+    }
+    .pstep:hover h3::before { width: 2.75rem; }
+    .pstep p { font-size: .88rem; color: var(--muted); line-height: 1.85; position: relative; z-index: 2; }
 
     /* ─── PRICING ──────────────────────────────────────── */
     .pricing { padding: 10rem 5vw; background: var(--bg2); }
