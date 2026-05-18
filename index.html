@@ -211,7 +211,7 @@
     .numbers { padding: 10rem 5vw; background: var(--bg2); position: relative; overflow: hidden; }
     .numbers-inner { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; z-index: 1; }
     .num-item { padding: 4rem 3rem 4rem 0; position: relative; opacity: 0; transform: translateY(40px); }
-    .num-item:not(:last-child)::after { content:''; position:absolute; right:0; top:50%; transform:translateY(-50%); height:40%; width:1px; background: linear-gradient(to bottom, transparent, rgba(240,235,226,.12) 30%, rgba(240,235,226,.12) 70%, transparent); }
+    /* vertical dividers removed */
     .num-bar { width: 0; height: 2px; background: var(--accent); border-radius: 2px; margin-bottom: 1.5rem; transition: width .9s var(--ease-out); }
     .num-bar.animated { width: 28px; }
     .num-val { font-family: var(--serif); font-size: clamp(3rem,5vw,5.5rem); font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -.04em; margin-bottom: .75rem; }
