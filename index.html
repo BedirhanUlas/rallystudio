@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="HnRxbOWZ8o6ZcLv6xZowBb5NR364py18TXd-WSFr5zc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rally Studio | Digital Growth Studio</title>
-  <meta name="description" content="Rally Studio works with small businesses across the US on websites, social media, SEO, content, and video. No agencies, no middlemen. Real work.">
+  <title>Rally Studio | a one-person studio for US small businesses</title>
+  <meta name="description" content="I'm Han. I run Rally as a one-person studio. Websites, SEO, social, video for US small businesses. You email me, you get me. No junior account managers, no proposal decks.">
   <link rel="canonical" href="https://rallystudio.co">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -372,6 +372,24 @@
     .blog-card:hover .blog-read-more,
     .blog-feat:hover .blog-read-more { opacity:.75; }
 
+    /* ─── NOW STRIP ────────────────────────────────────── */
+    .now-strip { padding: 6rem 5vw 5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg); position: relative; overflow: hidden; }
+    .now-strip::before { content:''; position:absolute; top:-1px; left:5vw; width:120px; height:2px; background: var(--accent); }
+    .now-inner { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 5rem; max-width: 1280px; margin: 0 auto; align-items: start; }
+    .now-label { font-size: .63rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 1rem; }
+    .now-head { font-family: var(--serif); font-size: clamp(1.5rem,2.2vw,2.1rem); font-weight: 400; line-height: 1.25; color: var(--text); letter-spacing: -.02em; font-style: italic; }
+    .now-head span { color: var(--muted); font-style: normal; font-family: var(--sans); font-weight: 300; font-size: .8em; display: block; margin-top: .75rem; letter-spacing: .01em; }
+    .now-list { list-style: none; display: flex; flex-direction: column; }
+    .now-item { padding: 1.1rem 0; border-bottom: 1px dashed rgba(240,235,226,.08); display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; align-items: baseline; }
+    .now-item:last-child { border-bottom: none; }
+    .now-date { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(138,130,119,.55); font-variant-numeric: tabular-nums; }
+    .now-text { font-size: .92rem; color: var(--text); line-height: 1.6; font-weight: 300; }
+    .now-text em { color: var(--accent); font-style: normal; font-weight: 500; }
+    @media (max-width: 900px) {
+      .now-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .now-item { grid-template-columns: 70px 1fr; gap: 1rem; }
+    }
+
     /* ─── CONTACT ──────────────────────────────────────── */
     .contact-section {
       padding: 10rem 5vw; background: var(--bg2);
@@ -511,16 +529,16 @@
   <section class="hero" id="home">
     <canvas id="hero-canvas"></canvas>
     <div class="hero-left">
-      <div class="eyebrow" id="hero-eyebrow">Digital Growth Studio</div>
+      <div class="eyebrow" id="hero-eyebrow">A one-person studio · est. 2024</div>
       <h1 class="hero-headline" id="hero-headline">
-        <span class="word"><span class="inner">Your</span></span>
+        <span class="word"><span class="inner">Small</span></span>
         <span class="word"><span class="inner">business,</span></span><br>
-        <span class="word"><span class="inner"><em>finally</em></span></span>
-        <span class="word"><span class="inner">growing</span></span><br>
-        <span class="word"><span class="inner">online.</span></span>
+        <span class="word"><span class="inner">big</span></span>
+        <span class="word"><span class="inner"><em>internet</em></span></span><br>
+        <span class="word"><span class="inner">problems.</span></span>
       </h1>
       <p class="hero-sub" id="hero-sub">
-        Rally Studio works with small businesses across the US on websites, social media, SEO, content, and video. No agencies, no middlemen.
+        I'm Han. I help small businesses in the US figure out the internet part of their business. Sites, social, SEO, the short videos that take half a day to make. You email me, you get me. No sales call, no proposal deck.
       </p>
       <div class="hero-actions" id="hero-actions">
         <a href="#contact" class="btn-primary magnetic">Start a project</a>
@@ -534,12 +552,12 @@
       <div class="hero-badge hb1" id="hb1">
         <div class="hb-dot"></div>
         <div class="hb-val">3×</div>
-        <div class="hb-label">Avg engagement boost</div>
+        <div class="hb-label">Engagement, first 90 days</div>
       </div>
       <div class="hero-badge hb2" id="hb2">
         <div class="hb-dot"></div>
-        <div class="hb-val">24K+</div>
-        <div class="hb-label">Followers built from zero</div>
+        <div class="hb-val">24K</div>
+        <div class="hb-label">Followers, no ad spend</div>
       </div>
     </div>
   </section>
@@ -583,16 +601,16 @@
     <div class="services-pin" id="servicesPin">
         <div class="services-track" id="servicesTrack">
           <div class="svc-intro">
-            <div class="section-tag">What we do</div>
-            <h2 class="svc-intro-title">Everything your<br>business needs to<br><em>win online.</em></h2>
-            <p class="svc-intro-sub">From a first website to a full digital engine. Websites, SEO, social media, content, and video — all under one roof, handled personally.</p>
+            <div class="section-tag">What I do</div>
+            <h2 class="svc-intro-title">The five things<br>small businesses<br><em>keep asking me for.</em></h2>
+            <p class="svc-intro-sub">Pick one. Or hand me the whole pile. Either way it's the same person doing the work, on the same Mac, in the same room.</p>
           </div>
           <div class="svc-panel">
             <div class="svc-left">
               <div class="svc-num">01</div>
               <div class="section-tag svc-tag">Website Design</div>
-              <h3 class="svc-title">A website that<br><em>actually converts.</em></h3>
-              <p class="svc-desc">Beautiful, fast, and built to sell. Clear messaging, smart layout, and mobile-first performance that makes visitors say yes from the very first click.</p>
+              <h3 class="svc-title">A site that does<br>the talking when<br><em>you can't.</em></h3>
+              <p class="svc-desc">Built to load fast on the phone someone's using in a parking lot. Built so the first paragraph answers the question they came with. The rest is just craft.</p>
               <div class="svc-pills">
                 <span class="svc-pill">Landing Pages</span>
                 <span class="svc-pill">Business Sites</span>
@@ -609,8 +627,8 @@
             <div class="svc-left">
               <div class="svc-num">02</div>
               <div class="section-tag svc-tag">SEO & Visibility</div>
-              <h3 class="svc-title">Get found by<br><em>the right people.</em></h3>
-              <p class="svc-desc">Keyword strategy, on-page optimization, and local search dominance so customers find you first, every time. Getting found on Google isn't magic — it's work.</p>
+              <h3 class="svc-title">Show up when<br>people are<br><em>already looking.</em></h3>
+              <p class="svc-desc">Local SEO, Google Business, the on-page stuff, the boring spreadsheet stuff. There's no secret here. Just a list of things most small business sites haven't gotten around to.</p>
               <div class="svc-pills">
                 <span class="svc-pill">Keyword Research</span>
                 <span class="svc-pill">On-page SEO</span>
@@ -626,8 +644,8 @@
             <div class="svc-left">
               <div class="svc-num">03</div>
               <div class="section-tag svc-tag">Social Media</div>
-              <h3 class="svc-title">Social media that<br><em>builds real fans.</em></h3>
-              <p class="svc-desc">Consistent, scroll-stopping content that turns followers into customers. I manage your channels so you never stress about what to post — ever.</p>
+              <h3 class="svc-title">Social that doesn't<br>feel like a<br><em>second job.</em></h3>
+              <p class="svc-desc">I plan the month, shoot the content, write the captions, and post on schedule. You stop opening Instagram with that quiet "I should post something" feeling.</p>
               <div class="svc-pills">
                 <span class="svc-pill">Instagram</span>
                 <span class="svc-pill">TikTok</span>
@@ -643,8 +661,8 @@
             <div class="svc-left">
               <div class="svc-num">04</div>
               <div class="section-tag svc-tag">Video Production</div>
-              <h3 class="svc-title">Content that<br><em>people remember.</em></h3>
-              <p class="svc-desc">Short-form video shot on professional gear — Osmo Pocket 3 and iPhone 17 Pro Max, edited with Premiere Pro and Final Cut. Every frame is intentional.</p>
+              <h3 class="svc-title">Short videos that<br>actually <em>get<br>watched.</em></h3>
+              <p class="svc-desc">Shot on an Osmo Pocket 3 and an iPhone 17 Pro Max. Edited in Premiere and Final Cut. Usually under 30 seconds. Not cinematic, just the right shot cut at the right moment.</p>
               <div class="svc-pills">
                 <span class="svc-pill">TikTok / Reels</span>
                 <span class="svc-pill">Osmo Pocket 3</span>
@@ -672,23 +690,23 @@
     <div class="numbers-inner">
       <div class="num-item">
         <div class="num-bar"></div>
-        <div class="num-val"><span class="count" data-to="24" data-suffix="K+">0</span></div>
-        <div class="num-label">Followers built from zero, organically</div>
+        <div class="num-val"><span class="count" data-to="24" data-suffix="K">0</span></div>
+        <div class="num-label">TikTok followers, grown without ads</div>
       </div>
       <div class="num-item">
         <div class="num-bar"></div>
         <div class="num-val"><span class="count" data-to="3" data-suffix="×">0</span></div>
-        <div class="num-label">Average engagement growth in 90 days</div>
+        <div class="num-label">Engagement lift in the first quarter</div>
       </div>
       <div class="num-item">
         <div class="num-bar"></div>
         <div class="num-val"><span class="count" data-to="48" data-suffix="h">0</span></div>
-        <div class="num-label">Turnaround for first strategy draft</div>
+        <div class="num-label">From first email to a written plan</div>
       </div>
       <div class="num-item">
         <div class="num-bar"></div>
-        <div class="num-val"><span class="count" data-to="100" data-suffix="%">0</span></div>
-        <div class="num-label">US-focused, nationwide service</div>
+        <div class="num-val">1</div>
+        <div class="num-label">Person doing the work on your account</div>
       </div>
     </div>
   </section>
@@ -696,12 +714,12 @@
   <!-- GALLERY -->
   <section class="gallery" id="work">
     <div class="gallery-text">
-      <div class="section-tag">Our Work</div>
+      <div class="section-tag">The work</div>
       <blockquote class="gallery-quote">
-        "Your online presence is your <em>most valuable</em> storefront."
+        Half the small businesses I meet have a logo, a Squarespace template, and <em>no idea</em> why nobody's calling.
       </blockquote>
-      <cite class="gallery-cite">— Rally Studio</cite>
-      <p class="gallery-body">We shoot on professional gear and edit with Premiere Pro, Final Cut, and CapCut. Every frame is intentional. Every post is strategic. Every word earns its place.</p>
+      <cite class="gallery-cite">Studio notes, written between shoots</cite>
+      <p class="gallery-body">Most of what you'll see below was shot in the last six months. Osmo Pocket 3 in one hand, iPhone in the other, cut on a 14-inch MacBook in a café somewhere. No crew, no rental gear, no stock footage.</p>
     </div>
     <div class="gallery-grid">
       <div class="gcell gc0" data-hover="view"><img src="img-loft.png" alt="Creative studio work" loading="lazy"></div>
@@ -723,17 +741,17 @@
       </div>
     </div>
     <div class="about-text">
-      <div class="section-tag">The person behind Rally</div>
+      <div class="section-tag">Hi, I'm Han</div>
       <h2 class="about-h2">Not an agency.<br><em>Just me.</em></h2>
-      <p>I'm Han, 26, and I started Rally because I turned what I love into something that actually works. Cameras, screens, storytelling — I've been obsessed since I was a kid.</p>
-      <p>I studied Computer Engineering, moved to the US, and leaned fully into the creative side I'd always had. Built a TikTok from zero to 24K with no budget and no team — just genuinely caring about every frame, every cut, every caption.</p>
-      <p>You won't get a junior account manager on our calls. You'll get me.</p>
+      <p>I'm 26. I studied Computer Engineering, then moved to the US and accepted that the part I actually cared about was the creative side. Cameras, edits, the way a good thumbnail can change someone's afternoon.</p>
+      <p>I built a TikTok from nothing to 24K followers with no ads and no team. The thing that worked wasn't a hack. It was just refusing to post anything I wouldn't have stopped scrolling for myself.</p>
+      <p>If you hire Rally, you're hiring me. Same person on the intro call, the shoot day, the late-night Slack message. No account manager handoff.</p>
       <ul class="about-list">
-        <li>Talk directly to whoever is doing your work</li>
-        <li>Every decision backed by real data</li>
-        <li>Month-to-month, no contracts required</li>
-        <li>Engineering precision, creative execution</li>
-        <li>Computer engineering + years of hands-on creative work</li>
+        <li>You talk to the person doing the work, every time</li>
+        <li>Month-to-month. Cancel with 14 days notice, no questions</li>
+        <li>I keep the roster small on purpose, so nothing waits a week</li>
+        <li>Engineering brain, creative hands. Both get used</li>
+        <li>Based in the US, working with US small businesses only</li>
       </ul>
       <div class="about-tags">
         <span class="about-tag solid">Content Creator</span>
@@ -751,30 +769,30 @@
   <!-- PROCESS -->
   <section class="process" id="process">
     <div class="process-head">
-      <div class="section-tag">How It Works</div>
-      <h2>Simple process,<br><em>real results.</em></h2>
-      <p>No jargon. No bloated timelines. Here's exactly how it goes from first message to measurable growth.</p>
+      <div class="section-tag">How a project goes</div>
+      <h2>From first email<br>to first post,<br><em>usually two weeks.</em></h2>
+      <p>No discovery deck. No four-week onboarding. Here's the order it usually happens in.</p>
     </div>
     <div class="process-steps">
       <div class="pstep">
         <div class="pstep-num">01</div>
-        <h3>Discovery Call</h3>
-        <p>We talk about your business, what you're trying to do, and where things are getting stuck. Free, 30 minutes, no pitch.</p>
+        <h3>A 30-minute call</h3>
+        <p>You walk me through the business and where it's stuck. I ask boring questions like "who actually buys this" and "what did the last person try." Free, no pitch.</p>
       </div>
       <div class="pstep">
         <div class="pstep-num">02</div>
-        <h3>Custom Strategy</h3>
-        <p>You get a plan built around your specific situation. What to fix, what to build, in what order.</p>
+        <h3>A plan you can read in five minutes</h3>
+        <p>One page. What to fix first, what's not worth fixing, and what I'd build new. You either nod and we go, or you take it and run it yourself.</p>
       </div>
       <div class="pstep">
         <div class="pstep-num">03</div>
-        <h3>We Execute</h3>
-        <p>You approve, we get to work. Fast turnarounds, content that actually looks and sounds like you.</p>
+        <h3>I get to work</h3>
+        <p>Writing, designing, filming, posting. You see things before they go live. Edits happen the same day, not next sprint.</p>
       </div>
       <div class="pstep">
         <div class="pstep-num">04</div>
-        <h3>You Grow</h3>
-        <p>Monthly report, real numbers, honest feedback. We keep adjusting. No set-it-and-forget-it.</p>
+        <h3>We look at the numbers</h3>
+        <p>Once a month, in plain English. What worked, what didn't, what I'd change. The good stuff gets repeated. The flops get retired.</p>
       </div>
     </div>
   </section>
@@ -783,8 +801,8 @@
   <section class="pricing" id="pricing">
     <div class="pricing-head">
       <div class="section-tag" style="justify-content:center">Pricing</div>
-      <h2>Simple plans,<br><em>real results.</em></h2>
-      <p>No setup fees. No hidden costs. Cancel anytime.</p>
+      <h2>Pick the one<br>that <em>fits.</em></h2>
+      <p>No setup fees. No annual lock-in. Pause or cancel with two weeks notice.</p>
       <div class="billing-toggle">
         <span>Monthly</span>
         <div class="toggle-wrap" id="billingToggle"><div class="toggle-knob"></div></div>
@@ -796,7 +814,7 @@
         <div class="plan-name">Social</div>
         <div class="plan-price"><sup>$</sup><span class="price-val" data-monthly="699" data-annual="559">699</span></div>
         <div class="plan-period">per month</div>
-        <div class="plan-desc">Consistent social presence, handled end-to-end every month.</div>
+        <div class="plan-desc">For the business that knows it should be posting and just isn't.</div>
         <ul class="plan-features">
           <li>12 posts/month across platforms</li>
           <li>Custom graphics &amp; captions</li>
@@ -813,7 +831,7 @@
         <div class="plan-name">Growth</div>
         <div class="plan-price"><sup>$</sup><span class="price-val" data-monthly="1499" data-annual="1199">1,499</span></div>
         <div class="plan-period">per month</div>
-        <div class="plan-desc">Social + SEO + video. The full engine for serious growth.</div>
+        <div class="plan-desc">Social, SEO, video, blog. What most of my clients land on after the first month.</div>
         <ul class="plan-features">
           <li>12 posts/month (Instagram, TikTok, Facebook)</li>
           <li>4 short-form videos/month</li>
@@ -829,7 +847,7 @@
         <div class="plan-name">Website</div>
         <div class="plan-price"><sup>$</sup>1,500</div>
         <div class="plan-period">one-time · from</div>
-        <div class="plan-desc">Fast, beautiful, mobile-first, built to convert and rank on day one.</div>
+        <div class="plan-desc">A one-time site build. Mobile-first, indexed on day one, easy to update yourself.</div>
         <ul class="plan-features">
           <li>Landing page from $1,500</li>
           <li>Business website from $2,500</li>
@@ -845,7 +863,7 @@
         <div class="plan-name">Full Studio</div>
         <div class="plan-price" style="font-size:2.5rem;letter-spacing:-.03em;">Let's Talk</div>
         <div class="plan-period">tailored quote</div>
-        <div class="plan-desc">Ad campaigns, video series, or a fully custom scope built around your goals.</div>
+        <div class="plan-desc">Anything custom. Ad campaigns, a video series, brand work. Email me what you need.</div>
         <ul class="plan-features">
           <li>Google &amp; Meta ad management</li>
           <li>Full video production series</li>
@@ -858,41 +876,41 @@
         <a href="#contact" class="plan-btn">Get Started</a>
       </div>
     </div>
-    <p class="pricing-note">Month-to-month, no contracts. Annual billing saves 20%. <a href="#faq">See FAQ</a> or <a href="#contact">send a message</a>.</p>
+    <p class="pricing-note">Month-to-month. Annual billing knocks 20% off. If you want something between two of these plans, just <a href="#contact">email me</a>.</p>
   </section>
 
   <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="faq-head">
-      <div class="section-tag">FAQ</div>
-      <h2>Questions you<br>probably <em>have.</em></h2>
-      <p class="faq-sub">Everything you need to know before reaching out. Still curious? Just ask.</p>
-      <a href="#contact" class="faq-contact magnetic">Send a question →</a>
+      <div class="section-tag">The usual questions</div>
+      <h2>Things people ask<br>on the first <em>call.</em></h2>
+      <p class="faq-sub">If yours isn't here, just email it. I read every message myself, usually within a day.</p>
+      <a href="#contact" class="faq-contact magnetic">Email a question →</a>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q"><h3>Are there long-term contracts?</h3><div class="faq-arrow">+</div></div>
-        <div class="faq-a"><p>No. Everything is month-to-month. Cancel or pause with 14 days notice. Annual billing saves you 20% if you want it, but it's never a requirement.</p></div>
+        <div class="faq-q"><h3>Am I locked into a contract?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>No. Everything is month-to-month. Pause or cancel with two weeks notice. Annual billing knocks 20% off if you'd like that, but I don't push for it.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><h3>Who actually does the work?</h3><div class="faq-arrow">+</div></div>
-        <div class="faq-a"><p>Just me. I do the strategy, the content, the communication. No outsourcing to someone you've never met. If you're paying Rally, you're working with Han.</p></div>
+        <div class="faq-a"><p>Me. Han. The strategy, the writing, the filming, the captions, the boring back-and-forth with your dev. There's no junior anything. If you're paying Rally, you're working with the person in the founder photo above.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><h3>Do you use AI in your work?</h3><div class="faq-arrow">+</div></div>
-        <div class="faq-a"><p>Yes, and I'm upfront about it. Same way a photographer uses Lightroom — as a tool, not a replacement for thinking. The strategy, the creative direction, the final edit: all mine.</p></div>
+        <div class="faq-a"><p>Yes, the same way a photographer uses Lightroom. It speeds up the boring parts. The strategy, the creative call, the final cut, the things you're actually paying for: those are mine.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><h3>How fast can you start?</h3><div class="faq-arrow">+</div></div>
-        <div class="faq-a"><p>Most projects can begin within a few days of our first call. I keep my client roster small on purpose so nothing gets delayed or de-prioritized.</p></div>
+        <div class="faq-q"><h3>How fast can we start?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>Usually within a few days of the first call, sometimes the same week. I keep the roster small for exactly this reason. Nothing sits in a queue.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><h3>What kind of businesses do you work with?</h3><div class="faq-arrow">+</div></div>
-        <div class="faq-a"><p>Primarily small businesses across the US that are serious about growing online. Restaurants, retail, service businesses, e-commerce — if you're ready to invest in your online presence, we'll figure out if it's a good fit.</p></div>
+        <div class="faq-q"><h3>Who do you usually work with?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>US small businesses. Restaurants, salons, retail, service businesses, small e-commerce. If you're under 25 employees and you've outgrown DIY, you're in the right place.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><h3>What if I just need one thing?</h3><div class="faq-arrow">+</div></div>
-        <div class="faq-a"><p>That's fine. One-time projects (websites, video shoots) start at $1,500. No pressure to bundle anything. We start where it makes sense for you.</p></div>
+        <div class="faq-q"><h3>I only need one thing. Is that okay?</h3><div class="faq-arrow">+</div></div>
+        <div class="faq-a"><p>Yes. One-off projects (a website, a single video shoot, a Google Business cleanup) start at $1,500. I'd rather do one thing well than upsell you into a bundle you don't need.</p></div>
       </div>
     </div>
   </section>
@@ -901,10 +919,10 @@
   <section class="blog" id="blog">
     <div class="blog-header">
       <div class="blog-header-left">
-        <div class="section-tag">Studio Notes</div>
-        <h2 class="blog-h2">From the <em>studio.</em></h2>
+        <div class="section-tag">Studio notes</div>
+        <h2 class="blog-h2">Things I've written down<br>so I stop <em>re-explaining them.</em></h2>
       </div>
-      <a href="blog-homepage-rule.html" class="blog-all magnetic">View all posts →</a>
+      <a href="blog-homepage-rule.html" class="blog-all magnetic">All posts →</a>
     </div>
     <div class="blog-grid">
       <a href="blog-homepage-rule.html" class="blog-feat">
@@ -912,8 +930,8 @@
         <div class="blog-feat-body">
           <div class="blog-feat-badge">Featured</div>
           <div class="blog-cat">Web Design</div>
-          <h3 class="blog-feat-title">The 7-Second Rule: Why Your Homepage Is Losing Customers</h3>
-          <p class="blog-feat-excerpt">Visitors decide whether to stay or leave in under 7 seconds. Here's what separates a homepage that converts from one that quietly costs you clients every day.</p>
+          <h3 class="blog-feat-title">Seven seconds: how I read a homepage when a new client sends one over</h3>
+          <p class="blog-feat-excerpt">Most visitors decide in well under ten seconds. Here's the rough mental checklist I run when a small business asks me to look at theirs, and the three things I almost always find missing.</p>
           <div class="blog-meta">May 2025 &nbsp;·&nbsp; 5 min read</div>
           <div class="blog-read-more">Read article →</div>
         </div>
@@ -923,8 +941,8 @@
           <div class="blog-card-img"><div class="blog-card-img-inner"><img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80&auto=format&fit=crop" alt="TikTok growth" loading="lazy"></div></div>
           <div class="blog-card-body">
             <div class="blog-cat">Social Media</div>
-            <h3 class="blog-card-title">Why Your TikTok Isn't Growing (And the Fix Most Brands Miss)</h3>
-            <p class="blog-card-excerpt">It's not the algorithm. It's not your budget. Here's the real reason — and how to fix it.</p>
+            <h3 class="blog-card-title">If your TikTok is flat, it's almost always the first 1.5 seconds</h3>
+            <p class="blog-card-excerpt">It's rarely the algorithm. It's rarely the budget. It's almost always the part of the video most people don't think of as the video.</p>
             <div class="blog-card-meta">April 2025 &nbsp;·&nbsp; 4 min read</div>
             <div class="blog-read-more">Read article →</div>
           </div>
@@ -933,8 +951,8 @@
           <div class="blog-card-img"><div class="blog-card-img-inner"><img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80&auto=format&fit=crop" alt="Local SEO analytics" loading="lazy"></div></div>
           <div class="blog-card-body">
             <div class="blog-cat">SEO</div>
-            <h3 class="blog-card-title">5 Local SEO Fixes to Double Your Google Traffic in 90 Days</h3>
-            <p class="blog-card-excerpt">Most local businesses are invisible on Google. These five fixes change that — no agency required.</p>
+            <h3 class="blog-card-title">The five local SEO things I do first, every single time</h3>
+            <p class="blog-card-excerpt">No tooling, no agency budget, no monthly retainer required. Just a Saturday afternoon and a Google login.</p>
             <div class="blog-card-meta">March 2025 &nbsp;·&nbsp; 6 min read</div>
             <div class="blog-read-more">Read article →</div>
           </div>
@@ -943,28 +961,56 @@
     </div>
   </section>
 
+  <!-- NOW STRIP -->
+  <section class="now-strip" aria-label="What I'm working on right now">
+    <div class="now-inner">
+      <div>
+        <div class="now-label">In the studio · this week</div>
+        <p class="now-head">A real, slightly out-of-date list of what's on my desk.<span>I update this when I remember to. Usually a Sunday night.</span></p>
+      </div>
+      <ul class="now-list">
+        <li class="now-item">
+          <span class="now-date">Mon</span>
+          <span class="now-text">Filming day for a <em>Brooklyn coffee roaster</em>. Three Reels and one long-form Story, all on the Osmo.</span>
+        </li>
+        <li class="now-item">
+          <span class="now-date">Tue–Wed</span>
+          <span class="now-text">Rebuilding the homepage of a small Boston dental practice. Cutting their copy roughly in half.</span>
+        </li>
+        <li class="now-item">
+          <span class="now-date">Thu</span>
+          <span class="now-text">Monthly numbers email to all current clients. Plain English, no dashboard screenshots.</span>
+        </li>
+        <li class="now-item">
+          <span class="now-date">Open</span>
+          <span class="now-text">Two retainer slots open for May. After that I'm full until late summer.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact-section" id="contact">
     <div class="contact-left">
-      <div class="contact-eyebrow">Ready to rally</div>
-      <h2 class="contact-h2">Let's build<br>something <em>real.</em></h2>
-      <p class="contact-sub">No agencies, no middlemen, no fluff. Tell me what your business needs and I'll tell you exactly how I can help.</p>
+      <div class="contact-eyebrow">Say hello</div>
+      <h2 class="contact-h2">Tell me what<br>you're <em>stuck on.</em></h2>
+      <p class="contact-sub">A sentence is enough. I'll tell you, honestly, whether I'm the right person to help, and roughly what it'd cost if I am.</p>
       <div class="contact-info">
         <div class="ci-item">
           <span class="ci-label">Email</span>
           <span class="ci-val"><a href="mailto:hello@rallystudio.co">hello@rallystudio.co</a></span>
         </div>
         <div class="ci-item">
-          <span class="ci-label">Response time</span>
-          <span class="ci-val">Within 24 hours</span>
+          <span class="ci-label">Reply time</span>
+          <span class="ci-val">Usually same day</span>
         </div>
         <div class="ci-item">
-          <span class="ci-label">Based in</span>
-          <span class="ci-val">United States</span>
+          <span class="ci-label">Where</span>
+          <span class="ci-val">United States, fully remote</span>
         </div>
         <div class="ci-item">
-          <span class="ci-label">Availability</span>
-          <span class="ci-val">Taking new clients</span>
+          <span class="ci-label">Right now</span>
+          <span class="ci-val">Two spots open this month</span>
         </div>
       </div>
     </div>
@@ -991,13 +1037,13 @@
           </div>
         </div>
         <div class="cf-field">
-          <label for="cf-msg">Message</label>
-          <textarea id="cf-msg" name="message" placeholder="Tell me about your business and what you're trying to solve..." rows="5" required></textarea>
+          <label for="cf-msg">What's going on?</label>
+          <textarea id="cf-msg" name="message" placeholder="A sentence about your business, and the thing that's bugging you about its online side..." rows="5" required></textarea>
         </div>
-        <button type="submit" class="cf-submit magnetic">Send message</button>
+        <button type="submit" class="cf-submit magnetic">Send it over</button>
       </form>
       <div class="cf-success" id="cfSuccess">
-        <p><strong>Message sent.</strong> I'll be in touch within 24 hours. Looking forward to learning about your business.</p>
+        <p><strong>Got it.</strong> I'll write back within a day, probably from my phone, probably with one follow-up question.</p>
       </div>
     </div>
   </section>
@@ -1006,7 +1052,7 @@
   <footer>
     <div class="footer-logo-wrap">
       <div class="footer-logo">Rally<em>.</em></div>
-      <p class="footer-tagline">Digital growth for small businesses across the US.</p>
+      <p class="footer-tagline">A one-person studio for US small businesses figuring out the internet part.</p>
     </div>
     <div class="footer-links">
       <a href="#services">Services</a>
