@@ -239,23 +239,18 @@
     .gcell:hover img { transform: scale(1.07); }
     .gc0 { aspect-ratio: 3/4; transform: rotate(-3.5deg) translateY(10px); }
     .gc1 { aspect-ratio: 4/5; transform: rotate(2.5deg) translateY(-6px); margin-top: 1.5rem; }
-    .gc2 { aspect-ratio: 4/3; transform: rotate(2deg) translateY(6px); margin-top: -.5rem; }
+    .gc2 { aspect-ratio: 4/5; transform: rotate(2deg) translateY(6px); margin-top: -.5rem; }
     .gc3 { aspect-ratio: 3/4; transform: rotate(-2.5deg) translateY(-8px); }
 
     /* ─── ABOUT ────────────────────────────────────────── */
     .about { padding: 10rem 5vw; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; background: var(--bg2); position: relative; overflow: hidden; }
-    .about-photo-outer { position: relative; display: flex; flex-direction: column; gap: 1.5rem; }
-    .about-photo-wrap { position: relative; height: 58vh; border-radius: 24px; overflow: hidden; }
+    .about-photo-outer { position: relative; }
+    .about-photo-wrap { position: relative; height: 70vh; border-radius: 24px; overflow: hidden; }
     .about-photo-wrap img { width: 100%; height: 115%; object-fit: cover; object-position: center top; }
     .about-photo-wrap::after { content:''; position:absolute; inset:0; bottom:0; background:linear-gradient(to bottom, transparent 60%, rgba(14,12,9,.4)); pointer-events:none; z-index:1; }
     .about-photo-badge { position: absolute; bottom: 2rem; right: 1.5rem; background: rgba(21,18,16,.88); backdrop-filter: blur(16px); border: 1px solid rgba(240,235,226,.12); border-radius: 14px; padding: .85rem 1.25rem; box-shadow: 0 12px 40px rgba(0,0,0,.5); z-index: 2; }
     .apb-label { font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .25rem; }
     .apb-val { font-size: .85rem; color: var(--text); font-weight: 500; }
-    .about-photo-desk { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 16/9; box-shadow: 0 22px 60px rgba(0,0,0,.4); }
-    .about-photo-desk img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; transition: transform 1.2s var(--ease); }
-    .about-photo-desk:hover img { transform: scale(1.03); }
-    .about-photo-desk::after { content:''; position:absolute; inset:0; background: linear-gradient(to top, rgba(8,7,5,.55) 0%, transparent 50%); pointer-events:none; }
-    .about-photo-desk figcaption { position: absolute; bottom: 1rem; left: 1.25rem; font-family: var(--serif); font-style: italic; font-size: .82rem; color: var(--text); padding: .45rem .9rem; background: rgba(8,7,5,.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 100px; border: 1px solid rgba(240,235,226,.1); letter-spacing: -.005em; }
     .about-text .section-tag { margin-bottom: 1.5rem; }
     .about-h2 { font-family: var(--serif); font-size: clamp(2.4rem,4vw,4.5rem); font-weight: 700; line-height: 1.18; letter-spacing: -.035em; margin-bottom: 1.5rem; padding-top: .1em; }
     .about-h2 em { font-style: italic; color: var(--accent); display: inline-block; padding-top: .12em; line-height: 1; }
@@ -719,7 +714,7 @@
     <div class="gallery-grid">
       <div class="gcell gc0" data-hover="view"><img src="img-loft.png" alt="Creative studio work" loading="lazy"></div>
       <div class="gcell gc1" data-hover="view"><img src="img-osmo.png" alt="Osmo Pocket filming" loading="lazy"></div>
-      <div class="gcell gc2" data-hover="view"><img src="img-flatlay.png" alt="Content creation setup" loading="lazy"></div>
+      <div class="gcell gc2" data-hover="view"><img src="img-hero.png" alt="Han's desk: MacBook, Osmo Pocket, notebook, espresso, pampas grass in soft morning light" loading="lazy"></div>
       <div class="gcell gc3" data-hover="view"><img src="img-tiktok.png" alt="TikTok content" loading="lazy"></div>
     </div>
   </section>
@@ -729,15 +724,11 @@
     <div class="about-photo-outer">
       <div class="about-photo-wrap">
         <img src="founder.jpg" alt="Han — founder of Rally Studio">
-        <div class="about-photo-badge">
-          <div class="apb-label">Founder</div>
-          <div class="apb-val">Han · Rally Studio</div>
-        </div>
       </div>
-      <figure class="about-photo-desk">
-        <img src="img-hero.png" alt="The desk: a MacBook Pro, an open notebook, an Osmo Pocket camera, and a small espresso on linen, soft morning light." loading="lazy">
-        <figcaption>The desk · most weekday mornings</figcaption>
-      </figure>
+      <div class="about-photo-badge">
+        <div class="apb-label">Founder</div>
+        <div class="apb-val">Han · Rally Studio</div>
+      </div>
     </div>
     <div class="about-text">
       <div class="section-tag">Hi, I'm Han</div>
