@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sable Hair Studio (concept site by Rally Studio)</title>
+<meta name="description" content="Concept website by Rally Studio for a fictional Lutz hair studio. Built to show what a salon site can look like.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #4A2C40;
+    --ink: #231A20;
+    --clay: #E6C3B5;
+    --shell: #FBF6F3;
+    --brass: #9C7A43;
+    --mute: #6F6068;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Manrope', system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--shell); line-height: 1.65; font-size: 1rem; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; }
+
+  .concept { background: var(--plum); color: #fff; font-size: .875rem; padding: .6rem 1.25rem; text-align: center; }
+  .concept a { color: var(--clay); font-weight: 600; }
+
+  header.top { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem clamp(1rem, 5vw, 4.5rem); }
+  .brand { font-family: var(--serif); font-size: 1.75rem; font-weight: 600; text-decoration: none; letter-spacing: .01em; }
+  .top nav { display: flex; gap: 2rem; font-size: .95rem; }
+  .top nav a { text-decoration: none; color: var(--mute); }
+  .top nav a:hover { color: var(--ink); }
+  .book { display: inline-block; background: var(--plum); color: #fff; text-decoration: none; padding: .85rem 1.6rem; font-weight: 600; font-size: .95rem; border-radius: 2px; }
+  .book:hover { background: var(--ink); }
+
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 78vh; }
+  .hero-text { padding: clamp(2rem, 6vw, 6rem) clamp(1rem, 5vw, 4.5rem); display: flex; flex-direction: column; justify-content: center; }
+  .hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.8rem, 6vw, 5.4rem); line-height: 1.02; letter-spacing: -.01em; max-width: 12ch; }
+  .hero p { margin: 1.5rem 0 2.25rem; max-width: 38ch; color: var(--mute); font-size: 1.1rem; }
+  .hero-img { position: relative; overflow: hidden; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+  .next { margin-top: 1.25rem; font-size: .9rem; color: var(--mute); }
+
+  section { padding: 6rem clamp(1rem, 5vw, 4.5rem); }
+  h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.05; margin-bottom: 2.75rem; }
+
+  .services { background: #fff; }
+  .ledger { max-width: 860px; }
+  .ledger-group + .ledger-group { margin-top: 3rem; }
+  .ledger h3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.6rem; color: var(--plum); margin-bottom: .75rem; }
+  .row { display: grid; grid-template-columns: 1fr auto auto; gap: 2rem; padding: 1rem 0; border-top: 1px solid #EADDD7; align-items: baseline; }
+  .row:last-child { border-bottom: 1px solid #EADDD7; }
+  .row .what { font-weight: 600; }
+  .row .what small { display: block; font-weight: 400; color: var(--mute); font-size: .9rem; }
+  .row .time { color: var(--mute); font-size: .9rem; }
+  .row .cost { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; min-width: 4.5ch; text-align: right; }
+  .ledger-note { margin-top: 1.5rem; color: var(--mute); font-size: .9rem; max-width: 60ch; }
+
+  .gallery { display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: 260px 260px; gap: 1rem; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery img:first-child { grid-row: span 2; }
+
+  .reels { display: grid; grid-template-columns: 1fr auto; gap: clamp(2rem, 6vw, 6rem); align-items: center; background: var(--clay); }
+  .reels p { max-width: 46ch; margin-bottom: 1rem; }
+  .phone { width: min(280px, 68vw); aspect-ratio: 9/16; overflow: hidden; position: relative; border: 6px solid var(--ink); border-radius: 26px; }
+  .phone img { width: 100%; height: 100%; object-fit: cover; }
+  .play { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,.9); display: grid; place-items: center; }
+  .play::after { content: ""; border-left: 20px solid var(--plum); border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
+
+  .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; }
+  .visit dl { display: grid; grid-template-columns: auto 1fr; gap: .6rem 2rem; }
+  .visit dt { color: var(--mute); }
+  .visit dd { font-weight: 600; }
+  .policy { margin-top: 2rem; color: var(--mute); font-size: .95rem; max-width: 46ch; }
+  .reviews { border: 1px solid #E3D3CC; padding: 2rem; background: #fff; }
+  .reviews h3 { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; margin-bottom: .5rem; }
+  .reviews p { color: var(--mute); font-size: .95rem; }
+
+  footer { border-top: 1px solid #EADDD7; padding: 2.5rem clamp(1rem, 5vw, 4.5rem); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .9rem; color: var(--mute); }
+
+  @media (max-width: 860px) {
+    .hero, .visit, .reels { grid-template-columns: 1fr; }
+    .hero-img { height: 60vh; order: -1; }
+    .top nav { display: none; }
+    .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery img { aspect-ratio: 4/5; }
+    .gallery img:first-child { grid-column: span 2; grid-row: auto; aspect-ratio: 4/3; }
+    .row { grid-template-columns: 1fr auto; }
+    .row .time { grid-column: 1; grid-row: 2; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-img img { animation: settle 1.6s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes settle { from { transform: scale(1.08); } to { transform: none; } }
+  }
+</style>
+</head>
+<body>
+  <div class="concept">Concept site by Rally Studio. Sable is a fictional salon, built to show what a salon site can look like. <a href="../index.html#contact">Get one for your business</a></div>
+
+  <header class="top">
+    <a class="brand" href="#">Sable</a>
+    <nav aria-label="Main">
+      <a href="#services">Services &amp; prices</a>
+      <a href="#work">Work</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="book" href="#services">Book an appointment</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title" style="padding:0">
+      <div class="hero-text">
+        <h1 id="hero-title">Color and cuts, done slowly, in Lutz.</h1>
+        <p>A four-chair studio for lived-in color, precision cuts and curly hair. Every price is on this page, and you can book a chair in under a minute.</p>
+        <div><a class="book" href="#services">See prices and book</a></div>
+        <p class="next">Next opening: Thursday, 10:30 am</p>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=1200&q=80&auto=format&fit=crop" alt="A stylist blow-drying a client's hair with a round brush">
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-labelledby="services-title">
+      <h2 id="services-title">Services &amp; prices</h2>
+      <div class="ledger">
+        <div class="ledger-group">
+          <h3>Cuts</h3>
+          <div class="row"><span class="what">Signature cut<small>Consult, wash, cut, style</small></span><span class="time">60 min</span><span class="cost">$75</span></div>
+          <div class="row"><span class="what">Curly cut<small>Dry cut, shaped curl by curl</small></span><span class="time">90 min</span><span class="cost">$95</span></div>
+          <div class="row"><span class="what">Short cut &amp; fade</span><span class="time">45 min</span><span class="cost">$45</span></div>
+        </div>
+        <div class="ledger-group">
+          <h3>Color</h3>
+          <div class="row"><span class="what">Single-process color<small>Roots or all-over</small></span><span class="time">90 min</span><span class="cost">$110</span></div>
+          <div class="row"><span class="what">Balayage<small>Includes toner and style</small></span><span class="time">3 hr</span><span class="cost">$240</span></div>
+          <div class="row"><span class="what">Gloss refresh</span><span class="time">45 min</span><span class="cost">$60</span></div>
+        </div>
+        <p class="ledger-note">On a real site, each row books directly into the salon's scheduling app (Square, Vagaro, Boulevard) and shows open times.</p>
+      </div>
+    </section>
+
+    <section id="work" aria-labelledby="work-title">
+      <h2 id="work-title">In the studio</h2>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=900&q=80&auto=format&fit=crop" alt="A stylist cutting a client's hair" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=700&q=80&auto=format&fit=crop" alt="Salon chairs facing round mirrors" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?w=700&q=80&auto=format&fit=crop" alt="Hands holding brushes, scissors and a tinting brush" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=700&q=80&auto=format&fit=crop" alt="Three salon chairs facing a long mirror" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80&auto=format&fit=crop" alt="A stylist holding a hair dryer" loading="lazy">
+      </div>
+    </section>
+
+    <section class="reels" aria-labelledby="reels-title">
+      <div>
+        <h2 id="reels-title">The reveal, every week</h2>
+        <p>The moment the cape comes off is the best ad a salon has. A short vertical video of one transformation goes here, on Instagram and TikTok, and on the Google profile.</p>
+        <p>Filmed on a normal workday, no extra appointment time needed.</p>
+      </div>
+      <div class="phone">
+        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=700&q=80&auto=format&fit=crop" alt="A barber blow-drying a man's hair">
+        <span class="play" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section id="visit" aria-labelledby="visit-title">
+      <h2 id="visit-title">Visit</h2>
+      <div class="visit">
+        <div>
+          <dl>
+            <dt>Where</dt><dd>Lutz, FL</dd>
+            <dt>Tue to Fri</dt><dd>10 am to 7 pm</dd>
+            <dt>Saturday</dt><dd>9 am to 4 pm</dd>
+            <dt>Sun &amp; Mon</dt><dd>Closed</dd>
+            <dt>Phone</dt><dd><a href="tel:+18135550187">(813) 555-0187</a></dd>
+          </dl>
+          <p class="policy">Running late or need to cancel? Text us at least 24 hours ahead and there's no fee.</p>
+        </div>
+        <div class="reviews">
+          <h3>What clients say</h3>
+          <p>Real Google reviews are pulled in here automatically once the salon's profile is connected. Nothing on this concept is a real review.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Sable Hair Studio, Lutz, FL (fictional)</span>
+    <span>Concept site by <a href="../index.html">Rally Studio</a>. Photos from Unsplash.</span>
+  </footer>
+</body>
+</html>
