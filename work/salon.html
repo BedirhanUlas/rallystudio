@@ -3,64 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sable Hair Studio (concept site by Rally Studio)</title>
-<meta name="description" content="Concept website by Rally Studio for a fictional Lutz hair studio. Built to show what a salon site can look like.">
+<title>Sable Hair Studio | Lutz (concept site by Rally Studio)</title>
+<meta name="description" content="Concept website by Rally Studio for a fictional Lutz hair studio: prices, online booking, gallery and policies.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#4A2C40">
+<meta property="og:title" content="Sable Hair Studio (concept site)">
+<meta property="og:description" content="A concept salon website by Rally Studio, Land O' Lakes, FL.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=1200&q=80&auto=format&fit=crop">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234A2C40'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Georgia' text-anchor='middle' fill='%23E6C3B5'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HairSalon","name":"Sable Hair Studio (fictional concept)","address":{"@type":"PostalAddress","addressLocality":"Lutz","addressRegion":"FL","addressCountry":"US"},"telephone":"+1-813-555-0187","priceRange":"$$","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"16:00"}]}
+</script>
 <style>
   :root {
     --plum: #4A2C40;
+    --plum-deep: #34202D;
     --ink: #231A20;
     --clay: #E6C3B5;
     --shell: #FBF6F3;
-    --brass: #9C7A43;
-    --mute: #6F6068;
+    --mute: #6A5A63;
+    --rule: #EADDD7;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Manrope', system-ui, sans-serif;
+    --pad: clamp(1rem, 5vw, 4.5rem);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--sans); color: var(--ink); background: var(--shell); line-height: 1.65; font-size: 1rem; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { font-family: var(--sans); color: var(--ink); background: var(--shell); line-height: 1.65; font-size: 1rem; -webkit-font-smoothing: antialiased; }
   img { display: block; max-width: 100%; }
   a { color: inherit; }
+  button { font: inherit; color: inherit; cursor: pointer; }
   :focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; }
+  [tabindex="-1"]:focus { outline: none; }
+  .book:disabled { opacity: .4; cursor: not-allowed; }
+  .skip { position: absolute; left: -999px; top: .5rem; background: var(--plum); color: #fff; padding: .6rem 1rem; z-index: 100; }
+  .skip:focus { left: .5rem; }
 
-  .concept { background: var(--plum); color: #fff; font-size: .875rem; padding: .6rem 1.25rem; text-align: center; }
-  .concept a { color: var(--clay); font-weight: 600; }
+  .concept { background: var(--plum); color: #fff; font-size: .85rem; padding: .55rem var(--pad); text-align: center; }
+  .concept a, .concept button { color: var(--clay); font-weight: 600; background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; padding: 0; }
 
-  header.top { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem clamp(1rem, 5vw, 4.5rem); }
-  .brand { font-family: var(--serif); font-size: 1.75rem; font-weight: 600; text-decoration: none; letter-spacing: .01em; }
+  header.top { position: sticky; top: 0; z-index: 40; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem var(--pad); background: var(--shell); border-bottom: 1px solid transparent; transition: border-color .2s; }
+  header.top.scrolled { border-bottom-color: var(--rule); }
+  .brand { font-family: var(--serif); font-size: 1.85rem; font-weight: 600; text-decoration: none; letter-spacing: .02em; line-height: 1; }
   .top nav { display: flex; gap: 2rem; font-size: .95rem; }
   .top nav a { text-decoration: none; color: var(--mute); }
   .top nav a:hover { color: var(--ink); }
-  .book { display: inline-block; background: var(--plum); color: #fff; text-decoration: none; padding: .85rem 1.6rem; font-weight: 600; font-size: .95rem; border-radius: 2px; }
+  .book { display: inline-flex; align-items: center; justify-content: center; background: var(--plum); color: #fff; text-decoration: none; padding: .85rem 1.6rem; font-weight: 600; font-size: .95rem; border: 0; border-radius: 2px; transition: background .15s; }
   .book:hover { background: var(--ink); }
+  .ghost { display: inline-flex; align-items: center; justify-content: center; background: transparent; color: var(--ink); text-decoration: none; padding: .8rem 1.4rem; font-weight: 600; font-size: .95rem; border: 1.5px solid var(--ink); border-radius: 2px; }
+  .ghost:hover { background: var(--ink); color: #fff; }
 
-  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 78vh; }
-  .hero-text { padding: clamp(2rem, 6vw, 6rem) clamp(1rem, 5vw, 4.5rem); display: flex; flex-direction: column; justify-content: center; }
-  .hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.8rem, 6vw, 5.4rem); line-height: 1.02; letter-spacing: -.01em; max-width: 12ch; }
-  .hero p { margin: 1.5rem 0 2.25rem; max-width: 38ch; color: var(--mute); font-size: 1.1rem; }
-  .hero-img { position: relative; overflow: hidden; }
-  .hero-img img { width: 100%; height: 100%; object-fit: cover; }
-  .next { margin-top: 1.25rem; font-size: .9rem; color: var(--mute); }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: min(78vh, 760px); }
+  .hero-text { padding: clamp(2.5rem, 6vw, 6rem) var(--pad); display: flex; flex-direction: column; justify-content: center; }
+  .hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.8rem, 5.6vw, 5.2rem); line-height: 1.02; letter-spacing: -.01em; max-width: 12ch; }
+  .hero p.lede { margin: 1.5rem 0 2.25rem; max-width: 38ch; color: var(--mute); font-size: 1.1rem; }
+  .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+  .next { margin-top: 1.5rem; font-size: .95rem; color: var(--mute); }
+  .next b { color: var(--ink); font-weight: 600; }
+  .hero-img { position: relative; overflow: hidden; min-height: 360px; }
+  .hero-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-  section { padding: 6rem clamp(1rem, 5vw, 4.5rem); }
-  h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.05; margin-bottom: 2.75rem; }
+  section { padding: 6rem var(--pad); }
+  h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.3rem, 4.5vw, 3.4rem); line-height: 1.05; margin-bottom: 1rem; }
+  .section-lede { color: var(--mute); max-width: 54ch; margin-bottom: 2.75rem; }
 
   .services { background: #fff; }
-  .ledger { max-width: 860px; }
+  .services-grid { display: grid; grid-template-columns: minmax(0, 860px) minmax(220px, 300px); gap: 4rem; align-items: start; }
   .ledger-group + .ledger-group { margin-top: 3rem; }
-  .ledger h3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.6rem; color: var(--plum); margin-bottom: .75rem; }
-  .row { display: grid; grid-template-columns: 1fr auto auto; gap: 2rem; padding: 1rem 0; border-top: 1px solid #EADDD7; align-items: baseline; }
-  .row:last-child { border-bottom: 1px solid #EADDD7; }
-  .row .what { font-weight: 600; }
-  .row .what small { display: block; font-weight: 400; color: var(--mute); font-size: .9rem; }
-  .row .time { color: var(--mute); font-size: .9rem; }
-  .row .cost { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; min-width: 4.5ch; text-align: right; }
-  .ledger-note { margin-top: 1.5rem; color: var(--mute); font-size: .9rem; max-width: 60ch; }
+  .ledger h3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.7rem; color: var(--plum); margin-bottom: .5rem; }
+  .svc-row { display: grid; grid-template-columns: 1fr auto auto auto; gap: 1.5rem; padding: 1.05rem 0; border-top: 1px solid var(--rule); align-items: center; }
+  .svc-row:last-child { border-bottom: 1px solid var(--rule); }
+  .svc-what { font-weight: 600; }
+  .svc-what small { display: block; font-weight: 400; color: var(--mute); font-size: .9rem; }
+  .svc-time { color: var(--mute); font-size: .9rem; white-space: nowrap; }
+  .svc-cost { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; min-width: 4.5ch; text-align: right; }
+  .book-row { background: transparent; border: 1.5px solid var(--plum); color: var(--plum); padding: .45rem .95rem; font-weight: 600; font-size: .88rem; border-radius: 2px; }
+  .book-row:hover { background: var(--plum); color: #fff; }
+  .aside-card { background: var(--shell); border: 1px solid var(--rule); padding: 1.75rem; position: sticky; top: 7rem; }
+  .aside-card h3 { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; line-height: 1.1; margin-bottom: .6rem; }
+  .aside-card p { color: var(--mute); font-size: .95rem; margin-bottom: 1.25rem; }
 
-  .gallery { display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: 260px 260px; gap: 1rem; }
+  .gallery { display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 1rem; }
   .gallery img { width: 100%; height: 100%; object-fit: cover; }
   .gallery img:first-child { grid-row: span 2; }
 
@@ -71,26 +100,106 @@
   .play { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,.9); display: grid; place-items: center; }
   .play::after { content: ""; border-left: 20px solid var(--plum); border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
 
-  .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; }
-  .visit dl { display: grid; grid-template-columns: auto 1fr; gap: .6rem 2rem; }
-  .visit dt { color: var(--mute); }
-  .visit dd { font-weight: 600; }
-  .policy { margin-top: 2rem; color: var(--mute); font-size: .95rem; max-width: 46ch; }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; }
+  .hours { border-collapse: collapse; width: 100%; max-width: 420px; }
+  .hours th, .hours td { text-align: left; font-weight: 400; padding: .55rem 0; border-bottom: 1px solid var(--rule); }
+  .hours td { text-align: right; font-weight: 600; }
+  .hours tr.today th, .hours tr.today td { color: var(--plum); font-weight: 700; }
+  .hours tr.today th::after { content: " (today)"; }
+  .contact-lines { margin-top: 1.5rem; display: grid; gap: .3rem; }
   .reviews { border: 1px solid #E3D3CC; padding: 2rem; background: #fff; }
   .reviews h3 { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; margin-bottom: .5rem; }
   .reviews p { color: var(--mute); font-size: .95rem; }
 
-  footer { border-top: 1px solid #EADDD7; padding: 2.5rem clamp(1rem, 5vw, 4.5rem); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .9rem; color: var(--mute); }
+  .faq { max-width: 780px; }
+  .faq details { border-bottom: 1px solid var(--rule); }
+  .faq summary { list-style: none; cursor: pointer; padding: 1.15rem 2.5rem 1.15rem 0; font-weight: 600; font-size: 1.05rem; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; position: absolute; right: .25rem; top: .8rem; font-family: var(--serif); font-size: 1.8rem; line-height: 1; transition: transform .2s; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { padding: 0 0 1.2rem; color: var(--mute); max-width: 62ch; }
 
-  @media (max-width: 860px) {
-    .hero, .visit, .reels { grid-template-columns: 1fr; }
-    .hero-img { height: 60vh; order: -1; }
-    .top nav { display: none; }
+  footer { border-top: 1px solid var(--rule); padding: 2.5rem var(--pad) 6rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .9rem; color: var(--mute); }
+
+  /* dialogs */
+  dialog { border: 0; padding: 0; color: var(--ink); background: #fff; }
+  dialog::backdrop { background: rgba(35,26,32,.55); }
+  .bk { width: min(640px, calc(100vw - 1.5rem)); max-height: calc(100dvh - 1.5rem); margin: auto; display: none; flex-direction: column; }
+  .bk[open] { display: flex; }
+  .bk-flow { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+  .bk-head { padding: 1.4rem 1.75rem 1rem; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 1fr auto; gap: .25rem 1rem; align-items: start; }
+  .bk-head h2 { font-size: 2rem; margin: 0; }
+  .bk-progress { grid-column: 1 / -1; display: flex; gap: .35rem; margin-top: .75rem; }
+  .bk-progress span { flex: 1; height: 3px; background: var(--rule); }
+  .bk-progress span.on { background: var(--plum); }
+  .bk-step-label { grid-column: 1 / -1; font-size: .88rem; color: var(--mute); }
+  .x { border: 0; background: transparent; font-size: 1.8rem; line-height: 1; width: 2.5rem; height: 2.5rem; border-radius: 50%; }
+  .x:hover { background: var(--shell); }
+  .bk-body { padding: 1.5rem 1.75rem; overflow-y: auto; flex: 1; min-height: 0; }
+  .bk-body h3 { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; margin-bottom: 1rem; }
+  .bk-foot { padding: 1rem 1.75rem 1.4rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: .75rem; align-items: center; }
+  .bk-summary { font-size: .9rem; color: var(--mute); }
+  .bk-summary b { color: var(--ink); }
+  .opt-list { display: grid; gap: .5rem; }
+  .opt { display: grid; grid-template-columns: auto 1fr auto; gap: .9rem; align-items: center; border: 1.5px solid var(--rule); padding: .85rem 1rem; cursor: pointer; }
+  .opt:hover { border-color: var(--mute); }
+  .opt:has(input:checked) { border-color: var(--plum); background: #F8F1F5; }
+  .opt input { accent-color: var(--plum); width: 1.1rem; height: 1.1rem; }
+  .opt .o-main { font-weight: 600; }
+  .opt .o-sub { display: block; font-weight: 400; color: var(--mute); font-size: .88rem; }
+  .opt .o-side { font-family: var(--serif); font-weight: 600; font-size: 1.2rem; }
+  .group-label { font-size: .85rem; color: var(--mute); margin: 1rem 0 .4rem; font-weight: 600; }
+  .days { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; margin-bottom: 1.5rem; }
+  .day { border: 1.5px solid var(--rule); background: #fff; padding: .6rem .3rem; text-align: center; line-height: 1.2; }
+  .day small { display: block; color: var(--mute); font-size: .78rem; }
+  .day b { display: block; font-size: 1.15rem; }
+  .day[aria-pressed="true"] { border-color: var(--plum); background: var(--plum); color: #fff; }
+  .day[aria-pressed="true"] small { color: var(--clay); }
+  .day[disabled] { opacity: .45; cursor: not-allowed; }
+  .slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: .5rem; }
+  .slot { border: 1.5px solid var(--rule); background: #fff; padding: .55rem .3rem; font-weight: 600; font-size: .92rem; }
+  .slot:hover:not([disabled]) { border-color: var(--plum); }
+  .slot[aria-pressed="true"] { background: var(--plum); border-color: var(--plum); color: #fff; }
+  .slot[disabled] { color: #B9AEB4; text-decoration: line-through; cursor: not-allowed; }
+  .muted { color: var(--mute); font-size: .92rem; }
+  .field { display: grid; gap: .35rem; margin-bottom: 1rem; font-weight: 600; font-size: .92rem; }
+  .field input, .field textarea { font: inherit; font-weight: 400; padding: .7rem .8rem; border: 1.5px solid var(--rule); background: #fff; }
+  .field input:focus, .field textarea:focus { border-color: var(--plum); outline: none; box-shadow: 0 0 0 3px rgba(74,44,64,.15); }
+  .field input[aria-invalid="true"] { border-color: #B3261E; }
+  .err { color: #B3261E; font-size: .9rem; margin-bottom: 1rem; }
+  .recap { background: var(--shell); padding: 1rem 1.1rem; margin-bottom: 1.25rem; font-size: .95rem; display: grid; gap: .2rem; }
+  .done { padding: 2.25rem 1.75rem; display: grid; gap: 1rem; }
+  .done h3 { font-family: var(--serif); font-weight: 500; font-size: 2rem; line-height: 1.1; }
+  .done .note { background: var(--shell); border-left: 3px solid var(--plum); padding: .9rem 1rem; font-size: .93rem; color: var(--mute); }
+
+  .why { width: min(560px, calc(100vw - 2rem)); padding: 1.9rem; margin: auto; }
+  .why h2 { font-size: 2rem; margin-bottom: .5rem; }
+  .why > p { color: var(--mute); margin-bottom: 1rem; }
+  .why ol { padding-left: 1.2rem; display: grid; gap: .7rem; margin-bottom: 1.5rem; }
+  .why li::marker { font-family: var(--serif); font-weight: 600; color: var(--plum); }
+  .why .acts { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+  .mbar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--plum-deep); padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom)); gap: .5rem; }
+  .mbar a, .mbar button { flex: 1; text-align: center; text-decoration: none; color: #fff; border: 1.5px solid #ffffff40; padding: .7rem .5rem; font-weight: 600; font-size: .95rem; background: transparent; }
+  .mbar .primary { background: var(--clay); color: var(--ink); border-color: var(--clay); }
+
+  @media (max-width: 900px) {
+    .hero, .visit-grid, .reels, .services-grid { grid-template-columns: 1fr; }
+    .hero-img { order: -1; }
+    .top nav, .top .book { display: none; }
+    .aside-card { position: static; }
     .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .gallery img { aspect-ratio: 4/5; }
+    .gallery img { aspect-ratio: 4/5; height: auto; }
     .gallery img:first-child { grid-column: span 2; grid-row: auto; aspect-ratio: 4/3; }
-    .row { grid-template-columns: 1fr auto; }
-    .row .time { grid-column: 1; grid-row: 2; }
+    .svc-row { grid-template-columns: 1fr auto; gap: .35rem 1rem; }
+    .svc-time { grid-column: 1; grid-row: 2; }
+    .svc-cost { grid-column: 2; grid-row: 1; }
+    .book-row { grid-column: 2; grid-row: 2; min-height: 44px; min-width: 72px; }
+    .concept a, .concept button { display: inline-flex; align-items: center; min-height: 44px; }
+    .concept { line-height: 1.4; padding-top: .25rem; padding-bottom: .25rem; }
+    .mbar { display: flex; }
+    .bk { width: 100vw; max-width: 100vw; max-height: 100dvh; height: 100dvh; margin: 0; inset: 0; }
+    .hero-img { min-height: 38vh; }
   }
   @media (prefers-reduced-motion: no-preference) {
     .hero-img img { animation: settle 1.6s cubic-bezier(.2,.7,.2,1) both; }
@@ -99,58 +208,74 @@
 </style>
 </head>
 <body>
-  <div class="concept">Concept site by Rally Studio. Sable is a fictional salon, built to show what a salon site can look like. <a href="../index.html#contact">Get one for your business</a></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <aside class="concept" aria-label="About this site">Concept site by Rally Studio. Sable is a fictional salon. <button type="button" data-open-why>How this site gets clients</button> or <a href="../index.html#contact">get one for your business</a>.</aside>
 
-  <header class="top">
-    <a class="brand" href="#">Sable</a>
+  <header class="top" id="top">
+    <a class="brand" href="#main">Sable</a>
     <nav aria-label="Main">
       <a href="#services">Services &amp; prices</a>
       <a href="#work">Work</a>
       <a href="#visit">Visit</a>
     </nav>
-    <a class="book" href="#services">Book an appointment</a>
+    <button class="book" type="button" data-open-book>Book an appointment</button>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero" aria-labelledby="hero-title" style="padding:0">
       <div class="hero-text">
         <h1 id="hero-title">Color and cuts, done slowly, in Lutz.</h1>
-        <p>A four-chair studio for lived-in color, precision cuts and curly hair. Every price is on this page, and you can book a chair in under a minute.</p>
-        <div><a class="book" href="#services">See prices and book</a></div>
-        <p class="next">Next opening: Thursday, 10:30 am</p>
+        <p class="lede">A four-chair studio for lived-in color, precision cuts and curly hair. Every price is on this page, and booking takes under a minute.</p>
+        <div class="hero-actions">
+          <button class="book" type="button" data-open-book>Book an appointment</button>
+          <a class="ghost" href="#services">See prices</a>
+        </div>
+        <p class="next" data-next-open>Checking the calendar</p>
       </div>
       <div class="hero-img">
-        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=1200&q=80&auto=format&fit=crop" alt="A stylist blow-drying a client's hair with a round brush">
+        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=1200&q=80&auto=format&fit=crop" alt="A stylist blow-drying a client's hair with a round brush" width="1200" height="1500" fetchpriority="high">
       </div>
     </section>
 
     <section class="services" id="services" aria-labelledby="services-title">
       <h2 id="services-title">Services &amp; prices</h2>
-      <div class="ledger">
-        <div class="ledger-group">
-          <h3>Cuts</h3>
-          <div class="row"><span class="what">Signature cut<small>Consult, wash, cut, style</small></span><span class="time">60 min</span><span class="cost">$75</span></div>
-          <div class="row"><span class="what">Curly cut<small>Dry cut, shaped curl by curl</small></span><span class="time">90 min</span><span class="cost">$95</span></div>
-          <div class="row"><span class="what">Short cut &amp; fade</span><span class="time">45 min</span><span class="cost">$45</span></div>
+      <p class="section-lede">Prices include a consultation, wash and style. Long or very thick hair may take more time; we'll tell you before we start.</p>
+      <div class="services-grid">
+        <div class="ledger" data-ledger>
+          <div class="ledger-group">
+            <h3>New clients</h3>
+            <div class="svc-row" data-service="consult"><span class="svc-what">First-visit consultation<small>Talk through the plan and price, no cutting</small></span><span class="svc-time">15 min</span><span class="svc-cost">Free</span><button class="book-row" type="button">Book</button></div>
+          </div>
+          <div class="ledger-group">
+            <h3>Cuts</h3>
+            <div class="svc-row" data-service="signature"><span class="svc-what">Signature cut<small>Consult, wash, cut, style</small></span><span class="svc-time">60 min</span><span class="svc-cost">$75</span><button class="book-row" type="button">Book</button></div>
+            <div class="svc-row" data-service="curly"><span class="svc-what">Curly cut<small>Dry cut, shaped curl by curl</small></span><span class="svc-time">90 min</span><span class="svc-cost">$95</span><button class="book-row" type="button">Book</button></div>
+            <div class="svc-row" data-service="short"><span class="svc-what">Short cut &amp; fade<small>Clippers and scissor work</small></span><span class="svc-time">45 min</span><span class="svc-cost">$45</span><button class="book-row" type="button">Book</button></div>
+          </div>
+          <div class="ledger-group">
+            <h3>Color</h3>
+            <div class="svc-row" data-service="single"><span class="svc-what">Single-process color<small>Roots or all-over</small></span><span class="svc-time">90 min</span><span class="svc-cost">$110</span><button class="book-row" type="button">Book</button></div>
+            <div class="svc-row" data-service="balayage"><span class="svc-what">Balayage<small>Includes toner and style</small></span><span class="svc-time">3 hr</span><span class="svc-cost">$240</span><button class="book-row" type="button">Book</button></div>
+            <div class="svc-row" data-service="gloss"><span class="svc-what">Gloss refresh<small>Shine and tone between color visits</small></span><span class="svc-time">45 min</span><span class="svc-cost">$60</span><button class="book-row" type="button">Book</button></div>
+          </div>
         </div>
-        <div class="ledger-group">
-          <h3>Color</h3>
-          <div class="row"><span class="what">Single-process color<small>Roots or all-over</small></span><span class="time">90 min</span><span class="cost">$110</span></div>
-          <div class="row"><span class="what">Balayage<small>Includes toner and style</small></span><span class="time">3 hr</span><span class="cost">$240</span></div>
-          <div class="row"><span class="what">Gloss refresh</span><span class="time">45 min</span><span class="cost">$60</span></div>
+        <div class="aside-card">
+          <h3>New here?</h3>
+          <p>Your first visit starts with a free 15-minute consultation, so you know the plan and the price before anything is cut or colored.</p>
+          <button class="book" type="button" data-open-book="consult">Book a free consultation</button>
         </div>
-        <p class="ledger-note">On a real site, each row books directly into the salon's scheduling app (Square, Vagaro, Boulevard) and shows open times.</p>
       </div>
     </section>
 
     <section id="work" aria-labelledby="work-title">
       <h2 id="work-title">In the studio</h2>
+      <p class="section-lede">On a live site, these are the salon's own photos, refreshed every month from the shoot.</p>
       <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=900&q=80&auto=format&fit=crop" alt="A stylist cutting a client's hair" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=700&q=80&auto=format&fit=crop" alt="Salon chairs facing round mirrors" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?w=700&q=80&auto=format&fit=crop" alt="Hands holding brushes, scissors and a tinting brush" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=700&q=80&auto=format&fit=crop" alt="Three salon chairs facing a long mirror" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80&auto=format&fit=crop" alt="A stylist holding a hair dryer" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=900&q=80&auto=format&fit=crop" alt="A stylist cutting a client's hair" width="900" height="1125" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=700&q=80&auto=format&fit=crop" alt="Salon chairs facing round mirrors" width="700" height="560" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?w=700&q=80&auto=format&fit=crop" alt="Hands holding brushes, scissors and a tinting brush" width="700" height="560" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=700&q=80&auto=format&fit=crop" alt="Three salon chairs facing a long mirror" width="700" height="560" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80&auto=format&fit=crop" alt="A stylist holding a hair dryer" width="700" height="560" loading="lazy">
       </div>
     </section>
 
@@ -158,31 +283,39 @@
       <div>
         <h2 id="reels-title">The reveal, every week</h2>
         <p>The moment the cape comes off is the best ad a salon has. A short vertical video of one transformation goes here, on Instagram and TikTok, and on the Google profile.</p>
-        <p>Filmed on a normal workday, no extra appointment time needed.</p>
+        <p>Filmed on a normal workday, with the client's permission, no extra appointment time.</p>
       </div>
       <div class="phone">
-        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=700&q=80&auto=format&fit=crop" alt="A barber blow-drying a man's hair">
+        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=700&q=80&auto=format&fit=crop" alt="A stylist blow-drying a man's hair" width="700" height="1244" loading="lazy">
         <span class="play" aria-hidden="true"></span>
       </div>
     </section>
 
     <section id="visit" aria-labelledby="visit-title">
       <h2 id="visit-title">Visit</h2>
-      <div class="visit">
+      <p class="section-lede">Lutz, FL. Parking right outside the door.</p>
+      <div class="visit-grid">
         <div>
-          <dl>
-            <dt>Where</dt><dd>Lutz, FL</dd>
-            <dt>Tue to Fri</dt><dd>10 am to 7 pm</dd>
-            <dt>Saturday</dt><dd>9 am to 4 pm</dd>
-            <dt>Sun &amp; Mon</dt><dd>Closed</dd>
-            <dt>Phone</dt><dd><a href="tel:+18135550187">(813) 555-0187</a></dd>
-          </dl>
-          <p class="policy">Running late or need to cancel? Text us at least 24 hours ahead and there's no fee.</p>
+          <table class="hours" aria-label="Opening hours"><tbody data-hours></tbody></table>
+          <div class="contact-lines">
+            <a href="tel:+18135550187">(813) 555-0187</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Lutz+FL" target="_blank" rel="noopener">Get directions</a>
+          </div>
         </div>
         <div class="reviews">
           <h3>What clients say</h3>
-          <p>Real Google reviews are pulled in here automatically once the salon's profile is connected. Nothing on this concept is a real review.</p>
+          <p>Real Google reviews are pulled in here automatically once the salon's profile is connected. There are no reviews on this concept, because the salon is fictional.</p>
         </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-title" style="background:#fff">
+      <div class="faq">
+        <h2 id="faq-title">Good to know</h2>
+        <details><summary>What if I need to cancel or I'm running late?</summary><p>Text us at least 24 hours ahead and there's no fee. If you're more than 15 minutes late we may need to shorten the service or move you.</p></details>
+        <details><summary>Do you take a deposit?</summary><p>Color services over two hours are held with a card. Nothing is charged unless you miss the appointment without notice.</p></details>
+        <details><summary>I don't know which service I need.</summary><p>Book a signature cut or a gloss and write what you have in mind. We'll talk it through in the free consultation and adjust before starting.</p></details>
+        <details><summary>Do you cut kids' hair?</summary><p>Yes, a kids' cut (12 and under) is $30. Book it as a short cut and add a note.</p></details>
       </div>
     </section>
   </main>
@@ -191,5 +324,305 @@
     <span>Sable Hair Studio, Lutz, FL (fictional)</span>
     <span>Concept site by <a href="../index.html">Rally Studio</a>. Photos from Unsplash.</span>
   </footer>
+
+  <nav class="mbar" aria-label="Quick actions">
+    <a href="tel:+18135550187">Call</a>
+    <button class="primary" type="button" data-open-book>Book</button>
+  </nav>
+
+  <dialog class="why" id="why" aria-labelledby="why-title">
+    <h2 id="why-title">What this site does for a salon</h2>
+    <p>Every part of this page is built to fill empty chairs without more phone calls.</p>
+    <ol>
+      <li>Booking works at 11 pm, when a lot of people finally get around to it.</li>
+      <li>Prices are public, so people book knowing the cost, with fewer surprises at the chair.</li>
+      <li>First-visit clients get a clear, low-risk way in: the free consultation.</li>
+      <li>One weekly transformation video feeds Instagram, TikTok and Google from a normal workday.</li>
+      <li>Policies sit next to the booking, which cuts no-shows and awkward conversations.</li>
+    </ol>
+    <div class="acts">
+      <a class="book" href="../index.html#contact">Get a site like this</a>
+      <button class="ghost" type="button" data-close>Keep looking</button>
+    </div>
+  </dialog>
+
+  <dialog class="bk" id="book" aria-labelledby="bk-title">
+    <div class="bk-head">
+      <h2 id="bk-title">Book an appointment</h2>
+      <button class="x" type="button" data-close aria-label="Close booking">&times;</button>
+      <p class="bk-step-label" data-step-label>Step 1 of 4: service</p>
+      <div class="bk-progress" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
+    </div>
+
+    <div class="bk-flow" data-flow>
+      <div class="bk-body">
+        <div data-step="1">
+          <h3>Choose a service</h3>
+          <div class="opt-list" data-service-list role="radiogroup" aria-label="Service"></div>
+        </div>
+        <div data-step="2" hidden>
+          <h3>Who would you like?</h3>
+          <div class="opt-list" role="radiogroup" aria-label="Stylist">
+            <label class="opt" data-stylist><input type="radio" name="stylist" value="First available" checked><span class="o-main">First available<span class="o-sub">Most openings this week</span></span><span></span></label>
+            <label class="opt" data-stylist><input type="radio" name="stylist" value="Senior stylist"><span class="o-main">Senior stylist<span class="o-sub">Precision cuts and restyles</span></span><span></span></label>
+            <label class="opt" data-stylist><input type="radio" name="stylist" value="Color specialist"><span class="o-main">Color specialist<span class="o-sub">Balayage, blonding, color correction</span></span><span></span></label>
+            <label class="opt" data-stylist><input type="radio" name="stylist" value="Curl specialist"><span class="o-main">Curl specialist<span class="o-sub">Dry cuts and curl care</span></span><span></span></label>
+          </div>
+        </div>
+        <div data-step="3" hidden>
+          <h3>Pick a day and time</h3>
+          <div class="days" data-days role="group" aria-label="Day"></div>
+          <div data-slot-wrap>
+            <p class="group-label" data-slot-label>Times</p>
+            <div class="slots" data-slots role="group" aria-label="Time"></div>
+          </div>
+        </div>
+        <div data-step="4" hidden>
+          <h3>Your details</h3>
+          <div class="recap" data-recap></div>
+          <p class="err" data-error role="alert" hidden>Please add your name and a phone number we can text.</p>
+          <div class="field"><label for="b-name">Full name</label><input id="b-name" type="text" autocomplete="name"></div>
+          <div class="field"><label for="b-phone">Mobile number</label><input id="b-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(813) 555-0100"></div>
+          <div class="field"><label for="b-note">Anything we should know? <span class="muted">(optional)</span></label><textarea id="b-note" rows="2"></textarea></div>
+        </div>
+      </div>
+      <div class="bk-foot">
+        <button class="ghost" type="button" data-back hidden>Back</button>
+        <span class="bk-summary" data-summary><b data-summary-service></b></span>
+        <span>
+          <button class="book" type="button" data-next data-for="1">Continue</button>
+        </span>
+      </div>
+    </div>
+
+    <div class="done" data-done hidden>
+      <h3 data-done-title>You're booked.</h3>
+      <p data-done-text></p>
+      <p class="note">This is a concept site, so nothing was booked and no text was sent. On a live site this goes straight into the salon's calendar (Square, Vagaro or Boulevard), long color services ask for a card to hold the spot, and the client gets a confirmation and a reminder the day before.</p>
+      <div><button class="book" type="button" data-close>Done</button></div>
+    </div>
+  </dialog>
+
+<script>
+(function () {
+  var TZ = 'America/New_York';
+  var HOURS = { 0: null, 1: null, 2: [10, 19], 3: [10, 19], 4: [10, 19], 5: [10, 19], 6: [9, 16] };
+  var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var SERVICES = {};
+  document.querySelectorAll('.svc-row').forEach(function (r) {
+    var mins = /hr/.test(r.querySelector('.svc-time').textContent) ? parseFloat(r.querySelector('.svc-time').textContent) * 60 : parseInt(r.querySelector('.svc-time').textContent, 10);
+    SERVICES[r.dataset.service] = {
+      name: r.querySelector('.svc-what').firstChild.textContent.trim(),
+      group: r.closest('.ledger-group').querySelector('h3').textContent,
+      time: r.querySelector('.svc-time').textContent, mins: mins,
+      cost: r.querySelector('.svc-cost').textContent
+    };
+  });
+
+  function nyParts(date) {
+    var p = new Intl.DateTimeFormat('en-US', { timeZone: TZ, year: 'numeric', month: 'numeric', day: 'numeric', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(date);
+    var g = function (t) { return (p.find(function (x) { return x.type === t; }) || {}).value; };
+    return { y: +g('year'), m: +g('month'), d: +g('day'), wd: SHORT.indexOf(g('weekday')), mins: +g('hour') * 60 + +g('minute') };
+  }
+  function fmt(mins) {
+    var h = Math.floor(mins / 60), m = mins % 60, ap = h >= 12 ? 'pm' : 'am', hh = h % 12 || 12;
+    return hh + (m ? ':' + String(m).padStart(2, '0') : '') + ' ' + ap;
+  }
+  // Calendar days starting today in New York time
+  var today = nyParts(new Date());
+  function dayInfo(offset) {
+    var base = new Date(Date.UTC(today.y, today.m - 1, today.d + offset));
+    return { offset: offset, wd: base.getUTCDay(), m: base.getUTCMonth(), d: base.getUTCDate(), key: base.toISOString().slice(0, 10) };
+  }
+  // Deterministic "booked" slots so the demo looks real but never changes between reloads
+  function thanksgiving(y) { var d = new Date(Date.UTC(y, 10, 1)).getUTCDay(); return 1 + ((4 - d + 7) % 7) + 21; }
+  function isHoliday(day) { var md = (day.m + 1) + '-' + day.d; return md === '1-1' || md === '7-4' || md === '12-25' || md === '12-24' || (day.m === 10 && day.d === thanksgiving(+day.key.slice(0, 4))); }
+  function hash(str) { var h = 2166136261; for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0); }
+  function slotsFor(day, mins) {
+    var h = HOURS[day.wd]; if (!h || isHoliday(day)) return [];
+    var out = [];
+    for (var t = h[0] * 60; t + mins <= h[1] * 60; t += 30) {
+      if (day.offset === 0 && t <= today.mins + 60) continue; // too soon to book
+      out.push({ t: t, free: hash(day.key + t) % 100 >= 45 });
+    }
+    return out;
+  }
+
+  // Hero: live status + next opening for a signature cut
+  var nextEl = document.querySelector('[data-next-open]');
+  (function () {
+    var h = HOURS[today.wd];
+    var openNow = h && !isHoliday(dayInfo(0)) && today.mins >= h[0] * 60 && today.mins < h[1] * 60;
+    for (var i = 0; i < 14; i++) {
+      var day = dayInfo(i), free = slotsFor(day, 60).filter(function (s) { return s.free; });
+      if (free.length) {
+        var when = i === 0 ? 'today' : i === 1 ? 'tomorrow' : DAYS[day.wd];
+        nextEl.innerHTML = '';
+        var s1 = document.createElement('span'); s1.textContent = (openNow ? 'Open now. ' : 'Closed now. ') + 'Next free appointment: ';
+        var b = document.createElement('b'); b.textContent = when + ' at ' + fmt(free[0].t);
+        nextEl.appendChild(s1); nextEl.appendChild(b);
+        return;
+      }
+    }
+  })();
+
+  // Hours table
+  var tb = document.querySelector('[data-hours]');
+  [2, 3, 4, 5, 6, 0, 1].forEach(function (d) {
+    var tr = document.createElement('tr'); if (d === today.wd) tr.className = 'today';
+    var th = document.createElement('th'); th.scope = 'row'; th.textContent = DAYS[d];
+    var td = document.createElement('td'); td.textContent = HOURS[d] ? fmt(HOURS[d][0] * 60) + ' to ' + fmt(HOURS[d][1] * 60) : 'Closed';
+    if (d === today.wd && HOURS[d] && isHoliday(dayInfo(0))) td.textContent = 'Closed (holiday)';
+    tr.appendChild(th); tr.appendChild(td); tb.appendChild(tr);
+  });
+
+  var header = document.getElementById('top');
+  addEventListener('scroll', function () { header.classList.toggle('scrolled', scrollY > 10); }, { passive: true });
+
+  // Booking flow
+  var dlg = document.getElementById('book');
+  var state = { step: 1, service: 'signature', stylist: 'First available', day: null, slot: null };
+  var list = document.querySelector('[data-service-list]');
+  var lastGroup = '';
+  Object.keys(SERVICES).forEach(function (id) {
+    var s = SERVICES[id];
+    if (s.group !== lastGroup) { var gl = document.createElement('p'); gl.className = 'group-label'; gl.textContent = s.group; list.appendChild(gl); lastGroup = s.group; }
+    var lab = document.createElement('label'); lab.className = 'opt';
+    lab.innerHTML = '<input type="radio" name="service"><span class="o-main"><span class="o-sub"></span></span><span class="o-side"></span>';
+    var inp = lab.querySelector('input'); inp.value = id;
+    lab.querySelector('.o-main').insertBefore(document.createTextNode(s.name), lab.querySelector('.o-sub'));
+    lab.querySelector('.o-sub').textContent = s.time;
+    lab.querySelector('.o-side').textContent = s.cost;
+    inp.addEventListener('change', function () { state.service = id; state.day = null; state.slot = null; summary(); });
+    list.appendChild(lab);
+  });
+  document.querySelectorAll('input[name="stylist"]').forEach(function (r) { r.addEventListener('change', function () { state.stylist = r.value; }); });
+
+  var labels = { 1: 'service', 2: 'stylist', 3: 'day and time', 4: 'your details' };
+  function summary() {
+    var s = SERVICES[state.service];
+    document.querySelector('[data-summary-service]').textContent = s.name + ', ' + s.cost;
+  }
+  function show(step) {
+    state.step = step;
+    document.querySelectorAll('[data-step]').forEach(function (el) { el.hidden = +el.dataset.step !== step; });
+    document.querySelector('[data-step-label]').textContent = 'Step ' + step + ' of 4: ' + labels[step];
+    document.querySelectorAll('.bk-progress span').forEach(function (b, i) { b.classList.toggle('on', i < step); });
+    document.querySelector('[data-back]').hidden = step === 1;
+    var nxt = document.querySelector('.bk-foot [data-next]');
+    nxt.textContent = step === 4 ? 'Confirm booking' : 'Continue';
+    nxt.dataset.for = step;
+    if (step === 4) { nxt.setAttribute('data-confirm', ''); } else { nxt.removeAttribute('data-confirm'); }
+    if (step === 3) renderDays();
+    if (step === 3) nxt.disabled = !state.slot; else nxt.disabled = false;
+    if (step === 4) renderRecap();
+    var h = document.querySelector('[data-step="' + step + '"] h3'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
+    document.querySelector('.bk-body').scrollTop = 0;
+  }
+  function renderDays() {
+    var wrap = document.querySelector('[data-days]'); wrap.innerHTML = '';
+    var first = null;
+    for (var i = 0; i < 10; i++) {
+      (function (day) {
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'day';
+        var free = slotsFor(day, SERVICES[state.service].mins).filter(function (s) { return s.free; }).length;
+        b.disabled = !free;
+        b.innerHTML = '<small></small><b></b><small></small>';
+        b.children[0].textContent = day.offset === 0 ? 'Today' : SHORT[day.wd];
+        b.children[1].textContent = day.d;
+        var closed = !HOURS[day.wd] || isHoliday(day);
+        b.children[2].textContent = closed ? (HOURS[day.wd] ? 'Holiday' : 'Closed') : (free ? free + ' open' : 'No times');
+        b.dataset.key = day.key;
+        b.setAttribute('aria-label', DAYS[day.wd] + ' ' + MONTHS[day.m] + ' ' + day.d + ', ' + (closed ? 'closed' : (free ? free + ' times open' : 'fully booked')));
+        b.setAttribute('aria-pressed', state.day && state.day.key === day.key ? 'true' : 'false');
+        b.addEventListener('click', function () { state.day = day; state.slot = null; document.querySelector('.bk-foot [data-next]').disabled = true; renderDays(); var again = document.querySelector('.day[data-key="' + day.key + '"]'); if (again) again.focus(); });
+        if (!b.disabled && !first) first = day;
+        wrap.appendChild(b);
+      })(dayInfo(i));
+    }
+    if (!state.day && first) { state.day = first; return renderDays(); }
+    renderSlots();
+  }
+  function renderSlots() {
+    var wrap = document.querySelector('[data-slots]'); wrap.innerHTML = '';
+    var day = state.day; if (!day) return;
+    document.querySelector('[data-slot-label]').textContent = 'Times on ' + DAYS[day.wd] + ', ' + MONTHS[day.m] + ' ' + day.d;
+    var all = slotsFor(day, SERVICES[state.service].mins);
+    if (!all.length) { var p = document.createElement('p'); p.className = 'muted'; p.textContent = 'No times left on this day.'; wrap.appendChild(p); }
+    all.forEach(function (s) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'slot'; b.textContent = fmt(s.t);
+      b.disabled = !s.free;
+      if (!s.free) b.setAttribute('aria-label', fmt(s.t) + ', taken');
+      b.setAttribute('aria-pressed', state.slot === s.t ? 'true' : 'false');
+      b.dataset.t = s.t;
+      b.addEventListener('click', function () { state.slot = s.t; renderSlots(); document.querySelector('.bk-foot [data-next]').disabled = false; var again = document.querySelector('.slot[data-t="' + s.t + '"]'); if (again) again.focus(); });
+      wrap.appendChild(b);
+    });
+  }
+  function whenText() {
+    var d = state.day; return DAYS[d.wd] + ', ' + MONTHS[d.m] + ' ' + d.d + ' at ' + fmt(state.slot);
+  }
+  function renderRecap() {
+    var s = SERVICES[state.service], r = document.querySelector('[data-recap]'); r.innerHTML = '';
+    [s.name + ' (' + s.time + '), ' + s.cost, state.stylist, whenText()].forEach(function (t) { var d = document.createElement('div'); d.textContent = t; r.appendChild(d); });
+  }
+  function confirm() {
+    var name = document.getElementById('b-name'), phone = document.getElementById('b-phone');
+    var dg = phone.value.replace(/\D/g, ''); if (dg.length === 11 && dg[0] === '1') dg = dg.slice(1);
+    var okName = name.value.trim().length > 1, okPhone = dg.length === 10;
+    name.setAttribute('aria-invalid', okName ? 'false' : 'true');
+    phone.setAttribute('aria-invalid', okPhone ? 'false' : 'true');
+    var err = document.querySelector('[data-error]');
+    if (!okName || !okPhone) { err.hidden = false; (okName ? phone : name).focus(); return; }
+    err.hidden = true;
+    var first = name.value.trim().split(/\s+/)[0];
+    document.querySelector('[data-done-title]').textContent = 'You’re booked, ' + first + '.';
+    var digits = dg;
+    var pretty = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+    var who = state.stylist === 'First available' ? 'the first available stylist' : 'our ' + state.stylist.toLowerCase();
+    document.querySelector('[data-done-text]').textContent = SERVICES[state.service].name + ' with ' + who + ', ' + whenText() + '. A confirmation text would go to ' + pretty + '.';
+    document.querySelector('[data-flow]').hidden = true;
+    document.querySelector('[data-done]').hidden = false;
+    document.querySelector('[data-step-label]').textContent = 'Confirmed';
+    document.querySelector('[data-done] [data-close]').focus();
+  }
+  document.querySelector('.bk-foot [data-next]').addEventListener('click', function () {
+    if (state.step === 3 && state.slot == null) return;
+    if (state.step === 4) { if (state.slot == null) return show(3); return confirm(); }
+    show(state.step + 1);
+  });
+  document.querySelector('[data-back]').addEventListener('click', function () { show(state.step - 1); });
+
+  function openBooking(serviceId) {
+    state.service = serviceId || 'signature';
+    state.stylist = 'First available';
+    state.day = null; state.slot = null;
+    document.querySelectorAll('input[name="stylist"]').forEach(function (r) { r.checked = r.value === state.stylist; });
+    ['b-name', 'b-phone', 'b-note'].forEach(function (id) { var el = document.getElementById(id); el.value = ''; el.removeAttribute('aria-invalid'); });
+    document.querySelector('[data-flow]').hidden = false;
+    document.querySelector('[data-done]').hidden = true;
+    document.querySelector('[data-error]').hidden = true;
+    list.querySelectorAll('input').forEach(function (i) { i.checked = i.value === state.service; });
+    summary();
+    dlg.showModal();
+    show(serviceId ? 2 : 1);
+  }
+  document.querySelectorAll('[data-open-book]').forEach(function (b) { b.addEventListener('click', function () { openBooking(b.dataset.openBook || null); }); });
+  document.querySelectorAll('.svc-row .book-row').forEach(function (b) {
+    var row = b.closest('.svc-row');
+    b.setAttribute('aria-label', 'Book ' + SERVICES[row.dataset.service].name);
+    b.addEventListener('click', function () { openBooking(row.dataset.service); });
+  });
+
+  var why = document.getElementById('why');
+  document.querySelectorAll('[data-open-why]').forEach(function (b) { b.addEventListener('click', function () { why.showModal(); }); });
+  document.querySelectorAll('dialog').forEach(function (d) {
+    d.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', function () { d.close(); }); });
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+  });
+})();
+</script>
 </body>
 </html>
