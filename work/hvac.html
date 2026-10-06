@@ -3,177 +3,396 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Halfmoon Air &amp; Heat (concept site by Rally Studio)</title>
-<meta name="description" content="Concept website by Rally Studio for a fictional Land O' Lakes HVAC company. Built to show what a home service site can look like.">
+<title>Halfmoon Air &amp; Heat | Land O' Lakes HVAC (concept site by Rally Studio)</title>
+<meta name="description" content="Concept website by Rally Studio for a fictional Land O' Lakes HVAC company: same-day AC repair, troubleshooting, maintenance plans and service requests.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F2A44">
+<meta property="og:title" content="Halfmoon Air &amp; Heat (concept site)">
+<meta property="og:description" content="A concept home service website by Rally Studio, Land O' Lakes, FL.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1718203862467-c33159fdc504?w=1200&q=80&auto=format&fit=crop">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230F2A44'/%3E%3Cpath d='M40 14a20 20 0 1 0 10 34A16 16 0 1 1 40 14z' fill='%23E8590C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500;62..125,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500;62..125,700;62..125,800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HVACBusiness","name":"Halfmoon Air & Heat (fictional concept)","address":{"@type":"PostalAddress","addressLocality":"Land O' Lakes","addressRegion":"FL","postalCode":"34638","addressCountry":"US"},"telephone":"+1-813-555-0163","areaServed":["Land O' Lakes","Lutz","Wesley Chapel","New Tampa"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"14:00"}]}
+</script>
 <style>
   :root {
     --navy: #0F2A44;
+    --navy-2: #173A5C;
     --ice: #E8F3FA;
-    --signal: #E8590C;
-    --steel: #5B6B7A;
+    --signal: #BF4609;
+    --signal-dark: #9C3906;
+    --steel: #4F5F6E;
     --line: #C9D8E3;
+    --ok: #1F7A4A;
     --white: #FFFFFF;
     --display: 'Archivo', system-ui, sans-serif;
     --body: 'Public Sans', system-ui, sans-serif;
+    --pad: clamp(1rem, 5vw, 4rem);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--body); color: var(--navy); background: var(--white); line-height: 1.6; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { font-family: var(--body); color: var(--navy); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
   img { display: block; max-width: 100%; }
   a { color: inherit; }
+  button { font: inherit; cursor: pointer; }
   :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+  [tabindex="-1"]:focus { outline: none; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .skip { position: absolute; left: -999px; top: .5rem; background: var(--signal); color: #fff; padding: .6rem 1rem; z-index: 100; border-radius: 6px; }
+  .skip:focus { left: .5rem; }
 
-  .concept { background: var(--signal); color: #fff; font-size: .875rem; padding: .6rem 1.25rem; text-align: center; }
-  .concept a { color: #fff; font-weight: 600; }
+  .concept { background: var(--signal); color: #fff; font-size: .85rem; padding: .55rem var(--pad); text-align: center; }
+  .concept a, .concept button { color: #fff; font-weight: 700; background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; padding: 0; }
 
-  header.top { background: var(--navy); color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 1rem clamp(1rem, 5vw, 4rem); gap: 1rem; }
-  .brand { font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: 1.35rem; text-decoration: none; }
-  .top .call { font-weight: 600; text-decoration: none; }
+  header.top { position: sticky; top: 0; z-index: 40; background: var(--navy); color: #fff; display: flex; justify-content: space-between; align-items: center; padding: .85rem var(--pad); gap: 1.5rem; }
+  .brand { display: flex; align-items: center; gap: .6rem; font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: 1.3rem; text-decoration: none; white-space: nowrap; }
+  .brand svg { width: 28px; height: 28px; flex: none; }
+  .top nav { display: flex; gap: 1.6rem; font-weight: 500; font-size: .95rem; margin-left: auto; }
+  .top nav a { text-decoration: none; color: #C9D8E3; }
+  .top nav a:hover { color: #fff; }
+  .top .call { font-weight: 700; text-decoration: none; background: var(--signal); padding: .55rem 1rem; border-radius: 6px; white-space: nowrap; }
+  .top .call:hover { background: var(--signal-dark); }
 
-  .hero { background: var(--navy); color: #fff; display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; padding: 3rem clamp(1rem, 5vw, 4rem) 4.5rem; align-items: center; }
-  .hero .status { display: inline-flex; align-items: center; gap: .55rem; background: rgba(255,255,255,.08); padding: .45rem .9rem; border-radius: 6px; font-size: .95rem; }
-  .dot { width: 10px; height: 10px; border-radius: 50%; background: #3DDC84; }
-  .hero h1 { font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: .95; margin: 1.25rem 0; text-transform: none; }
-  .hero p { max-width: 40ch; color: #C9D8E3; font-size: 1.1rem; }
-  .phone-big { display: inline-block; margin-top: 2rem; font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.6rem); color: var(--white); text-decoration: none; background: var(--signal); padding: .4rem 1.1rem .5rem; border-radius: 8px; }
-  .phone-big:hover { background: #C64A08; }
-  .sub-cta { display: block; margin-top: .9rem; color: #C9D8E3; }
-  .hero-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 10px; }
+  .hero { background: var(--navy); color: #fff; display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; padding: 3rem var(--pad) 4.5rem; align-items: center; }
+  .status { display: inline-flex; align-items: center; gap: .55rem; background: rgba(255,255,255,.08); padding: .45rem .9rem; border-radius: 6px; font-size: .95rem; }
+  .status .dot { width: 10px; height: 10px; border-radius: 50%; background: #3DDC84; flex: none; }
+  .status.after .dot { background: #FFB547; }
+  .hero h1 { font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: clamp(2.8rem, 6.6vw, 5.4rem); line-height: .95; margin: 1.25rem 0; }
+  .hero p.lede { max-width: 42ch; color: #C9D8E3; font-size: 1.1rem; }
+  .phone-big { display: inline-block; margin-top: 2rem; font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.4rem); color: var(--white); text-decoration: none; background: var(--signal); padding: .35rem 1.1rem .45rem; border-radius: 8px; line-height: 1.2; }
+  .phone-big:hover { background: var(--signal-dark); }
+  .sub-cta { display: inline-block; margin-top: .5rem; padding: .7rem 0; color: #fff; font-weight: 600; }
+  .trust { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 2rem; color: #C9D8E3; font-size: .95rem; list-style: none; }
+  .trust li { display: flex; align-items: center; gap: .45rem; }
+  .trust li::before { content: ""; width: 14px; height: 8px; border-left: 2.5px solid #3DDC84; border-bottom: 2.5px solid #3DDC84; transform: rotate(-45deg) translateY(-3px); }
+  .hero-img img { width: 100%; height: min(540px, 66vh); object-fit: cover; object-position: 50% 30%; border-radius: 10px; }
 
-  section { padding: 5rem clamp(1rem, 5vw, 4rem); }
-  h2 { font-family: var(--display); font-stretch: 85%; font-weight: 800; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1; margin-bottom: 2rem; }
+  section { padding: 5rem var(--pad); }
+  .wrap { max-width: 1150px; }
+  h2 { font-family: var(--display); font-stretch: 85%; font-weight: 800; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1; margin-bottom: .9rem; }
+  .section-lede { color: var(--steel); max-width: 56ch; margin-bottom: 2.25rem; }
 
-  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 2px solid var(--navy); max-width: 1150px; }
+  /* troubleshooter */
+  .ts { background: var(--ice); }
+  .ts-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3.5rem; align-items: start; }
+  .ts-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 1.75rem; min-height: 280px; }
+  .ts-count { font-size: .9rem; color: var(--steel); font-weight: 600; margin-bottom: .4rem; }
+  .ts-q { font-family: var(--display); font-weight: 700; font-size: 1.45rem; line-height: 1.2; margin-bottom: .5rem; }
+  .ts-hint { color: var(--steel); font-size: .95rem; margin-bottom: 1.5rem; }
+  .ts-ans { display: flex; gap: .75rem; }
+  .ts-ans button { flex: 1; max-width: 10rem; padding: .8rem 1rem; border-radius: 8px; border: 2px solid var(--navy); background: #fff; color: var(--navy); font-weight: 700; }
+  .ts-ans button:hover { background: var(--navy); color: #fff; }
+  .ts-result h3 { font-family: var(--display); font-weight: 800; font-size: 1.6rem; line-height: 1.1; margin-bottom: .75rem; }
+  .ts-result ol { padding-left: 1.2rem; display: grid; gap: .45rem; margin-bottom: 1.25rem; }
+  .ts-result .tag { display: inline-block; font-size: .8rem; font-weight: 700; padding: .2rem .55rem; border-radius: 4px; margin-bottom: .75rem; }
+  .tag.diy { background: #E3F4EA; color: var(--ok); }
+  .tag.call { background: #FDE9DD; color: var(--signal-dark); }
+  .ts-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: .85rem 1.3rem; border-radius: 8px; font-weight: 700; text-decoration: none; border: 2px solid var(--navy); background: var(--navy); color: #fff; }
+  .btn:hover { background: var(--navy-2); }
+  .btn.orange { background: var(--signal); border-color: var(--signal); }
+  .btn.orange:hover { background: var(--signal-dark); border-color: var(--signal-dark); }
+  .btn.plain { background: transparent; color: var(--navy); }
+  .btn.plain:hover { background: var(--navy); color: #fff; }
+  .linkish { background: none; border: 0; color: var(--navy); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; padding: .3rem 0; }
+  .safety { font-size: .9rem; color: var(--steel); margin-top: 1.25rem; }
+
+  /* services */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--navy); }
   .svc { padding: 1.75rem 1.5rem 1.75rem 0; border-bottom: 1px solid var(--line); }
-  .svc + .svc { padding-left: 1.5rem; border-left: 1px solid var(--line); }
-  .svc:nth-child(4) { padding-left: 0; border-left: none; }
+  .svc:not(:nth-child(3n+1)) { padding-left: 1.5rem; border-left: 1px solid var(--line); }
   .svc h3 { font-family: var(--display); font-weight: 800; font-size: 1.25rem; margin-bottom: .4rem; }
   .svc p { color: var(--steel); font-size: .98rem; }
-  .svc .from { margin-top: .75rem; font-weight: 600; color: var(--navy); }
+  .svc .from { margin-top: .75rem; font-weight: 700; color: var(--navy); }
 
-  .area { background: var(--ice); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-  .area p { max-width: 44ch; color: var(--steel); }
-  .zips { display: flex; flex-wrap: wrap; gap: .5rem; align-content: flex-start; }
-  .zip { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: .5rem .75rem; font-size: .95rem; }
+  /* area */
+  .area { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; background: var(--navy); color: #fff; }
+  .area .section-lede { color: #C9D8E3; }
+  .zip-form { display: flex; gap: .5rem; max-width: 420px; }
+  .zip-form input { flex: 1; font: inherit; padding: .8rem .9rem; border-radius: 8px; border: 2px solid transparent; min-width: 0; }
+  .zip-form input:focus { outline: none; border-color: var(--signal); }
+  .zip-form button { border: 0; border-radius: 8px; background: var(--signal); color: #fff; font-weight: 700; padding: 0 1.2rem; }
+  .zip-result { margin-top: .9rem; font-weight: 600; min-height: 1.6em; }
+  .zip-result.yes { color: #7BE3A6; }
+  .zip-result.no { color: #FFC28A; }
+  .zips { display: flex; flex-wrap: wrap; gap: .5rem; align-content: flex-start; list-style: none; }
+  .zip { background: var(--navy-2); border: 1px solid #2D4F71; border-radius: 6px; padding: .5rem .75rem; font-size: .95rem; }
   .zip b { font-family: var(--display); font-weight: 800; margin-right: .35rem; }
 
-  .quote { display: grid; grid-template-columns: .9fr 1.1fr; gap: 4rem; max-width: 1150px; }
-  .quote p { color: var(--steel); max-width: 40ch; }
+  /* plans */
+  .plans-table { width: 100%; max-width: 820px; border-collapse: collapse; }
+  .plans-table th, .plans-table td { padding: .85rem 1rem; border-bottom: 1px solid var(--line); text-align: left; }
+  .plans-table thead th { font-family: var(--display); font-weight: 800; font-size: 1.15rem; vertical-align: bottom; border-bottom: 2px solid var(--navy); }
+  .plans-table thead th span { display: block; font-family: var(--body); font-weight: 500; font-size: .95rem; color: var(--steel); }
+  .plans-table tbody th { font-weight: 500; color: var(--steel); }
+  .plans-table td { font-weight: 700; text-align: center; width: 24%; }
+  .plans-table thead th:not(:first-child) { text-align: center; }
+  .plans-table .hl { background: var(--ice); }
+  .plans-note { color: var(--steel); font-size: .95rem; margin-top: 1.25rem; max-width: 70ch; }
+
+  /* request form */
+  .quote { display: grid; grid-template-columns: .85fr 1.15fr; gap: 4rem; }
+  .quote-steps { list-style: none; display: grid; gap: 1rem; margin-top: 1.5rem; counter-reset: s; }
+  .quote-steps li { counter-increment: s; display: grid; grid-template-columns: 2rem 1fr; gap: .75rem; color: var(--steel); }
+  .quote-steps li::before { content: counter(s); width: 2rem; height: 2rem; border-radius: 50%; background: var(--ice); color: var(--navy); font-weight: 800; display: grid; place-items: center; font-family: var(--display); }
+  .quote-steps b { color: var(--navy); display: block; }
   form { display: grid; gap: 1rem; }
-  label { font-weight: 600; font-size: .95rem; display: grid; gap: .35rem; }
-  input, select, textarea { font: inherit; padding: .75rem .85rem; border: 1.5px solid var(--line); border-radius: 6px; background: #fff; color: var(--navy); }
-  input:focus, select:focus, textarea:focus { border-color: var(--navy); outline: none; box-shadow: 0 0 0 3px rgba(15,42,68,.15); }
+  .fld { display: grid; gap: .35rem; font-weight: 600; font-size: .95rem; }
+  .fld input, .fld select, .fld textarea { font: inherit; font-weight: 400; padding: .75rem .85rem; border: 1.5px solid var(--line); border-radius: 6px; background: #fff; color: var(--navy); }
+  .fld input:focus, .fld select:focus, .fld textarea:focus { border-color: var(--navy); outline: none; box-shadow: 0 0 0 3px rgba(15,42,68,.15); }
+  .fld [aria-invalid="true"] { border-color: #B3261E; }
+  .fld .msg { color: #B3261E; font-size: .88rem; font-weight: 500; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  button { font: inherit; font-weight: 600; background: var(--navy); color: #fff; border: 0; border-radius: 6px; padding: .95rem 1.4rem; cursor: pointer; justify-self: start; }
-  button:hover { background: var(--signal); }
-  .form-msg { display: none; background: var(--ice); padding: 1rem; border-radius: 6px; }
-  .form-msg.on { display: block; }
+  .times { display: flex; gap: .5rem; flex-wrap: wrap; border: 0; }
+  .times legend { font-weight: 600; font-size: .95rem; margin-bottom: .35rem; }
+  .times label { display: inline-flex; align-items: center; gap: .4rem; border: 1.5px solid var(--line); border-radius: 6px; padding: .55rem .8rem; font-weight: 500; cursor: pointer; }
+  .times label:has(input:checked) { border-color: var(--navy); background: var(--ice); }
+  .times input { accent-color: var(--navy); }
+  form button[type=submit] { justify-self: start; }
+  .form-msg { background: #E3F4EA; border-left: 4px solid var(--ok); padding: 1rem 1.1rem; border-radius: 6px; }
+  .form-msg b { display: block; margin-bottom: .25rem; }
 
-  .proof { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; max-width: 1150px; padding-top: 0; }
-  .proof .box { border: 1px solid var(--line); border-radius: 10px; padding: 1.75rem; }
-  .proof h3 { font-family: var(--display); font-weight: 800; font-size: 1.3rem; margin-bottom: .5rem; }
-  .proof p { color: var(--steel); }
-  .proof img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 10px; }
+  /* proof */
+  .proof { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch; }
+  .proof .box { display: flex; flex-direction: column; justify-content: center; }
+  .box { border: 1px solid var(--line); border-radius: 10px; padding: 1.75rem; }
+  .box h3 { font-family: var(--display); font-weight: 800; font-size: 1.3rem; margin-bottom: .5rem; }
+  .box p { color: var(--steel); }
+  .proof figure img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 10px; }
+  .proof figcaption { margin-top: .75rem; color: var(--steel); font-size: .95rem; }
 
-  footer { background: var(--navy); color: #C9D8E3; padding: 2.5rem clamp(1rem, 5vw, 4rem); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .95rem; }
+  .faq { max-width: 780px; }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary { list-style: none; cursor: pointer; padding: 1.1rem 2.5rem 1.1rem 0; font-weight: 700; font-size: 1.05rem; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; position: absolute; right: .25rem; top: .8rem; font-family: var(--display); font-weight: 800; font-size: 1.5rem; transition: transform .2s; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { padding: 0 0 1.2rem; color: var(--steel); max-width: 62ch; }
+
+  footer { background: var(--navy); color: #C9D8E3; padding: 2.5rem var(--pad) 6rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .95rem; }
   footer a { color: #fff; }
 
-  @media (max-width: 860px) {
-    .hero, .area, .quote, .proof { grid-template-columns: 1fr; }
+  dialog { border: 0; padding: 0; color: var(--navy); }
+  dialog::backdrop { background: rgba(15,42,68,.6); }
+  .why { width: min(560px, calc(100vw - 2rem)); border-radius: 12px; padding: 1.9rem; margin: auto; }
+  .why h2 { font-size: 1.9rem; margin-bottom: .5rem; }
+  .why > p { color: var(--steel); margin-bottom: 1rem; }
+  .why ol { padding-left: 1.2rem; display: grid; gap: .7rem; margin-bottom: 1.5rem; }
+  .why li::marker { font-weight: 800; color: var(--signal); }
+  .why .acts { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+  .mbar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--navy); padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom)); gap: .5rem; border-top: 1px solid #2D4F71; }
+  .mbar a { flex: 1; text-align: center; text-decoration: none; color: #fff; border: 1.5px solid #ffffff40; border-radius: 8px; padding: .7rem .5rem; font-weight: 700; font-size: .95rem; }
+  .mbar .primary { background: var(--signal); border-color: var(--signal); }
+
+  @media (max-width: 900px) {
+    .hero, .area, .quote, .proof, .ts-grid { grid-template-columns: 1fr; }
     .hero-img { display: none; }
+    .top nav { display: none; }
     .services { grid-template-columns: 1fr; }
-    .svc, .svc + .svc { padding-left: 0; border-left: none; }
+    .svc, .svc:not(:nth-child(3n+1)) { padding-left: 0; border-left: none; }
     .two { grid-template-columns: 1fr; }
+    .mbar { display: flex; }
+    .concept a, .concept button { display: inline-flex; align-items: center; min-height: 44px; }
+    .concept { line-height: 1.4; padding-top: .25rem; padding-bottom: .25rem; }
+    .plans-table th, .plans-table td { padding: .7rem .5rem; font-size: .95rem; }
+  }
+  @media (max-width: 420px) {
+    .top .call { display: none; }
   }
 </style>
 </head>
 <body>
-  <div class="concept">Concept site by Rally Studio. Halfmoon is a fictional company, built to show what a home service site can look like. <a href="../index.html#contact">Get one for your business</a></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <aside class="concept" aria-label="About this site">Concept site by Rally Studio. Halfmoon is a fictional company. <button type="button" data-open-why>How this site gets calls</button> or <a href="../index.html#contact">get one for your business</a>.</aside>
 
   <header class="top">
-    <a class="brand" href="#">Halfmoon Air &amp; Heat</a>
+    <a class="brand" href="#main"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 10a22 22 0 1 0 12 38A17 17 0 1 1 40 10z" fill="#E8590C"/></svg>Halfmoon Air &amp; Heat</a>
+    <nav aria-label="Main">
+      <a href="#troubleshoot">AC not cooling?</a>
+      <a href="#plans">Maintenance plans</a>
+      <a href="#area">Service area</a>
+    </nav>
     <a class="call" href="tel:+18135550163">(813) 555-0163</a>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div>
-        <span class="status"><span class="dot" aria-hidden="true"></span>Same-day appointments open today</span>
+        <p class="status" data-status><span class="dot" aria-hidden="true"></span><span data-status-text>Same-day appointments available</span></p>
         <h1 id="hero-title">AC quit? We're usually there the same day.</h1>
-        <p>Repair, maintenance and new systems for homes in Land O' Lakes, Lutz, Wesley Chapel and New Tampa. Licensed techs, upfront prices before any work starts.</p>
-        <a class="phone-big" href="tel:+18135550163">(813) 555-0163</a>
+        <p class="lede">Repair, maintenance and new systems for homes in Land O' Lakes, Lutz, Wesley Chapel and New Tampa. You get the price before any work starts.</p>
+        <a class="phone-big" href="tel:+18135550163">(813) 555-0163</a><br>
         <a class="sub-cta" href="#quote">Or request a visit online</a>
+        <ul class="trust">
+          <li>Licensed &amp; insured</li>
+          <li>All major brands</li>
+          <li>Upfront, flat-rate pricing</li>
+        </ul>
       </div>
       <div class="hero-img">
-        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=900&q=80&auto=format&fit=crop" alt="A technician in a hard hat holding a power tool">
+        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=900&q=80&auto=format&fit=crop" alt="A technician in a hard hat at work" width="900" height="1125" fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="ts" id="troubleshoot" aria-labelledby="ts-title">
+      <div class="ts-grid wrap">
+        <div>
+          <h2 id="ts-title">AC not cooling? Check this first.</h2>
+          <p class="section-lede">Four quick questions. Plenty of "no cooling" calls turn out to be something you can fix yourself in a few minutes, and we'd rather tell you that than charge for a visit.</p>
+          <p class="safety">Smell burning, see sparks, or hear a loud buzzing from the outdoor unit? Turn the system off at the thermostat and call us now.</p>
+        </div>
+        <div class="ts-card" data-ts>
+          <div data-q="1">
+            <p class="ts-count">Question 1 of 4</p>
+            <p class="ts-q" tabindex="-1">Is the thermostat set to Cool, and below the room temperature?</p>
+            <p class="ts-hint">Also check it has power. A blank screen often just means dead batteries.</p>
+            <div class="ts-ans"><button type="button" data-a="yes">Yes</button><button type="button" data-a="no">No, or not sure</button></div>
+          </div>
+          <div data-q="2" hidden>
+            <p class="ts-count">Question 2 of 4</p>
+            <p class="ts-q" tabindex="-1">Are the AC breakers on in your electrical panel?</p>
+            <p class="ts-hint">Look for switches labeled AC, Condenser or Air Handler that sit in the middle position.</p>
+            <div class="ts-ans"><button type="button" data-a="yes">Yes, all on</button><button type="button" data-a="no">One is tripped</button></div>
+          </div>
+          <div data-q="3" hidden>
+            <p class="ts-count">Question 3 of 4</p>
+            <p class="ts-q" tabindex="-1">Has the air filter been changed in the last three months?</p>
+            <p class="ts-hint">A clogged filter is the most common cause of weak airflow and frozen coils.</p>
+            <div class="ts-ans"><button type="button" data-a="yes">Yes</button><button type="button" data-a="no">No, or not sure</button></div>
+          </div>
+          <div data-q="4" hidden>
+            <p class="ts-count">Question 4 of 4</p>
+            <p class="ts-q" tabindex="-1">Do you see ice on the copper lines, or water pooling near the indoor unit?</p>
+            <p class="ts-hint">Check the pipes going into the outdoor unit and the area around your air handler.</p>
+            <div class="ts-ans"><button type="button" data-a="yes">Yes</button><button type="button" data-a="no">No</button></div>
+          </div>
+          <div class="ts-result" data-result hidden></div>
+        </div>
       </div>
     </section>
 
     <section aria-labelledby="services-title">
-      <h2 id="services-title">What we fix and install</h2>
-      <div class="services">
-        <div class="svc"><h3>AC repair</h3><p>Warm air, ice on the lines, short cycling, strange noises.</p><p class="from">Diagnostic visit $89</p></div>
-        <div class="svc"><h3>Maintenance plan</h3><p>Two tune-ups a year before summer and winter, priority booking.</p><p class="from">$15 a month</p></div>
-        <div class="svc"><h3>New systems</h3><p>Heat pumps and split systems sized to your home, with financing.</p><p class="from">Free in-home estimate</p></div>
-        <div class="svc"><h3>Heating</h3><p>Heat pump and furnace repair for the few cold weeks a year.</p></div>
-        <div class="svc"><h3>Indoor air</h3><p>Duct cleaning, UV lights, humidity control for Florida summers.</p></div>
-        <div class="svc"><h3>Thermostats</h3><p>Smart thermostat install and setup in about an hour.</p></div>
+      <div class="wrap">
+        <h2 id="services-title">What we fix and install</h2>
+        <p class="section-lede">Every visit starts with a flat-rate price. If you say no, you only pay the diagnostic.</p>
+        <div class="services">
+          <div class="svc"><h3>AC repair</h3><p>Warm air, ice on the lines, short cycling, strange noises.</p><p class="from">Diagnostic visit $89</p></div>
+          <div class="svc"><h3>Maintenance</h3><p>Two tune-ups a year, before summer and before winter.</p><p class="from">From $15 a month</p></div>
+          <div class="svc"><h3>New systems</h3><p>Heat pumps and split systems sized to your home, with financing.</p><p class="from">Free in-home estimate</p></div>
+          <div class="svc"><h3>Heating</h3><p>Heat pump and furnace repair for the few cold weeks a year.</p><p class="from">Diagnostic visit $89</p></div>
+          <div class="svc"><h3>Indoor air</h3><p>Duct cleaning, UV lights and dehumidifiers for Florida summers.</p><p class="from">Free air quality check</p></div>
+          <div class="svc"><h3>Thermostats</h3><p>Smart thermostat install and app setup in about an hour.</p><p class="from">From $149 installed</p></div>
+        </div>
       </div>
     </section>
 
-    <section class="area" aria-labelledby="area-title">
+    <section class="area" id="area" aria-labelledby="area-title">
       <div>
-        <h2 id="area-title">Where we work</h2>
-        <p>Every ZIP code listed here also gets its own short page on a real site, so the business shows up when someone in that town searches "AC repair near me".</p>
+        <h2 id="area-title">Do we come to you?</h2>
+        <p class="section-lede">Type your ZIP code. On a real site, each town listed here also gets its own short page, so the business shows up when someone nearby searches "AC repair near me".</p>
+        <form class="zip-form" data-zip-form novalidate>
+          <label class="sr-only" for="zip-check">ZIP code</label>
+          <input id="zip-check" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="ZIP code">
+          <button type="submit" data-zip-btn>Check</button>
+        </form>
+        <p class="zip-result" data-zip-result aria-live="polite"></p>
       </div>
-      <div class="zips">
-        <span class="zip"><b>34638</b>Land O' Lakes</span>
-        <span class="zip"><b>34639</b>Land O' Lakes</span>
-        <span class="zip"><b>33558</b>Lutz</span>
-        <span class="zip"><b>33559</b>Lutz</span>
-        <span class="zip"><b>33549</b>Lutz</span>
-        <span class="zip"><b>33543</b>Wesley Chapel</span>
-        <span class="zip"><b>33544</b>Wesley Chapel</span>
-        <span class="zip"><b>33545</b>Wesley Chapel</span>
-        <span class="zip"><b>33647</b>New Tampa</span>
+      <ul class="zips" aria-label="ZIP codes we serve">
+        <li class="zip"><b>34638</b>Land O' Lakes</li>
+        <li class="zip"><b>34639</b>Land O' Lakes</li>
+        <li class="zip"><b>33558</b>Lutz</li>
+        <li class="zip"><b>33559</b>Lutz</li>
+        <li class="zip"><b>33548</b>Lutz</li>
+        <li class="zip"><b>33549</b>Lutz</li>
+        <li class="zip"><b>33543</b>Wesley Chapel</li>
+        <li class="zip"><b>33544</b>Wesley Chapel</li>
+        <li class="zip"><b>33545</b>Wesley Chapel</li>
+        <li class="zip"><b>33647</b>New Tampa</li>
+      </ul>
+    </section>
+
+    <section id="plans" aria-labelledby="plans-title">
+      <div class="wrap">
+        <h2 id="plans-title">Maintenance plans</h2>
+        <p class="section-lede">Most summer breakdowns start as something a tune-up would have caught. Cancel any time.</p>
+        <table class="plans-table">
+          <thead>
+            <tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Comfort<span>$15 a month</span></th><th scope="col" class="hl">Comfort Plus<span>$25 a month</span></th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Tune-ups per year</th><td>2</td><td class="hl">2</td></tr>
+            <tr><th scope="row">Priority scheduling</th><td>Yes</td><td class="hl">Yes</td></tr>
+            <tr><th scope="row">Discount on repairs</th><td>10%</td><td class="hl">15%</td></tr>
+            <tr><th scope="row">After-hours fee waived</th><td>No</td><td class="hl">Yes</td></tr>
+            <tr><th scope="row">Filters delivered every 3 months</th><td>No</td><td class="hl">Yes</td></tr>
+          </tbody>
+        </table>
+        <p class="plans-note">New systems can be paid over time with approved financing. On a live site, this is where the company's real plan terms and financing partner go.</p>
       </div>
     </section>
 
-    <section id="quote" aria-labelledby="quote-title">
-      <div class="quote">
+    <section id="quote" style="background:var(--ice)" aria-labelledby="quote-title">
+      <div class="quote wrap">
         <div>
           <h2 id="quote-title">Request a visit</h2>
-          <p>Tell us what's going on and when you're home. On a real site this goes straight to the owner's phone as a text, and the customer gets a confirmation within minutes.</p>
+          <p class="section-lede" style="margin-bottom:0">Takes about a minute. For no cooling with people at home who are sensitive to heat, call instead so we can prioritize you.</p>
+          <ol class="quote-steps">
+            <li><span><b>We text you back</b>Usually within 15 minutes during business hours.</span></li>
+            <li><span><b>You pick an arrival window</b>Two-hour windows, with a heads-up when the tech is on the way.</span></li>
+            <li><span><b>Price before work</b>You approve the flat rate before anything is repaired.</span></li>
+          </ol>
         </div>
         <form id="qform" novalidate>
           <div class="two">
-            <label>Name<input type="text" name="name" autocomplete="name"></label>
-            <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
+            <div class="fld"><label for="q-name">Name</label><input id="q-name" type="text" autocomplete="name" aria-describedby="q-name-msg"><span class="msg" id="q-name-msg" hidden>Please add your name.</span></div>
+            <div class="fld"><label for="q-phone">Mobile number</label><input id="q-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(813) 555-0100" aria-describedby="q-phone-msg"><span class="msg" id="q-phone-msg" hidden>Enter a 10-digit phone number.</span></div>
           </div>
           <div class="two">
-            <label>ZIP code<input type="text" name="zip" inputmode="numeric" autocomplete="postal-code"></label>
-            <label>What do you need?
-              <select name="need"><option>AC not cooling</option><option>Maintenance</option><option>New system estimate</option><option>Heating</option><option>Something else</option></select>
-            </label>
+            <div class="fld"><label for="q-zip">ZIP code</label><input id="q-zip" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" aria-describedby="q-zip-msg"><span class="msg" id="q-zip-msg" hidden>Enter a 5-digit ZIP code.</span></div>
+            <div class="fld"><label for="q-need">What do you need?</label>
+              <select id="q-need"><option>AC not cooling</option><option>Maintenance or tune-up</option><option>New system estimate</option><option>Heating</option><option>Something else</option></select>
+            </div>
           </div>
-          <label>Anything else?<textarea name="msg" rows="3"></textarea></label>
-          <button type="submit">Request a visit</button>
-          <p class="form-msg" id="formMsg" role="status">This is a concept site, so nothing was sent. On a live site the owner would get this request by text right now.</p>
+          <fieldset class="times">
+            <legend>Best time for a visit</legend>
+            <label><input type="radio" name="when" value="As soon as possible" checked> As soon as possible</label>
+            <label><input type="radio" name="when" value="Morning"> Morning</label>
+            <label><input type="radio" name="when" value="Afternoon"> Afternoon</label>
+          </fieldset>
+          <div class="fld"><label for="q-msg">Anything else? <span style="font-weight:400;color:var(--steel)">(optional)</span></label><textarea id="q-msg" rows="3"></textarea></div>
+          <button class="btn orange" type="submit">Request a visit</button>
+          <div class="form-msg" id="formMsg" role="status" tabindex="-1" hidden></div>
         </form>
       </div>
     </section>
 
-    <section class="proof" aria-label="Reviews and video">
-      <div class="box">
-        <h3>Reviews</h3>
-        <p>The company's real Google reviews and star rating show here, updated automatically. This concept has none, because the business is fictional.</p>
+    <section aria-label="Reviews and video">
+      <div class="proof wrap">
+        <div class="box">
+          <h3>Reviews</h3>
+          <p>The company's real Google reviews and star rating show here, updated automatically. There are none on this concept, because the business is fictional.</p>
+        </div>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1718203862467-c33159fdc504?w=900&q=80&auto=format&fit=crop" alt="An outdoor air conditioning unit against a brick wall" width="900" height="563" loading="lazy">
+          <figcaption>A 30-second "here's what we checked" video from each tune-up, sent to the homeowner and posted with permission, builds more trust than any stock photo.</figcaption>
+        </figure>
       </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1718203862467-c33159fdc504?w=900&q=80&auto=format&fit=crop" alt="An outdoor air conditioning unit against a brick wall" loading="lazy">
-        <p style="margin-top:.75rem;color:var(--steel)">A 30-second "what we checked on your system" video from each tune-up builds more trust than any stock photo.</p>
+    </section>
+
+    <section aria-labelledby="faq-title">
+      <div class="faq">
+        <h2 id="faq-title">Questions</h2>
+        <details><summary>Is the $89 diagnostic credited toward the repair?</summary><p>Yes. If you go ahead with the repair, the diagnostic fee comes off the total.</p></details>
+        <details><summary>Which brands do you work on?</summary><p>All major brands, including Carrier, Trane, Lennox, Goodman, Rheem and Daikin.</p></details>
+        <details><summary>How long does a new system install take?</summary><p>Most homes are done in one day. You'll have cooling again the same evening.</p></details>
+        <details><summary>Do you charge extra for nights and weekends?</summary><p>There's an after-hours fee for emergency visits, waived for Comfort Plus members.</p></details>
       </div>
     </section>
   </main>
@@ -183,11 +402,147 @@
     <span>Concept site by <a href="../index.html">Rally Studio</a>. Photos from Unsplash.</span>
   </footer>
 
-  <script>
-    document.getElementById('qform').addEventListener('submit', function (e) {
-      e.preventDefault();
-      document.getElementById('formMsg').classList.add('on');
+  <nav class="mbar" aria-label="Quick actions">
+    <a class="primary" href="tel:+18135550163">Call now</a>
+    <a href="#quote">Request a visit</a>
+  </nav>
+
+  <dialog class="why" id="why" aria-labelledby="why-title">
+    <h2 id="why-title">What this site does for an HVAC company</h2>
+    <p>Someone with a broken AC in July decides who to call in about a minute. This page is built for that minute.</p>
+    <ol>
+      <li>The phone number is the biggest thing on the screen, and one tap calls.</li>
+      <li>The troubleshooter saves wasted trips and earns trust, so the next call comes to you.</li>
+      <li>The ZIP checker and town pages bring in "near me" searches from each area you serve.</li>
+      <li>Maintenance plans turn one-time repairs into monthly recurring revenue.</li>
+      <li>The request form texts the owner immediately, so a lead never waits until Monday.</li>
+    </ol>
+    <div class="acts">
+      <a class="btn orange" href="../index.html#contact">Get a site like this</a>
+      <button class="btn plain" type="button" data-close>Keep looking</button>
+    </div>
+  </dialog>
+
+<script>
+(function () {
+  var TZ = 'America/New_York';
+  var HOURS = { 0: null, 1: [7, 19], 2: [7, 19], 3: [7, 19], 4: [7, 19], 5: [7, 19], 6: [8, 14] };
+  var p = new Intl.DateTimeFormat('en-US', { timeZone: TZ, year: 'numeric', month: 'numeric', day: 'numeric', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
+  var g = function (t) { return (p.find(function (x) { return x.type === t; }) || {}).value; };
+  var wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(g('weekday'));
+  var mins = +g('hour') * 60 + +g('minute');
+  var mo = +g('month'), da = +g('day'), yr = +g('year');
+  var tg = 1 + ((4 - new Date(Date.UTC(yr, 10, 1)).getUTCDay() + 7) % 7) + 21;
+  var holiday = (mo === 1 && da === 1) || (mo === 7 && da === 4) || (mo === 12 && da === 25) || (mo === 11 && da === tg);
+  var h = HOURS[wd];
+  var open = h && !holiday && mins >= h[0] * 60 && mins < h[1] * 60;
+  function fmt(m) { var hh = Math.floor(m / 60), mm = m % 60, ap = hh >= 12 ? 'pm' : 'am'; return (hh % 12 || 12) + (mm ? ':' + String(mm).padStart(2, '0') : '') + ' ' + ap; }
+  var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  function isHol(y, m, d) { var t = 1 + ((4 - new Date(Date.UTC(y, 10, 1)).getUTCDay() + 7) % 7) + 21; return (m === 1 && d === 1) || (m === 7 && d === 4) || (m === 12 && d === 25) || (m === 11 && d === t); }
+  function nextVisitDay() {
+    for (var i = 1; i < 9; i++) {
+      var dt = new Date(Date.UTC(yr, mo - 1, da + i)), d = dt.getUTCDay();
+      if (HOURS[d] && !isHol(dt.getUTCFullYear(), dt.getUTCMonth() + 1, dt.getUTCDate())) return { word: i === 1 ? 'tomorrow' : DAYS[d], start: HOURS[d][0] * 60 };
+    }
+  }
+  var st = document.querySelector('[data-status]');
+  if (open) {
+    var nv = nextVisitDay();
+    document.querySelector('[data-status-text]').textContent = mins < (h[1] - 3) * 60
+      ? 'Techs on the road now. Same-day visits still open today.'
+      : 'Open until ' + fmt(h[1] * 60) + '. Next visits ' + nv.word + ' from ' + fmt(nv.start) + '.';
+  } else {
+    st.classList.add('after');
+    document.querySelector('[data-status-text]').textContent = holiday ? 'Closed for the holiday. Emergency line answered 24/7.' : 'After hours. Emergency line answered 24/7.';
+  }
+
+  // Troubleshooter
+  var RESULTS = {
+    thermostat: { tag: 'diy', label: 'Try this first', title: 'Start with the thermostat', steps: ['Set it to Cool, and at least 3 degrees below the current room temperature.', 'If the screen is blank, replace the batteries.', 'Give it 15 minutes. If air from the vents is still warm, request a visit.'] },
+    breaker: { tag: 'diy', label: 'Try this once', title: 'Reset the breaker one time', steps: ['Switch the tripped breaker fully off, then back on.', 'Wait 30 minutes before turning the AC back on.', 'If it trips again, leave it off and call us. A breaker that keeps tripping is a sign of an electrical fault.'] },
+    filter: { tag: 'diy', label: 'Try this first', title: 'Replace the air filter', steps: ['Turn the system off and swap in a new filter of the same size (it’s printed on the edge).', 'Wait an hour, then turn cooling back on.', 'Still warm air after an hour? Request a visit.'] },
+    ice: { tag: 'call', label: 'Needs a technician', title: 'Your system is freezing up', steps: ['Turn cooling off and set the fan to On to start thawing the ice.', 'Put towels down if there’s water near the indoor unit.', 'Don’t run the AC until a tech has checked it. Ice usually means low refrigerant or an airflow problem.'] },
+    tech: { tag: 'call', label: 'Needs a technician', title: 'Time to call a technician', steps: ['You’ve ruled out the common quick fixes.', 'Likely causes are a failed capacitor, a refrigerant leak or a compressor problem, which need a licensed tech.', 'Call or request a visit, and mention you used this checklist.'] }
+  };
+  var FLOW = { 1: { yes: 2, no: 'thermostat' }, 2: { yes: 3, no: 'breaker' }, 3: { yes: 4, no: 'filter' }, 4: { yes: 'ice', no: 'tech' } };
+  var ts = document.querySelector('[data-ts]');
+  var resEl = document.querySelector('[data-result]');
+  function showQ(n) {
+    ts.querySelectorAll('[data-q]').forEach(function (q) { q.hidden = +q.dataset.q !== n; });
+    resEl.hidden = true;
+    var qt = ts.querySelector('[data-q="' + n + '"] .ts-q'); if (qt && document.activeElement && ts.contains(document.activeElement)) qt.focus();
+  }
+  function showResult(key) {
+    var r = RESULTS[key];
+    ts.querySelectorAll('[data-q]').forEach(function (q) { q.hidden = true; });
+    resEl.innerHTML = '';
+    var tag = document.createElement('span'); tag.className = 'tag ' + r.tag; tag.textContent = r.label;
+    var h3 = document.createElement('h3'); h3.textContent = r.title; h3.tabIndex = -1;
+    var ol = document.createElement('ol'); r.steps.forEach(function (s) { var li = document.createElement('li'); li.textContent = s; ol.appendChild(li); });
+    var acts = document.createElement('div'); acts.className = 'ts-actions';
+    acts.innerHTML = (r.tag === 'call'
+      ? '<a class="btn orange" href="tel:+18135550163">Call (813) 555-0163</a><a class="btn plain" href="#quote">Request a visit</a>'
+      : '<a class="btn plain" href="#quote">Still not cooling? Request a visit</a>') + '<button class="linkish" type="button" data-restart>Start over</button>';
+    resEl.appendChild(tag); resEl.appendChild(h3); resEl.appendChild(ol); resEl.appendChild(acts);
+    resEl.hidden = false;
+    acts.querySelector('[data-restart]').addEventListener('click', function () { showQ(1); ts.querySelector('[data-q="1"] .ts-q').focus(); });
+    h3.focus();
+  }
+  ts.querySelectorAll('[data-q]').forEach(function (q) {
+    q.querySelectorAll('[data-a]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var next = FLOW[q.dataset.q][b.dataset.a];
+        if (typeof next === 'number') { showQ(next); ts.querySelector('[data-q="' + next + '"] .ts-q').focus(); }
+        else showResult(next);
+      });
     });
-  </script>
+  });
+
+  // ZIP checker
+  var ZIPS = {};
+  document.querySelectorAll('.zip').forEach(function (z) { ZIPS[z.querySelector('b').textContent] = z.textContent.replace(z.querySelector('b').textContent, '').trim(); });
+  var zr = document.querySelector('[data-zip-result]');
+  document.querySelector('[data-zip-form]').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = document.getElementById('zip-check').value.trim();
+    zr.className = 'zip-result';
+    if (!/^\d{5}$/.test(v)) { zr.textContent = 'Enter a 5-digit ZIP code.'; return; }
+    if (ZIPS[v]) { zr.classList.add('yes'); zr.textContent = 'Yes, we cover ' + ZIPS[v] + ' (' + v + '). Same-day visits are usually available.'; }
+    else { zr.classList.add('no'); zr.textContent = v + ' is outside our usual area. Call us anyway; we can often help or recommend someone nearby.'; }
+  });
+
+  // Request form
+  var form = document.getElementById('qform');
+  function check(id, ok) {
+    var el = document.getElementById(id), msg = document.getElementById(id + '-msg');
+    el.setAttribute('aria-invalid', ok ? 'false' : 'true'); msg.hidden = ok; return ok;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('formMsg').hidden = true;
+    var n = check('q-name', document.getElementById('q-name').value.trim().length > 1);
+    var dg = document.getElementById('q-phone').value.replace(/\D/g, ''); if (dg.length === 11 && dg[0] === '1') dg = dg.slice(1);
+    var ph = check('q-phone', dg.length === 10);
+    var z = check('q-zip', /^\d{5}$/.test(document.getElementById('q-zip').value.trim()));
+    if (!(n && ph && z)) { form.querySelector('[aria-invalid="true"]').focus(); return; }
+    var first = document.getElementById('q-name').value.trim().split(/\s+/)[0];
+    var when = form.querySelector('input[name=when]:checked').value.toLowerCase();
+    var msg = document.getElementById('formMsg');
+    msg.innerHTML = '';
+    var b = document.createElement('b'); b.textContent = 'Thanks, ' + first + '. Request received.';
+    var t = document.createElement('span'); t.textContent = document.getElementById('q-need').value + ', ' + when + '. This is a concept site, so nothing was sent. On a live site the owner would get this by text right now, and you’d hear back within minutes.';
+    msg.appendChild(b); msg.appendChild(t); msg.hidden = false;
+    form.querySelectorAll('input[type=text], input[type=tel], textarea').forEach(function (el) { el.value = ''; el.removeAttribute('aria-invalid'); });
+    msg.focus();
+  });
+
+  var why = document.getElementById('why');
+  document.querySelectorAll('[data-open-why]').forEach(function (b) { b.addEventListener('click', function () { why.showModal(); }); });
+  document.querySelectorAll('dialog').forEach(function (d) {
+    d.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', function () { d.close(); }); });
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+  });
+})();
+</script>
 </body>
 </html>
