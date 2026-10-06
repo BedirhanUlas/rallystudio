@@ -6,214 +6,271 @@
 <title>Halfmoon Air &amp; Heat | Land O' Lakes HVAC (concept site by Rally Studio)</title>
 <meta name="description" content="Concept website by Rally Studio for a fictional Land O' Lakes HVAC company: same-day AC repair, troubleshooting, maintenance plans and service requests.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#0F2A44">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:title" content="Halfmoon Air &amp; Heat (concept site)">
 <meta property="og:description" content="A concept home service website by Rally Studio, Land O' Lakes, FL.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1718203862467-c33159fdc504?w=1200&q=80&auto=format&fit=crop">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230F2A44'/%3E%3Cpath d='M40 14a20 20 0 1 0 10 34A16 16 0 1 1 40 14z' fill='%23E8590C'/%3E%3C/svg%3E">
+<meta property="og:image" content="https://images.unsplash.com/photo-1724582586529-62622e50c0b3?w=1200&q=80&auto=format&fit=crop">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231C2329'/%3E%3Cpath d='M38 14a19 19 0 1 0 12 33A15 15 0 1 1 38 14z' fill='%23D99A6C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500;62..125,700;62..125,800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HVACBusiness","name":"Halfmoon Air & Heat (fictional concept)","address":{"@type":"PostalAddress","addressLocality":"Land O' Lakes","addressRegion":"FL","postalCode":"34638","addressCountry":"US"},"telephone":"+1-813-555-0163","areaServed":["Land O' Lakes","Lutz","Wesley Chapel","New Tampa"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"14:00"}]}
 </script>
 <style>
+  /* White, mist and graphite, with copper (the line set) as the only accent. One sans family. */
   :root {
-    --navy: #0F2A44;
-    --navy-2: #173A5C;
-    --ice: #E8F3FA;
-    --signal: #BF4609;
-    --signal-dark: #9C3906;
-    --steel: #4F5F6E;
-    --line: #C9D8E3;
-    --ok: #1F7A4A;
     --white: #FFFFFF;
-    --display: 'Archivo', system-ui, sans-serif;
-    --body: 'Public Sans', system-ui, sans-serif;
-    --pad: clamp(1rem, 5vw, 4rem);
+    --mist: #F2F4F5;
+    --mist-2: #E7EBED;
+    --graphite: #1C2329;
+    --graphite-2: #262E35;
+    --slate: #56616A;
+    --line: #DCE1E4;
+    --copper: #A1532B;
+    --copper-lt: #E0A57A;
+    --ok: #2E7D55;
+    --sans: 'Geist', system-ui, sans-serif;
+    --pad: clamp(1.25rem, 6vw, 6rem);
+    --r: 6px;
+    --ease: cubic-bezier(.2,.7,.2,1);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   [hidden] { display: none !important; }
   html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body { font-family: var(--body); color: var(--navy); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--sans); font-weight: 400; color: var(--graphite); background: var(--white); line-height: 1.6; font-size: 1.0625rem; -webkit-font-smoothing: antialiased; }
   img { display: block; max-width: 100%; }
   a { color: inherit; }
   button { font: inherit; cursor: pointer; }
-  :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
   [tabindex="-1"]:focus { outline: none; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .skip { position: absolute; left: -999px; top: .5rem; background: var(--signal); color: #fff; padding: .6rem 1rem; z-index: 100; border-radius: 6px; }
+  .skip { position: absolute; left: -999px; top: .5rem; background: var(--graphite); color: #fff; padding: .6rem 1rem; z-index: 100; border-radius: var(--r); }
   .skip:focus { left: .5rem; }
 
-  .concept { background: var(--signal); color: #fff; font-size: .85rem; padding: .55rem var(--pad); text-align: center; }
-  .concept a, .concept button { color: #fff; font-weight: 700; background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; padding: 0; }
+  .concept { background: var(--graphite); color: #AEB8BF; font-size: .82rem; padding: .6rem var(--pad); text-align: center; }
+  .concept a, .concept button { color: #fff; background: none; border: 0; text-decoration: underline; text-decoration-color: rgba(255,255,255,.35); text-underline-offset: 3px; padding: 0; }
+  .concept a:hover, .concept button:hover { text-decoration-color: #fff; }
+  .concept-links { display: inline-flex; gap: 1.25rem; margin-left: .75rem; }
 
-  header.top { position: sticky; top: 0; z-index: 40; background: var(--navy); color: #fff; display: flex; justify-content: space-between; align-items: center; padding: .85rem var(--pad); gap: 1.5rem; }
-  .brand { display: flex; align-items: center; gap: .6rem; font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: 1.3rem; text-decoration: none; white-space: nowrap; }
-  .brand svg { width: 28px; height: 28px; flex: none; }
-  .top nav { display: flex; gap: 1.6rem; font-weight: 500; font-size: .95rem; margin-left: auto; }
-  .top nav a { text-decoration: none; color: #C9D8E3; }
-  .top nav a:hover { color: #fff; }
-  .top .call { font-weight: 700; text-decoration: none; background: var(--signal); padding: .55rem 1rem; border-radius: 6px; white-space: nowrap; }
-  .top .call:hover { background: var(--signal-dark); }
+  header.top { position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; padding: .9rem var(--pad); gap: 2rem; }
+  .brand { display: flex; align-items: center; gap: .65rem; font-weight: 500; font-size: 1.12rem; letter-spacing: -.01em; text-decoration: none; white-space: nowrap; }
+  .brand svg { width: 26px; height: 26px; flex: none; }
+  .brand span { color: var(--slate); font-weight: 400; }
+  .top nav { display: flex; gap: 2.25rem; font-size: .93rem; margin-left: auto; }
+  .top nav a { text-decoration: none; color: var(--slate); transition: color .2s; }
+  .top nav a:hover { color: var(--graphite); }
+  .top .call { font-weight: 500; font-size: .93rem; text-decoration: none; border: 1px solid var(--graphite); padding: .6rem 1.1rem; border-radius: 999px; white-space: nowrap; font-variant-numeric: tabular-nums; transition: background .2s, color .2s; }
+  .top .call:hover { background: var(--graphite); color: #fff; }
 
-  .hero { background: var(--navy); color: #fff; display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; padding: 3rem var(--pad) 4.5rem; align-items: center; }
-  .status { display: inline-flex; align-items: center; gap: .55rem; background: rgba(255,255,255,.08); padding: .45rem .9rem; border-radius: 6px; font-size: .95rem; }
-  .status .dot { width: 10px; height: 10px; border-radius: 50%; background: #3DDC84; flex: none; }
-  .status.after .dot { background: #FFB547; }
-  .hero h1 { font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: clamp(2.8rem, 6.6vw, 5.4rem); line-height: .95; margin: 1.25rem 0; }
-  .hero p.lede { max-width: 42ch; color: #C9D8E3; font-size: 1.1rem; }
-  .phone-big { display: inline-block; margin-top: 2rem; font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.4rem); color: var(--white); text-decoration: none; background: var(--signal); padding: .35rem 1.1rem .45rem; border-radius: 8px; line-height: 1.2; }
-  .phone-big:hover { background: var(--signal-dark); }
-  .sub-cta { display: inline-block; margin-top: .5rem; padding: .7rem 0; color: #fff; font-weight: 600; }
-  .trust { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 2rem; color: #C9D8E3; font-size: .95rem; list-style: none; }
-  .trust li { display: flex; align-items: center; gap: .45rem; }
-  .trust li::before { content: ""; width: 14px; height: 8px; border-left: 2.5px solid #3DDC84; border-bottom: 2.5px solid #3DDC84; transform: rotate(-45deg) translateY(-3px); }
-  .hero-img img { width: 100%; height: min(540px, 66vh); object-fit: cover; object-position: 50% 30%; border-radius: 10px; }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: min(86vh, 860px); }
+  .hero-copy { padding: clamp(3rem, 7vw, 6.5rem) var(--pad); display: flex; flex-direction: column; justify-content: center; }
+  .status { display: inline-flex; align-self: flex-start; align-items: center; gap: .6rem; background: var(--mist); padding: .45rem .9rem; border-radius: 999px; font-size: .88rem; color: var(--slate); }
+  .status .dot { width: 7px; height: 7px; border-radius: 50%; background: #3F8F66; flex: none; box-shadow: 0 0 0 4px rgba(63,143,102,.14); }
+  .status.after .dot { background: var(--copper); box-shadow: 0 0 0 4px rgba(161,83,43,.14); }
+  .hero h1 { font-weight: 300; font-size: clamp(2.8rem, 5.2vw, 4.9rem); line-height: 1.02; letter-spacing: -.045em; margin: 1.75rem 0 1.5rem; max-width: 12ch; text-wrap: balance; }
+  .hero p.lede { max-width: 40ch; color: var(--slate); font-size: 1.12rem; }
+  .callblock { margin-top: 2.75rem; display: flex; align-items: flex-end; flex-wrap: wrap; gap: 1rem 2.5rem; }
+  .phone-big { display: block; text-decoration: none; font-weight: 300; font-size: clamp(2.2rem, 3.8vw, 3.2rem); letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; padding-bottom: .35rem; border-bottom: 1px solid var(--graphite); transition: color .2s, border-color .2s; }
+  .phone-big:hover { color: var(--copper); border-color: var(--copper); }
+  .phone-note { display: block; font-size: .85rem; color: var(--slate); margin-bottom: .6rem; }
+  .sub-cta { display: inline-flex; align-items: center; min-height: 44px; color: var(--graphite); font-weight: 500; font-size: .95rem; text-underline-offset: 4px; }
+  .trust { display: flex; flex-wrap: wrap; margin-top: 3rem; list-style: none; font-size: .9rem; color: var(--slate); border-top: 1px solid var(--line); padding-top: 1.25rem; gap: .5rem 0; }
+  .trust li + li::before { content: ""; display: inline-block; width: 1px; height: .9em; background: var(--line); margin: 0 1.1rem; vertical-align: -.1em; }
+  .hero-img { position: relative; overflow: hidden; background: var(--mist); }
+  .hero-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; }
 
-  section { padding: 5rem var(--pad); }
-  .wrap { max-width: 1150px; }
-  h2 { font-family: var(--display); font-stretch: 85%; font-weight: 800; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1; margin-bottom: .9rem; }
-  .section-lede { color: var(--steel); max-width: 56ch; margin-bottom: 2.25rem; }
+  section { padding: clamp(5rem, 10vw, 8.5rem) var(--pad); }
+  .wrap { max-width: 1240px; }
+  h2 { font-weight: 300; font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.05; letter-spacing: -.04em; margin-bottom: 1rem; text-wrap: balance; }
+  .section-lede { color: var(--slate); max-width: 52ch; margin-bottom: 3rem; text-wrap: pretty; }
 
   /* troubleshooter */
-  .ts { background: var(--ice); }
-  .ts-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3.5rem; align-items: start; }
-  .ts-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 1.75rem; min-height: 280px; }
-  .ts-count { font-size: .9rem; color: var(--steel); font-weight: 600; margin-bottom: .4rem; }
-  .ts-q { font-family: var(--display); font-weight: 700; font-size: 1.45rem; line-height: 1.2; margin-bottom: .5rem; }
-  .ts-hint { color: var(--steel); font-size: .95rem; margin-bottom: 1.5rem; }
-  .ts-ans { display: flex; gap: .75rem; }
-  .ts-ans button { flex: 1; max-width: 10rem; padding: .8rem 1rem; border-radius: 8px; border: 2px solid var(--navy); background: #fff; color: var(--navy); font-weight: 700; }
-  .ts-ans button:hover { background: var(--navy); color: #fff; }
-  .ts-result h3 { font-family: var(--display); font-weight: 800; font-size: 1.6rem; line-height: 1.1; margin-bottom: .75rem; }
-  .ts-result ol { padding-left: 1.2rem; display: grid; gap: .45rem; margin-bottom: 1.25rem; }
-  .ts-result .tag { display: inline-block; font-size: .8rem; font-weight: 700; padding: .2rem .55rem; border-radius: 4px; margin-bottom: .75rem; }
-  .tag.diy { background: #E3F4EA; color: var(--ok); }
-  .tag.call { background: #FDE9DD; color: var(--signal-dark); }
-  .ts-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; padding: .85rem 1.3rem; border-radius: 8px; font-weight: 700; text-decoration: none; border: 2px solid var(--navy); background: var(--navy); color: #fff; }
-  .btn:hover { background: var(--navy-2); }
-  .btn.orange { background: var(--signal); border-color: var(--signal); }
-  .btn.orange:hover { background: var(--signal-dark); border-color: var(--signal-dark); }
-  .btn.plain { background: transparent; color: var(--navy); }
-  .btn.plain:hover { background: var(--navy); color: #fff; }
-  .linkish { background: none; border: 0; color: var(--navy); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; padding: .3rem 0; }
-  .safety { font-size: .9rem; color: var(--steel); margin-top: 1.25rem; }
+  .ts { background: var(--mist); }
+  .ts-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(3rem, 7vw, 6rem); align-items: start; }
+  .ts-card { background: #fff; border-radius: 14px; padding: clamp(1.75rem, 3.5vw, 2.75rem); min-height: 320px; box-shadow: 0 1px 0 var(--line), 0 24px 48px -32px rgba(28,35,41,.25); }
+  .ts-count { font-size: .85rem; color: var(--slate); margin-bottom: .75rem; font-variant-numeric: tabular-nums; }
+  .ts-q { font-weight: 400; font-size: clamp(1.35rem, 2.2vw, 1.7rem); line-height: 1.25; letter-spacing: -.02em; margin-bottom: .75rem; }
+  .ts-hint { color: var(--slate); font-size: .95rem; margin-bottom: 2rem; }
+  .ts-ans { display: flex; gap: .6rem; flex-wrap: wrap; }
+  .ts-ans button { min-height: 48px; padding: .75rem 1.4rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--graphite); font-weight: 500; transition: border-color .2s, background .2s, color .2s; }
+  .ts-ans button:hover { border-color: var(--graphite); background: var(--graphite); color: #fff; }
+  .ts-result h3 { font-weight: 400; font-size: 1.7rem; letter-spacing: -.03em; line-height: 1.15; margin-bottom: 1rem; }
+  .ts-result ol { padding-left: 1.2rem; display: grid; gap: .6rem; margin-bottom: 1.75rem; color: var(--graphite); }
+  .ts-result ol li::marker { color: var(--slate); font-variant-numeric: tabular-nums; }
+  .ts-result .tag { display: inline-block; font-size: .8rem; font-weight: 500; padding: .25rem .7rem; border-radius: 999px; margin-bottom: 1rem; }
+  .tag.diy { background: var(--mist); color: var(--graphite); }
+  .tag.call { background: #F7EAE2; color: #8A4423; }
+  .ts-actions { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .75rem 1.5rem; border-radius: 999px; font-weight: 500; font-size: .95rem; text-decoration: none; border: 1px solid var(--graphite); background: var(--graphite); color: #fff; transition: background .2s, color .2s, border-color .2s; }
+  .btn:hover { background: var(--graphite-2); }
+  .btn.orange { background: var(--graphite); border-color: var(--graphite); }
+  .btn.orange:hover { background: var(--copper); border-color: var(--copper); }
+  .btn.plain { background: transparent; color: var(--graphite); border-color: var(--line); }
+  .btn.plain:hover { border-color: var(--graphite); }
+  .linkish { background: none; border: 0; color: var(--slate); text-decoration: underline; text-underline-offset: 3px; padding: .6rem .4rem; min-height: 44px; }
+  .linkish:hover { color: var(--graphite); }
+  .safety { font-size: .92rem; color: var(--slate); margin-top: 1.5rem; padding-left: 1rem; border-left: 1px solid var(--copper); max-width: 44ch; }
 
   /* services */
-  .services { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--navy); }
-  .svc { padding: 1.75rem 1.5rem 1.75rem 0; border-bottom: 1px solid var(--line); }
-  .svc:not(:nth-child(3n+1)) { padding-left: 1.5rem; border-left: 1px solid var(--line); }
-  .svc h3 { font-family: var(--display); font-weight: 800; font-size: 1.25rem; margin-bottom: .4rem; }
-  .svc p { color: var(--steel); font-size: .98rem; }
-  .svc .from { margin-top: .75rem; font-weight: 700; color: var(--navy); }
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--graphite); }
+  .svc { padding: 2.25rem 2rem 2.25rem 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; }
+  .svc:not(:nth-child(3n+1)) { padding-left: 2rem; border-left: 1px solid var(--line); }
+  .svc h3 { font-weight: 500; font-size: 1.15rem; letter-spacing: -.01em; margin-bottom: .5rem; }
+  .svc p { color: var(--slate); font-size: .97rem; }
+  .svc .from { margin-top: auto; padding-top: 1.25rem; font-weight: 500; color: var(--copper); font-size: .95rem; }
+
 
   /* area */
-  .area { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; background: var(--navy); color: #fff; }
-  .area .section-lede { color: #C9D8E3; }
-  .zip-form { display: flex; gap: .5rem; max-width: 420px; }
-  .zip-form input { flex: 1; font: inherit; padding: .8rem .9rem; border-radius: 8px; border: 2px solid transparent; min-width: 0; }
-  .zip-form input:focus { outline: none; border-color: var(--signal); }
-  .zip-form button { border: 0; border-radius: 8px; background: var(--signal); color: #fff; font-weight: 700; padding: 0 1.2rem; }
-  .zip-result { margin-top: .9rem; font-weight: 600; min-height: 1.6em; }
-  .zip-result.yes { color: #7BE3A6; }
-  .zip-result.no { color: #FFC28A; }
-  .zips { display: flex; flex-wrap: wrap; gap: .5rem; align-content: flex-start; list-style: none; }
-  .zip { background: var(--navy-2); border: 1px solid #2D4F71; border-radius: 6px; padding: .5rem .75rem; font-size: .95rem; }
-  .zip b { font-family: var(--display); font-weight: 800; margin-right: .35rem; }
+  .area { background: var(--graphite); color: #fff; }
+  .area .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 7vw, 6rem); align-items: start; }
+  .area .section-lede { color: #AEB8BF; }
+  .zip-form { display: flex; gap: .5rem; max-width: 440px; background: var(--graphite-2); padding: .4rem; border-radius: 999px; border: 1px solid #3A444C; }
+  .zip-form input { flex: 1; font: inherit; color: #fff; padding: .7rem 1rem; border-radius: 999px; border: 0; background: transparent; min-width: 0; }
+  .zip-form input::placeholder { color: #8E9AA3; }
+  .zip-form input:focus { outline: none; }
+  .zip-form:focus-within { border-color: #8E9AA3; }
+  .zip-form button { border: 0; border-radius: 999px; background: #fff; color: var(--graphite); font-weight: 500; padding: 0 1.4rem; min-height: 44px; }
+  .zip-form button:hover { background: var(--copper-lt); }
+  .zip-result { margin-top: 1rem; min-height: 1.6em; color: #D5DCE0; }
+  .zip-result.yes { color: #9BD8B4; }
+  .zip-result.no { color: var(--copper-lt); }
+  .zips { display: grid; grid-template-columns: repeat(2, 1fr); list-style: none; border-top: 1px solid #3A444C; }
+  .zip { display: flex; justify-content: space-between; padding: .85rem 0; border-bottom: 1px solid #3A444C; font-size: .95rem; color: #D5DCE0; }
+  .zip:nth-child(odd) { padding-right: 1.5rem; }
+  .zip:nth-child(even) { padding-left: 1.5rem; border-left: 1px solid #3A444C; }
+  .zip b { font-weight: 400; color: #fff; font-variant-numeric: tabular-nums; order: 2; }
 
   /* plans */
-  .plans-table { width: 100%; max-width: 820px; border-collapse: collapse; }
-  .plans-table th, .plans-table td { padding: .85rem 1rem; border-bottom: 1px solid var(--line); text-align: left; }
-  .plans-table thead th { font-family: var(--display); font-weight: 800; font-size: 1.15rem; vertical-align: bottom; border-bottom: 2px solid var(--navy); }
-  .plans-table thead th span { display: block; font-family: var(--body); font-weight: 500; font-size: .95rem; color: var(--steel); }
-  .plans-table tbody th { font-weight: 500; color: var(--steel); }
-  .plans-table td { font-weight: 700; text-align: center; width: 24%; }
+  .plans-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(3rem, 7vw, 6rem); align-items: start; }
+  .plans-table { width: 100%; border-collapse: collapse; }
+  .plans-table th, .plans-table td { padding: 1rem 1rem; border-bottom: 1px solid var(--line); text-align: left; }
+  .plans-table thead th { font-weight: 500; font-size: 1.1rem; letter-spacing: -.01em; vertical-align: bottom; border-bottom: 1px solid var(--graphite); }
+  .plans-table thead th span { display: block; font-weight: 300; font-size: .92rem; color: var(--slate); letter-spacing: 0; }
+  .plans-table tbody th { font-weight: 400; color: var(--slate); }
+  .plans-table td { text-align: center; width: 26%; font-variant-numeric: tabular-nums; }
   .plans-table thead th:not(:first-child) { text-align: center; }
-  .plans-table .hl { background: var(--ice); }
-  .plans-note { color: var(--steel); font-size: .95rem; margin-top: 1.25rem; max-width: 70ch; }
+  .plans-table .hl { background: var(--mist); }
+  .plans-table thead .hl { border-radius: 12px 12px 0 0; }
+  .plans-note { color: var(--slate); font-size: .93rem; margin-top: 1.5rem; max-width: 60ch; }
 
   /* request form */
-  .quote { display: grid; grid-template-columns: .85fr 1.15fr; gap: 4rem; }
-  .quote-steps { list-style: none; display: grid; gap: 1rem; margin-top: 1.5rem; counter-reset: s; }
-  .quote-steps li { counter-increment: s; display: grid; grid-template-columns: 2rem 1fr; gap: .75rem; color: var(--steel); }
-  .quote-steps li::before { content: counter(s); width: 2rem; height: 2rem; border-radius: 50%; background: var(--ice); color: var(--navy); font-weight: 800; display: grid; place-items: center; font-family: var(--display); }
-  .quote-steps b { color: var(--navy); display: block; }
-  form { display: grid; gap: 1rem; }
-  .fld { display: grid; gap: .35rem; font-weight: 600; font-size: .95rem; }
-  .fld input, .fld select, .fld textarea { font: inherit; font-weight: 400; padding: .75rem .85rem; border: 1.5px solid var(--line); border-radius: 6px; background: #fff; color: var(--navy); }
-  .fld input:focus, .fld select:focus, .fld textarea:focus { border-color: var(--navy); outline: none; box-shadow: 0 0 0 3px rgba(15,42,68,.15); }
+  .quote-sec { background: var(--mist); }
+  .quote { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(3rem, 7vw, 6rem); }
+  .quote-steps { list-style: none; display: grid; gap: 1.5rem; margin-top: 2.5rem; counter-reset: s; }
+  .quote-steps li { counter-increment: s; display: grid; grid-template-columns: 2.25rem 1fr; gap: 1rem; color: var(--slate); font-size: .97rem; }
+  .quote-steps li::before { content: counter(s); width: 2.25rem; height: 2.25rem; border-radius: 50%; border: 1px solid var(--graphite); color: var(--graphite); font-size: .9rem; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
+  .quote-steps b { color: var(--graphite); font-weight: 500; display: block; }
+  form { display: grid; gap: 1.1rem; }
+  #qform { background: #fff; padding: clamp(1.5rem, 3.5vw, 2.5rem); border-radius: 14px; box-shadow: 0 1px 0 var(--line), 0 24px 48px -32px rgba(28,35,41,.25); }
+  .fld { display: grid; gap: .4rem; font-size: .9rem; color: var(--slate); }
+  .fld input, .fld select, .fld textarea { font: inherit; font-size: 1rem; color: var(--graphite); padding: .8rem .9rem; border: 1px solid var(--line); border-radius: var(--r); background: #fff; }
+  .fld input:focus, .fld select:focus, .fld textarea:focus { border-color: var(--graphite); outline: none; }
   .fld [aria-invalid="true"] { border-color: #B3261E; }
-  .fld .msg { color: #B3261E; font-size: .88rem; font-weight: 500; }
-  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .fld .msg { color: #B3261E; font-size: .86rem; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
   .times { display: flex; gap: .5rem; flex-wrap: wrap; border: 0; }
-  .times legend { font-weight: 600; font-size: .95rem; margin-bottom: .35rem; }
-  .times label { display: inline-flex; align-items: center; gap: .4rem; border: 1.5px solid var(--line); border-radius: 6px; padding: .55rem .8rem; font-weight: 500; cursor: pointer; }
-  .times label:has(input:checked) { border-color: var(--navy); background: var(--ice); }
-  .times input { accent-color: var(--navy); }
-  form button[type=submit] { justify-self: start; }
-  .form-msg { background: #E3F4EA; border-left: 4px solid var(--ok); padding: 1rem 1.1rem; border-radius: 6px; }
-  .form-msg b { display: block; margin-bottom: .25rem; }
+  .times legend { font-size: .9rem; color: var(--slate); margin-bottom: .5rem; }
+  .times label { display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line); border-radius: 999px; padding: .6rem 1rem; font-size: .93rem; cursor: pointer; min-height: 44px; transition: border-color .2s; }
+  .times label:has(input:checked) { border-color: var(--graphite); background: var(--mist); }
+  .times input { accent-color: var(--graphite); }
+  form button[type=submit] { justify-self: start; margin-top: .25rem; }
+  .form-msg { border-left: 2px solid var(--ok); padding: .25rem 0 .25rem 1rem; color: var(--slate); }
+  .form-msg b { display: block; margin-bottom: .25rem; color: var(--graphite); font-weight: 500; }
 
   /* proof */
-  .proof { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch; }
-  .proof .box { display: flex; flex-direction: column; justify-content: center; }
-  .box { border: 1px solid var(--line); border-radius: 10px; padding: 1.75rem; }
-  .box h3 { font-family: var(--display); font-weight: 800; font-size: 1.3rem; margin-bottom: .5rem; }
-  .box p { color: var(--steel); }
-  .proof figure img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 10px; }
-  .proof figcaption { margin-top: .75rem; color: var(--steel); font-size: .95rem; }
+  .proof { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 7vw, 6rem); align-items: center; }
+  .box h3 { font-weight: 300; font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -.035em; margin-bottom: .9rem; }
+  .box p { color: var(--slate); max-width: 44ch; }
+  .proof figure { justify-self: end; max-width: 440px; }
+  .proof figure img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 14px; }
+  .review-slot { border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; display: grid; gap: .7rem; margin: 1.5rem 0 1.25rem; max-width: 26rem; }
+  .review-slot .stars { color: var(--copper); letter-spacing: .2em; font-size: 1rem; }
+  .review-slot .bar { height: 8px; border-radius: 4px; background: var(--mist-2); }
+  .review-slot .bar.short { width: 60%; }
+  .box .note { font-size: .9rem; }
+  .proof figcaption { margin-top: 1rem; color: var(--slate); font-size: .92rem; max-width: 52ch; }
 
-  .faq { max-width: 780px; }
+  .faq-sec { border-top: 1px solid var(--line); }
+  .faq { max-width: 860px; }
   .faq details { border-bottom: 1px solid var(--line); }
-  .faq summary { list-style: none; cursor: pointer; padding: 1.1rem 2.5rem 1.1rem 0; font-weight: 700; font-size: 1.05rem; position: relative; }
+  .faq details:first-of-type { border-top: 1px solid var(--line); }
+  .faq summary { list-style: none; cursor: pointer; padding: 1.4rem 3rem 1.4rem 0; font-weight: 400; font-size: 1.15rem; letter-spacing: -.01em; position: relative; }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; position: absolute; right: .25rem; top: .8rem; font-family: var(--display); font-weight: 800; font-size: 1.5rem; transition: transform .2s; }
-  .faq details[open] summary::after { transform: rotate(45deg); }
-  .faq details p { padding: 0 0 1.2rem; color: var(--steel); max-width: 62ch; }
+  .faq summary::before, .faq summary::after { content: ""; position: absolute; right: .25rem; top: 50%; width: 14px; height: 1px; background: var(--graphite); transition: transform .3s var(--ease); }
+  .faq summary::after { transform: rotate(90deg); }
+  .faq details[open] summary::after { transform: rotate(0); }
+  .faq details p { padding: 0 0 1.5rem; color: var(--slate); max-width: 62ch; }
 
-  footer { background: var(--navy); color: #C9D8E3; padding: 2.5rem var(--pad) 6rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .95rem; }
-  footer a { color: #fff; }
+  footer { background: var(--graphite); color: #AEB8BF; padding: clamp(3.5rem, 7vw, 5rem) var(--pad) 3rem; display: grid; gap: 2.5rem; font-size: .9rem; }
+  footer .brand { color: #fff; font-size: 1.4rem; }
+  footer .brand svg { width: 34px; height: 34px; }
+  footer .brand span { color: #AEB8BF; }
+  .foot-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; }
+  .foot-row a { color: #fff; text-underline-offset: 3px; }
 
-  dialog { border: 0; padding: 0; color: var(--navy); }
-  dialog::backdrop { background: rgba(15,42,68,.6); }
-  .why { width: min(560px, calc(100vw - 2rem)); border-radius: 12px; padding: 1.9rem; margin: auto; }
-  .why h2 { font-size: 1.9rem; margin-bottom: .5rem; }
-  .why > p { color: var(--steel); margin-bottom: 1rem; }
-  .why ol { padding-left: 1.2rem; display: grid; gap: .7rem; margin-bottom: 1.5rem; }
-  .why li::marker { font-weight: 800; color: var(--signal); }
-  .why .acts { display: flex; gap: .75rem; flex-wrap: wrap; }
+  dialog { border: 0; padding: 0; color: var(--graphite); }
+  dialog::backdrop { background: rgba(28,35,41,.5); backdrop-filter: blur(3px); }
+  .why { width: min(580px, calc(100vw - 2rem)); border-radius: 16px; padding: 2.25rem; margin: auto; }
+  .why h2 { font-size: 2rem; margin-bottom: .75rem; }
+  .why > p { color: var(--slate); margin-bottom: 1.25rem; }
+  .why ol { padding-left: 1.3rem; display: grid; gap: .8rem; margin-bottom: 2rem; }
+  .why li::marker { color: var(--copper); font-variant-numeric: tabular-nums; }
+  .why .acts { display: flex; gap: .6rem; flex-wrap: wrap; }
 
-  .mbar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--navy); padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom)); gap: .5rem; border-top: 1px solid #2D4F71; }
-  .mbar a { flex: 1; text-align: center; text-decoration: none; color: #fff; border: 1.5px solid #ffffff40; border-radius: 8px; padding: .7rem .5rem; font-weight: 700; font-size: .95rem; }
-  .mbar .primary { background: var(--signal); border-color: var(--signal); }
+  .mbar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom)); gap: .5rem; border-top: 1px solid var(--line); }
+  .mbar a { flex: 1; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; color: var(--graphite); border: 1px solid var(--line); border-radius: 999px; font-weight: 500; font-size: .95rem; }
+  .mbar .primary { background: var(--graphite); border-color: var(--graphite); color: #fff; }
 
-  @media (max-width: 900px) {
-    .hero, .area, .quote, .proof, .ts-grid { grid-template-columns: 1fr; }
-    .hero-img { display: none; }
+  @media (max-width: 960px) {
+    .hero, .area .wrap, .quote, .proof, .ts-grid, .plans-wrap { grid-template-columns: minmax(0, 1fr); }
+    .zip-form { max-width: 100%; }
+    .hero-img { order: -1; min-height: 36vh; }
+    .hero-copy { padding-top: 2.5rem; padding-bottom: 3.5rem; }
     .top nav { display: none; }
     .services { grid-template-columns: 1fr; }
-    .svc, .svc:not(:nth-child(3n+1)) { padding-left: 0; border-left: none; }
+    .svc, .svc:not(:nth-child(3n+1)) { padding-left: 0; padding-right: 0; border-left: none; }
     .two { grid-template-columns: 1fr; }
     .mbar { display: flex; }
+    .concept { line-height: 1.4; padding-top: .6rem; padding-bottom: 0; }
+    .concept > span:first-child { display: block; }
+    .concept-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0 1.25rem; margin: 0; }
     .concept a, .concept button { display: inline-flex; align-items: center; min-height: 44px; }
-    .concept { line-height: 1.4; padding-top: .25rem; padding-bottom: .25rem; }
-    .plans-table th, .plans-table td { padding: .7rem .5rem; font-size: .95rem; }
+    .plans-table th, .plans-table td { padding: .85rem .5rem; font-size: .9rem; }
+    .plans-table thead th { white-space: nowrap; font-size: 1rem; }
+    .times { display: grid; grid-template-columns: 1fr; }
+    footer { padding-bottom: 6.5rem; }
   }
-  @media (max-width: 420px) {
+  @media (max-width: 480px) {
     .top .call { display: none; }
+    .zips { grid-template-columns: 1fr; }
+    .zip:nth-child(even) { padding-left: 0; border-left: 0; }
+    .zip:nth-child(odd) { padding-right: 0; }
+    .trust { gap: .35rem 1.4rem; }
+    .trust li + li::before { display: none; }
+    .status { border-radius: 12px; align-items: flex-start; }
+    .status .dot { margin-top: .45em; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-img img { animation: settle 2.2s var(--ease) both; }
+    .hero-copy > * { animation: rise .9s var(--ease) both; }
+    .hero-copy > *:nth-child(2) { animation-delay: .1s; }
+    .hero-copy > *:nth-child(3) { animation-delay: .2s; }
+    .hero-copy > *:nth-child(4) { animation-delay: .3s; }
+    .hero-copy > *:nth-child(5) { animation-delay: .4s; }
+    @keyframes settle { from { transform: scale(1.05); } to { transform: none; } }
+    @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
   }
 </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <aside class="concept" aria-label="About this site">Concept site by Rally Studio. Halfmoon is a fictional company. <button type="button" data-open-why>How this site gets calls</button> or <a href="../index.html#contact">get one for your business</a>.</aside>
+  <aside class="concept" aria-label="About this site"><span>Concept site by Rally Studio. Halfmoon is a fictional company.</span> <span class="concept-links"><button type="button" data-open-why>How this site gets calls</button> <a href="../index.html#contact">Get one for your business</a></span></aside>
 
   <header class="top">
-    <a class="brand" href="#main"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M40 10a22 22 0 1 0 12 38A17 17 0 1 1 40 10z" fill="#E8590C"/></svg>Halfmoon Air &amp; Heat</a>
+    <a class="brand" href="#main"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#1C2329"/><path d="M38 14a19 19 0 1 0 12 33A15 15 0 1 1 38 14z" fill="#E0A57A"/></svg>Halfmoon <span>Air &amp; Heat</span></a>
     <nav aria-label="Main">
       <a href="#troubleshoot">AC not cooling?</a>
       <a href="#plans">Maintenance plans</a>
@@ -223,21 +280,26 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div>
+    <section class="hero" aria-labelledby="hero-title" style="padding:0">
+      <div class="hero-copy">
         <p class="status" data-status><span class="dot" aria-hidden="true"></span><span data-status-text>Same-day appointments available</span></p>
         <h1 id="hero-title">AC quit? We're usually there the same day.</h1>
-        <p class="lede">Repair, maintenance and new systems for homes in Land O' Lakes, Lutz, Wesley Chapel and New Tampa. You get the price before any work starts.</p>
-        <a class="phone-big" href="tel:+18135550163">(813) 555-0163</a><br>
-        <a class="sub-cta" href="#quote">Or request a visit online</a>
+        <p class="lede">Repair, maintenance and new systems for homes in Land&nbsp;O'&nbsp;Lakes, Lutz, Wesley&nbsp;Chapel and New&nbsp;Tampa. You get the price before any work starts.</p>
+        <div class="callblock">
+          <div>
+            <span class="phone-note">Call us, day or night</span>
+            <a class="phone-big" href="tel:+18135550163">(813) 555-0163</a>
+          </div>
+          <a class="sub-cta" href="#quote">Or request a visit online</a>
+        </div>
         <ul class="trust">
           <li>Licensed &amp; insured</li>
           <li>All major brands</li>
-          <li>Upfront, flat-rate pricing</li>
+          <li>Flat-rate pricing</li>
         </ul>
       </div>
       <div class="hero-img">
-        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=900&q=80&auto=format&fit=crop" alt="A technician in a hard hat at work" width="900" height="1125" fetchpriority="high">
+        <img src="https://images.unsplash.com/photo-1724582586529-62622e50c0b3?w=1600&q=80&auto=format&fit=crop" alt="A calm, modern living room with a low sofa and a wall of windows" width="1600" height="1800" fetchpriority="high">
       </div>
     </section>
 
@@ -245,7 +307,7 @@
       <div class="ts-grid wrap">
         <div>
           <h2 id="ts-title">AC not cooling? Check this first.</h2>
-          <p class="section-lede">Four quick questions. Plenty of "no cooling" calls turn out to be something you can fix yourself in a few minutes, and we'd rather tell you that than charge for a visit.</p>
+          <p class="section-lede" style="margin-bottom:0">Four quick questions. Plenty of "no cooling" calls turn out to be something you can fix yourself in a few minutes, and we'd rather tell you that than charge for a visit.</p>
           <p class="safety">Smell burning, see sparks, or hear a loud buzzing from the outdoor unit? Turn the system off at the thermostat and call us now.</p>
         </div>
         <div class="ts-card" data-ts>
@@ -294,51 +356,57 @@
     </section>
 
     <section class="area" id="area" aria-labelledby="area-title">
-      <div>
-        <h2 id="area-title">Do we come to you?</h2>
-        <p class="section-lede">Type your ZIP code. On a real site, each town listed here also gets its own short page, so the business shows up when someone nearby searches "AC repair near me".</p>
-        <form class="zip-form" data-zip-form novalidate>
-          <label class="sr-only" for="zip-check">ZIP code</label>
-          <input id="zip-check" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="ZIP code">
-          <button type="submit" data-zip-btn>Check</button>
-        </form>
-        <p class="zip-result" data-zip-result aria-live="polite"></p>
+      <div class="wrap">
+        <div>
+          <h2 id="area-title">Do we come to you?</h2>
+          <p class="section-lede">Type your ZIP code. On a real site, each town listed here also gets its own short page, so the business shows up when someone nearby searches "AC repair near me".</p>
+          <form class="zip-form" data-zip-form novalidate>
+            <label class="sr-only" for="zip-check">ZIP code</label>
+            <input id="zip-check" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="ZIP code">
+            <button type="submit" data-zip-btn>Check</button>
+          </form>
+          <p class="zip-result" data-zip-result aria-live="polite"></p>
+        </div>
+        <ul class="zips" aria-label="ZIP codes we serve">
+          <li class="zip"><b>34638</b>Land O' Lakes</li>
+          <li class="zip"><b>34639</b>Land O' Lakes</li>
+          <li class="zip"><b>33558</b>Lutz</li>
+          <li class="zip"><b>33559</b>Lutz</li>
+          <li class="zip"><b>33548</b>Lutz</li>
+          <li class="zip"><b>33549</b>Lutz</li>
+          <li class="zip"><b>33543</b>Wesley Chapel</li>
+          <li class="zip"><b>33544</b>Wesley Chapel</li>
+          <li class="zip"><b>33545</b>Wesley Chapel</li>
+          <li class="zip"><b>33647</b>New Tampa</li>
+        </ul>
       </div>
-      <ul class="zips" aria-label="ZIP codes we serve">
-        <li class="zip"><b>34638</b>Land O' Lakes</li>
-        <li class="zip"><b>34639</b>Land O' Lakes</li>
-        <li class="zip"><b>33558</b>Lutz</li>
-        <li class="zip"><b>33559</b>Lutz</li>
-        <li class="zip"><b>33548</b>Lutz</li>
-        <li class="zip"><b>33549</b>Lutz</li>
-        <li class="zip"><b>33543</b>Wesley Chapel</li>
-        <li class="zip"><b>33544</b>Wesley Chapel</li>
-        <li class="zip"><b>33545</b>Wesley Chapel</li>
-        <li class="zip"><b>33647</b>New Tampa</li>
-      </ul>
     </section>
 
     <section id="plans" aria-labelledby="plans-title">
-      <div class="wrap">
-        <h2 id="plans-title">Maintenance plans</h2>
-        <p class="section-lede">Most summer breakdowns start as something a tune-up would have caught. Cancel any time.</p>
-        <table class="plans-table">
-          <thead>
-            <tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Comfort<span>$15 a month</span></th><th scope="col" class="hl">Comfort Plus<span>$25 a month</span></th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Tune-ups per year</th><td>2</td><td class="hl">2</td></tr>
-            <tr><th scope="row">Priority scheduling</th><td>Yes</td><td class="hl">Yes</td></tr>
-            <tr><th scope="row">Discount on repairs</th><td>10%</td><td class="hl">15%</td></tr>
-            <tr><th scope="row">After-hours fee waived</th><td>No</td><td class="hl">Yes</td></tr>
-            <tr><th scope="row">Filters delivered every 3 months</th><td>No</td><td class="hl">Yes</td></tr>
-          </tbody>
-        </table>
-        <p class="plans-note">New systems can be paid over time with approved financing. On a live site, this is where the company's real plan terms and financing partner go.</p>
+      <div class="wrap plans-wrap">
+        <div>
+          <h2 id="plans-title">Maintenance plans</h2>
+          <p class="section-lede">Most summer breakdowns start as something a <span style="white-space:nowrap">tune-up</span> would have caught. Cancel any time.</p>
+        </div>
+        <div>
+          <table class="plans-table">
+            <thead>
+              <tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Comfort<span>$15 a month</span></th><th scope="col" class="hl">Comfort Plus<span>$25 a month</span></th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Tune-ups per year</th><td>2</td><td class="hl">2</td></tr>
+              <tr><th scope="row">Priority scheduling</th><td>Yes</td><td class="hl">Yes</td></tr>
+              <tr><th scope="row">Discount on repairs</th><td>10%</td><td class="hl">15%</td></tr>
+              <tr><th scope="row">After-hours fee waived</th><td>No</td><td class="hl">Yes</td></tr>
+              <tr><th scope="row">Filters delivered every 3 months</th><td>No</td><td class="hl">Yes</td></tr>
+            </tbody>
+          </table>
+          <p class="plans-note">New systems can be paid over time with approved financing. On a live site, this is where the company's real plan terms and financing partner go.</p>
+        </div>
       </div>
     </section>
 
-    <section id="quote" style="background:var(--ice)" aria-labelledby="quote-title">
+    <section id="quote" class="quote-sec" aria-labelledby="quote-title">
       <div class="quote wrap">
         <div>
           <h2 id="quote-title">Request a visit</h2>
@@ -366,7 +434,7 @@
             <label><input type="radio" name="when" value="Morning"> Morning</label>
             <label><input type="radio" name="when" value="Afternoon"> Afternoon</label>
           </fieldset>
-          <div class="fld"><label for="q-msg">Anything else? <span style="font-weight:400;color:var(--steel)">(optional)</span></label><textarea id="q-msg" rows="3"></textarea></div>
+          <div class="fld"><label for="q-msg">Anything else? (optional)</label><textarea id="q-msg" rows="3"></textarea></div>
           <button class="btn orange" type="submit">Request a visit</button>
           <div class="form-msg" id="formMsg" role="status" tabindex="-1" hidden></div>
         </form>
@@ -377,17 +445,18 @@
       <div class="proof wrap">
         <div class="box">
           <h3>Reviews</h3>
-          <p>The company's real Google reviews and star rating show here, updated automatically. There are none on this concept, because the business is fictional.</p>
+          <div class="review-slot" aria-hidden="true"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="bar"></span><span class="bar short"></span></div>
+          <p class="note">The company's real Google reviews and star rating show here, updated automatically. This concept shows none, because the business is fictional.</p>
         </div>
         <figure>
-          <img src="https://images.unsplash.com/photo-1718203862467-c33159fdc504?w=900&q=80&auto=format&fit=crop" alt="An outdoor air conditioning unit against a brick wall" width="900" height="563" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1755234710624-ec9ea077c170?w=1000&q=80&auto=format&fit=crop" alt="Two slatted wooden air vents set into a white textured wall" width="1000" height="1250" loading="lazy">
           <figcaption>A 30-second "here's what we checked" video from each tune-up, sent to the homeowner and posted with permission, builds more trust than any stock photo.</figcaption>
         </figure>
       </div>
     </section>
 
-    <section aria-labelledby="faq-title">
-      <div class="faq">
+    <section class="faq-sec" aria-labelledby="faq-title">
+      <div class="faq wrap" style="margin-left:0">
         <h2 id="faq-title">Questions</h2>
         <details><summary>Is the $89 diagnostic credited toward the repair?</summary><p>Yes. If you go ahead with the repair, the diagnostic fee comes off the total.</p></details>
         <details><summary>Which brands do you work on?</summary><p>All major brands, including Carrier, Trane, Lennox, Goodman, Rheem and Daikin.</p></details>
@@ -398,8 +467,11 @@
   </main>
 
   <footer>
-    <span>Halfmoon Air &amp; Heat, Land O' Lakes, FL (fictional)</span>
-    <span>Concept site by <a href="../index.html">Rally Studio</a>. Photos from Unsplash.</span>
+    <a class="brand" href="#main"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#262E35"/><path d="M38 14a19 19 0 1 0 12 33A15 15 0 1 1 38 14z" fill="#E0A57A"/></svg>Halfmoon <span>Air &amp; Heat</span></a>
+    <div class="foot-row">
+      <span>Land O' Lakes, FL (fictional). <a href="tel:+18135550163">(813) 555-0163</a></span>
+      <span>Concept site by <a href="../index.html">Rally Studio</a>. Photos from Unsplash.</span>
+    </div>
   </footer>
 
   <nav class="mbar" aria-label="Quick actions">
@@ -411,7 +483,7 @@
     <h2 id="why-title">What this site does for an HVAC company</h2>
     <p>Someone with a broken AC in July decides who to call in about a minute. This page is built for that minute.</p>
     <ol>
-      <li>The phone number is the biggest thing on the screen, and one tap calls.</li>
+      <li>The phone number sits right under the headline and in the header, and one tap calls.</li>
       <li>The troubleshooter saves wasted trips and earns trust, so the next call comes to you.</li>
       <li>The ZIP checker and town pages bring in "near me" searches from each area you serve.</li>
       <li>Maintenance plans turn one-time repairs into monthly recurring revenue.</li>
