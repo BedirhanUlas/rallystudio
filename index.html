@@ -241,6 +241,12 @@
     .gc1 { aspect-ratio: 4/5; transform: rotate(2.5deg) translateY(-6px); margin-top: 1.5rem; }
     .gc2 { aspect-ratio: 4/5; transform: rotate(2deg) translateY(6px); margin-top: -.5rem; }
     .gc3 { aspect-ratio: 3/4; transform: rotate(-2.5deg) translateY(-8px); }
+    a.gcell { display: block; color: var(--text); text-decoration: none; }
+    .work-label { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5rem 1.1rem 1rem; background: linear-gradient(to top, rgba(8,7,5,.92), rgba(8,7,5,0)); font-size: .85rem; line-height: 1.4; }
+    .work-label strong { display: block; font-family: var(--serif); font-size: 1.15rem; font-weight: 700; }
+    a.gcell.work-next { display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem; background: var(--surface2); border: 1px solid var(--border); }
+    .work-next strong { display: block; font-family: var(--serif); font-size: 1.4rem; line-height: 1.2; margin-bottom: .5rem; }
+    .work-next span { font-size: .85rem; color: var(--muted); }
 
     /* ─── ABOUT ────────────────────────────────────────── */
     .about { padding: 10rem 5vw; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; background: var(--bg2); position: relative; overflow: hidden; }
@@ -781,18 +787,18 @@
   <!-- GALLERY -->
   <section class="gallery" id="work">
     <div class="gallery-text">
-      <div class="section-tag">The work</div>
+      <div class="section-tag">Sample work</div>
       <blockquote class="gallery-quote">
         Half the small businesses I meet have a logo, a Squarespace template, and <em>no idea</em> why nobody's calling.
       </blockquote>
       <cite class="gallery-cite">Studio notes, written between shoots</cite>
-      <p class="gallery-body">I'm taking my first local clients this fall, so client work goes here as it ships. Until then: Osmo Pocket 3 in one hand, iPhone in the other, cut on a 14-inch MacBook. No crew, no rental gear.</p>
+      <p class="gallery-body">These three are concept sites for fictional local businesses: a taquería, a salon and an HVAC company. They show what I'd build for you. Real client work replaces them as it ships.</p>
     </div>
     <div class="gallery-grid">
-      <div class="gcell gc0" data-hover="view"><img src="img-loft.png" alt="Creative studio work" loading="lazy"></div>
-      <div class="gcell gc1" data-hover="view"><img src="img-osmo.png" alt="Osmo Pocket filming" loading="lazy"></div>
-      <div class="gcell gc2" data-hover="view"><img src="img-hero.png" alt="Han's desk: MacBook, Osmo Pocket, notebook, espresso, pampas grass in soft morning light" loading="lazy"></div>
-      <div class="gcell gc3" data-hover="view"><img src="img-tiktok.png" alt="TikTok content" loading="lazy"></div>
+      <a class="gcell gc0" data-hover="view" href="work/taqueria.html"><img src="https://images.unsplash.com/photo-1648437595587-e6a8b0cdf1f9?w=700&q=80&auto=format&fit=crop" alt="" loading="lazy"><span class="work-label"><strong>Maíz &amp; Ember</strong>Taquería, Wesley Chapel (concept)</span></a>
+      <a class="gcell gc1" data-hover="view" href="work/salon.html"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=700&q=80&auto=format&fit=crop" alt="" loading="lazy"><span class="work-label"><strong>Sable</strong>Hair studio, Lutz (concept)</span></a>
+      <a class="gcell gc2" data-hover="view" href="work/hvac.html"><img src="https://images.unsplash.com/photo-1718203862467-c33159fdc504?w=700&q=80&auto=format&fit=crop" alt="" loading="lazy"><span class="work-label"><strong>Halfmoon Air &amp; Heat</strong>HVAC, Land O' Lakes (concept)</span></a>
+      <a class="gcell gc3 work-next" href="#contact"><strong>Your business could be next.</strong><span>Taking 3 founding clients this fall.</span></a>
     </div>
   </section>
 
