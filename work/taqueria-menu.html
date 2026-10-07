@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Menu | Maíz &amp; Ember Taquería (concept site by Rally Studio)</title>
+<meta name="description" content="Table QR menu for Maíz &amp; Ember, a fictional Wesley Chapel taquería. Concept by Rally Studio.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1E1B18">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231E1B18'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Georgia' text-anchor='middle' fill='%23E9E4DA'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Menu","name":"Maíz & Ember menu (fictional concept)","hasMenuSection":[{"@type":"MenuSection","name":"Tacos","hasMenuItem":[{"@type":"MenuItem","name":"Al pastor","offers":{"@type":"Offer","price":"4.25","priceCurrency":"USD"}},{"@type":"MenuItem","name":"Carne asada","offers":{"@type":"Offer","price":"4.75","priceCurrency":"USD"}}]}]}
+</script>
+<style>
+  :root {
+    --basalt: #1E1B18; --basalt-2: #26221E; --bone: #E9E4DA; --bone-2: #CFC8BC; --ash: #A29A8E;
+    --rule: rgba(233,228,218,.14); --rule-strong: rgba(233,228,218,.32);
+    --maiz: #CDB27E; --ember: #D9935F; --open: #8FC59B;
+    --serif: 'Marcellus', 'Times New Roman', serif; --sans: 'Hanken Grotesk', system-ui, sans-serif;
+    --pad: clamp(1.25rem, 6vw, 2rem);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; scroll-padding-top: 7.5rem; background: var(--basalt); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { font-family: var(--sans); color: var(--bone); background: var(--basalt); line-height: 1.6; font-size: 1.0625rem; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  :focus-visible { outline: 1px solid var(--bone); outline-offset: 4px; }
+  .skip { position: absolute; left: -999px; top: .5rem; background: var(--bone); color: var(--basalt); padding: .6rem 1rem; z-index: 100; }
+  .skip:focus { left: .5rem; }
+  .shell { max-width: 640px; margin: 0 auto; }
+
+  .concept { background: var(--basalt); color: var(--ash); font-size: .8rem; padding: .6rem var(--pad) 0; text-align: center; line-height: 1.4; }
+  .concept span { display: block; }
+  .concept a { color: var(--bone); text-decoration: underline; text-decoration-color: var(--rule-strong); text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px; }
+
+  header { padding: 1.75rem var(--pad) 1.25rem; text-align: center; border-bottom: 1px solid var(--rule); }
+  h1 { font-weight: 400; }
+  .brand { font-family: var(--serif); font-size: 2rem; letter-spacing: .02em; line-height: 1.1; text-decoration: none; }
+  .where { color: var(--ash); font-size: .9rem; margin-top: .35rem; }
+  .status { display: inline-flex; align-items: center; gap: .55rem; font-size: .9rem; color: var(--bone-2); margin-top: .9rem; }
+  .status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--open); }
+  .status.closed .dot { background: var(--ember); }
+
+  .cats { position: sticky; top: 0; z-index: 5; background: rgba(30,27,24,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+  .cats ul { list-style: none; display: flex; gap: .4rem; overflow-x: auto; padding: .7rem var(--pad); scrollbar-width: none; }
+  .cats ul::-webkit-scrollbar { display: none; }
+  .cats a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 1rem; border: 1px solid var(--rule-strong); border-radius: 999px; text-decoration: none; font-size: .92rem; white-space: nowrap; color: var(--bone-2); }
+  .cats a[aria-current="true"] { background: var(--bone); color: var(--basalt); border-color: var(--bone); }
+
+  main { padding: 0 var(--pad) 2rem; }
+  section { padding-top: 2.25rem; }
+  h2 { font-family: var(--serif); font-weight: 400; font-size: 1.15rem; letter-spacing: .06em; color: var(--maiz); padding-bottom: .7rem; border-bottom: 1px solid var(--rule-strong); }
+  .note { color: var(--ash); font-size: .88rem; font-weight: 300; margin-top: .6rem; }
+  .item { padding: 1.05rem 0; border-bottom: 1px solid var(--rule); }
+  .row { display: flex; align-items: baseline; gap: .6rem; font-family: var(--serif); font-size: 1.25rem; line-height: 1.25; }
+  .row .lead { flex: 1; border-bottom: 1px dotted rgba(233,228,218,.28); transform: translateY(-.3em); min-width: 1rem; }
+  .row .price { font-family: var(--sans); font-size: 1rem; font-variant-numeric: tabular-nums; color: var(--bone-2); }
+  .desc { font-size: .95rem; font-weight: 300; color: var(--ash); margin-top: .25rem; }
+  .tag { font-style: italic; color: var(--maiz); white-space: nowrap; }
+
+  .info { margin-top: 2.5rem; padding: 1.25rem; border: 1px solid var(--rule); font-size: .92rem; font-weight: 300; color: var(--bone-2); }
+  .info p + p { margin-top: .5rem; }
+  .info strong { font-weight: 500; color: var(--bone); }
+  footer { padding: 1.5rem var(--pad) calc(6.5rem + env(safe-area-inset-bottom)); color: var(--ash); font-size: .82rem; font-weight: 300; text-align: center; }
+  footer a { color: var(--bone); text-underline-offset: 3px; }
+
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: rgba(30,27,24,.96); backdrop-filter: blur(10px); border-top: 1px solid var(--rule); padding: .6rem var(--pad) calc(.6rem + env(safe-area-inset-bottom)); }
+  .bar .shell { display: flex; gap: .5rem; }
+  .bar a { flex: 1; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid var(--rule-strong); font-size: .95rem; color: var(--bone); }
+  .bar a.primary { background: var(--bone); color: var(--basalt); border-color: var(--bone); font-weight: 500; }
+</style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to menu</a>
+  <aside class="concept" aria-label="About this page"><span>Concept by Rally Studio: the table QR menu for a fictional restaurant.</span> <a href="taqueria.html">See the full restaurant site</a></aside>
+
+  <div class="shell">
+    <header>
+      <h1><a class="brand" href="taqueria.html">Maíz &amp; Ember</a></h1>
+      <p class="where">Taquería, Wesley Chapel</p>
+      <p class="status" data-status><span class="dot" aria-hidden="true"></span><span data-status-text>Checking today's hours</span></p>
+    </header>
+  </div>
+
+  <nav class="cats" aria-label="Menu sections">
+    <ul class="shell">
+      <li><a href="#tacos">Tacos</a></li>
+      <li><a href="#plates">Plates</a></li>
+      <li><a href="#sides">Sides</a></li>
+      <li><a href="#drinks">Drinks</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="shell">
+    <section id="tacos" aria-labelledby="h-tacos">
+      <h2 id="h-tacos">Tacos</h2>
+      <p class="note">On fresh corn tortillas, pressed to order. Flour on request.</p>
+      <div class="item"><div class="row"><span>Al pastor</span><span class="lead" aria-hidden="true"></span><span class="price">4.25</span></div><p class="desc">Spit-roasted pork, pineapple, onion, cilantro</p></div>
+      <div class="item"><div class="row"><span>Carne asada</span><span class="lead" aria-hidden="true"></span><span class="price">4.75</span></div><p class="desc">Grilled skirt steak, salsa roja</p></div>
+      <div class="item"><div class="row"><span>Pollo al carbón</span><span class="lead" aria-hidden="true"></span><span class="price">4.00</span></div><p class="desc">Charred chicken thigh, avocado salsa</p></div>
+      <div class="item"><div class="row"><span>Hongos</span><span class="lead" aria-hidden="true"></span><span class="price">4.00</span></div><p class="desc">Roasted mushrooms, epazote, queso fresco. <span class="tag">Vegetarian</span></p></div>
+      <div class="item"><div class="row"><span>Pescado</span><span class="lead" aria-hidden="true"></span><span class="price">5.25</span></div><p class="desc">Grilled Gulf grouper, cabbage, chipotle crema</p></div>
+    </section>
+
+    <section id="plates" aria-labelledby="h-plates">
+      <h2 id="h-plates">Plates</h2>
+      <div class="item"><div class="row"><span>Three-taco plate</span><span class="lead" aria-hidden="true"></span><span class="price">12.50</span></div><p class="desc">Any three tacos, rice, charro beans</p></div>
+      <div class="item"><div class="row"><span>Carbón bowl</span><span class="lead" aria-hidden="true"></span><span class="price">13.00</span></div><p class="desc">Choice of meat over rice, beans, pickled onion, salsa verde</p></div>
+    </section>
+
+    <section id="sides" aria-labelledby="h-sides">
+      <h2 id="h-sides">Sides</h2>
+      <div class="item"><div class="row"><span>Elote</span><span class="lead" aria-hidden="true"></span><span class="price">5.00</span></div><p class="desc">Grilled corn, crema, cotija, chile. <span class="tag">Vegetarian</span></p></div>
+      <div class="item"><div class="row"><span>Chips &amp; three salsas</span><span class="lead" aria-hidden="true"></span><span class="price">6.00</span></div><p class="desc">Roja, verde and a smoky morita. <span class="tag">Vegan</span></p></div>
+    </section>
+
+    <section id="drinks" aria-labelledby="h-drinks">
+      <h2 id="h-drinks">Drinks</h2>
+      <div class="item"><div class="row"><span>Agua fresca</span><span class="lead" aria-hidden="true"></span><span class="price">3.50</span></div><p class="desc">Horchata, jamaica or tamarindo</p></div>
+    </section>
+
+
+    <div class="info">
+      <p><strong>Allergies?</strong> Corn tortillas are gluten-free. Chips share a fryer with flour items. Ask us before you order.</p>
+      <p><strong>Prices</strong> do not include 7% sales tax.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Maíz &amp; Ember is a fictional restaurant. Menu page by <a href="../index.html">Rally Studio</a>: the owner updates prices here once, and the table QR codes, the website and the Google menu link all show the change.</p>
+  </footer>
+
+  <nav class="bar" aria-label="Quick actions">
+    <div class="shell">
+      <a href="tel:+18135550142">Call</a>
+      <a class="primary" href="taqueria.html#menu">Order for pickup</a>
+    </div>
+  </nav>
+
+<script>
+(function () {
+  var HOURS = { 0: [11, 20], 1: null, 2: [11, 21], 3: [11, 21], 4: [11, 21], 5: [11, 22], 6: [11, 22] };
+  var p = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: 'numeric', day: 'numeric', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
+  var g = function (t) { return (p.find(function (x) { return x.type === t; }) || {}).value; };
+  var wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(g('weekday'));
+  var mins = +g('hour') * 60 + +g('minute'), mo = +g('month'), da = +g('day'), yr = +g('year');
+  var tg = 1 + ((4 - new Date(Date.UTC(yr, 10, 1)).getUTCDay() + 7) % 7) + 21;
+  var holiday = (mo === 1 && da === 1) || (mo === 7 && da === 4) || (mo === 12 && da === 25) || (mo === 11 && da === tg);
+  var h = holiday ? null : HOURS[wd];
+  function fmt(m) { var hh = Math.floor(m / 60), mm = m % 60; return (hh % 12 || 12) + (mm ? ':' + String(mm).padStart(2, '0') : '') + ' ' + (hh >= 12 ? 'pm' : 'am'); }
+  var el = document.querySelector('[data-status]'), tx = document.querySelector('[data-status-text]');
+  if (h && mins >= h[0] * 60 && mins < h[1] * 60) { tx.textContent = 'Open now until ' + fmt(h[1] * 60); }
+  else { el.classList.add('closed'); tx.textContent = holiday ? 'Closed today for the holiday' : 'Closed now'; }
+
+  // Highlight the section in view
+  var links = Array.prototype.slice.call(document.querySelectorAll('.cats a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function mark() {
+    var cur = 0;
+    secs.forEach(function (s, i) { if (s.getBoundingClientRect().top < 140) cur = i; });
+    links.forEach(function (a, i) {
+      var on = i === cur;
+      if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      if (on && a.scrollIntoView && a.dataset.on !== '1') { a.parentNode.parentNode.scrollTo({ left: a.parentNode.offsetLeft - 16, behavior: 'smooth' }); }
+      a.dataset.on = on ? '1' : '';
+    });
+  }
+  addEventListener('scroll', mark, { passive: true }); mark();
+})();
+</script>
+</body>
+</html>
